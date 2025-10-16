@@ -18,12 +18,12 @@ if (params.output_prefix) { output_prefix = params.output_prefix } else { output
 
 workflow main{
 
-
-    ch_samplesheet = Channel.fromPath(samplesheet, checkIfExists: true)
-    //phase w eagle
-    phased_vcf = phase_with_eagle(input_genotype, reference_vcf, genetic_map, chromosome, output_prefix)
-    //run rfmix
-    rfmix_out = run_rfmix(phased_vcf, reference_vcf, sample_map, genetic_map, chromosome, output_prefix)
+    main:
+        ch_samplesheet = Channel.fromPath(samplesheet, checkIfExists: true)
+        //phase w eagle
+        phased_vcf = phase_with_eagle(input_genotype, reference_vcf, genetic_map, chromosome, output_prefix)
+        //run rfmix
+        rfmix_out = run_rfmix(phased_vcf, reference_vcf, sample_map, genetic_map, chromosome, output_prefix)
 
     emit:
     rfmix_out

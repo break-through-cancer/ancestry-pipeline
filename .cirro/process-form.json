@@ -7,7 +7,7 @@
         "description": "The unphased genotype data (often a .vcf.gz or PLINK)",
         "type": "string",
         "multiple": false,
-        "pathType": "reference",
+        "pathType": "dataset",
         "file": "**/*"
       },
       "reference_vcf": {
@@ -15,7 +15,7 @@
         "description": "Phased haplotypes to guide phasing",
         "type": "string",
         "multiple": false,
-        "pathType": "dataset",
+        "pathType": "reference",
         "file": "**/*"
       },
       "genetic_map": {
