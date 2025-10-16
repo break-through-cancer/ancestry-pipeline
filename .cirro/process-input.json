@@ -1,0 +1,9 @@
+{
+    "read_from_cache": true,
+    "write_to_cache": true,
+    "final_workflow_outputs_dir": "$.dataset.dataPath",
+    "input_genotype": "$.dataset.params.input_genotype",
+    "reference_vcf": "$.dataset.params.reference_vcf",
+    "genetic_map": "$.dataset.params.genetic_map",
+    "chromosome": "$.dataset.params.chromosome"
+ }

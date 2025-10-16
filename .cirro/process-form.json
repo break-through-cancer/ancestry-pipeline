@@ -1,0 +1,42 @@
+{
+  "form": {
+    "type": "object",
+    "properties": {
+      "input_genotype": {
+        "title": "Input Genotype",
+        "description": "The unphased genotype data (often a .vcf.gz or PLINK)",
+        "type": "string",
+        "multiple": false,
+        "pathType": "reference",
+        "file": "**/*"
+      },
+      "reference_vcf": {
+        "title": "Reference Panel",
+        "description": "Phased haplotypes to guide phasing",
+        "type": "string",
+        "multiple": false,
+        "pathType": "dataset",
+        "file": "**/*"
+      },
+      "genetic_map": {
+        "title": "Genetic Map",
+        "description": "genetic recombination map",
+        "type": "string",
+        "multiple": false,
+        "pathType": "dataset",
+        "file": "**/*"
+      },
+      "chromosome": {
+        "title": "Chromosome",
+        "description": "Which chromosome to phase/analyze, please specify as \"--chrom=1 or --chrom=chr1\"",
+        "type": "string"
+      }
+    },
+    "required": [
+      "input_genotype",
+      "genetic_map",
+      "chromosome"
+    ]
+  },
+  "ui": {}
+}
