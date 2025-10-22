@@ -8,7 +8,7 @@ process phase_with_eagle {
         val chromosome
 
     output:
-        path "phased_vcf.vcf.gz"
+        path "*.vcf.gz", emit: phased_vcf
 
     script:
         """
