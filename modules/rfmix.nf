@@ -3,7 +3,7 @@ process run_rfmix {
 
     input:
         path phased_vcf
-        path ref_vcf
+        path reference_vcf
         path sample_map
         path genetic_map
         val chromosome
@@ -16,7 +16,7 @@ process run_rfmix {
         mkdir -p rfmix_${chromosome}_results
         rfmix \
             -f ${phased_vcf} \
-            -r ${ref_vcf} \
+            -r ${reference_vcf} \
             -m ${sample_map} \
             -g ${genetic_map} \
             --chromosome=${chromosome}
