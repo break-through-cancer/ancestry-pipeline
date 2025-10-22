@@ -2,19 +2,19 @@ process phase_with_eagle {
     tag "Eagle Phasing"
 
     input:
-        path input_vcf
-        path ref_vcf
+        path input_genotype
+        path reference_vcf
         path genetic_map
         val chromosome
 
     output:
-        path "${output_prefix}_phased.vcf.gz"
+        path "phased_vcf.vcf.gz"
 
     script:
         """
         eagle \
-            --vcf=${input_vcf} \
-            --ref=${ref_vcf} \
+            --vcf=${input_genotype} \
+            --ref=${reference_vcf} \
             --geneticMapFile=${genetic_map} \
             --chrom=${chromosome}
         """
