@@ -16,7 +16,7 @@ if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please
 if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
-workflow main{
+workflow start{
 
     main:
         //ch_samplesheet = Channel.fromPath(samplesheet, checkIfExists: true)
