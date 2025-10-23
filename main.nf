@@ -14,16 +14,16 @@ if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1
 if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
 if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
 if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
-if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
+//if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
 workflow start{
 
     main:
         //ch_samplesheet = Channel.fromPath(samplesheet, checkIfExists: true)
         //phase w eagle
-        phased_vcf = phase_with_eagle(input_genotype, reference_vcf, genetic_map, chromosome, output_prefix)
+        phased_vcf = phase_with_eagle(input_genotype, reference_vcf, genetic_map, chromosome)
         //run rfmix
-        rfmix_out = run_rfmix(phased_vcf, reference_vcf, sample_map, genetic_map, chromosome, output_prefix)
+        rfmix_out = run_rfmix(phased_vcf, reference_vcf, sample_map, genetic_map, chromosome)
 
     emit:
     rfmix_out

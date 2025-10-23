@@ -19,6 +19,7 @@ process run_rfmix {
             -r ${reference_vcf} \
             -m ${sample_map} \
             -g ${genetic_map} \
+            -o ${chromosome} \
             --chromosome=${chromosome}
         """
 }
