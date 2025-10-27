@@ -13,12 +13,13 @@ if (params.input_genotype) { input_genotype = params.input_genotype } else { exi
 // if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
 if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
 // if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
-if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
+// if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
 workflow start{
 
     main:
+        rfmix_results = Channel.empty() 
 
         for chr in 1..22 {
             echo "Processing chr${chr}..."
@@ -28,13 +29,12 @@ workflow start{
             reference_vcf_for_eagle = Channel.fromPath(ref_vcf_path)
             reference_vcf_for_rfmix = Channel.fromPath(ref_vcf_path)
             //phase w eagle
-            phased_vcf = phase_with_eagle(input_genotype, reference_vcf_for_eagle, genetic_map, chromosome)
+            phased_vcf = phase_with_eagle(input_genotype, reference_vcf_for_eagle, genetic_map, chr)
             //run rfmix
-            rfmix_out = run_rfmix(phased_vcf, reference_vcf_for_rfmix, sample_map, genetic_map, chromosome)
-
+            rfmix_out = run_rfmix(phased_vcf, reference_vcf_for_rfmix, sample_map, genetic_map, chr)
+            rfmix_results = rfmix_results.mix(rfmix_out) // append each iteration
         }
 
-
     emit:
-    rfmix_out
+        rfmix_results
 }

@@ -9,11 +9,6 @@
         "multiple": false,
         "pathType": "dataset",
         "file": "**/*"
-      },
-      "chromosome": {
-        "title": "Chromosome",
-        "description": "Which chromosome to phase/analyze, please specify as \"--chrom=1 or --chrom=chr1\"",
-        "type": "string"
       }
     },
     "required": [
