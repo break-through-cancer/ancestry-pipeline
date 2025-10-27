@@ -10,15 +10,6 @@
         "pathType": "dataset",
         "file": "**/*"
       },
-      "reference_vcf": {
-        "title": "Reference VCF",
-        "description": "reference file",
-        "type": "string",
-        "multiple": false,
-        "pathType": "reference",
-        "file": "**/*",
-        "default":"s3://broad-references/hg38/v0/Homo_sapiens_assembly38.fasta"
-      },
       "chromosome": {
         "title": "Chromosome",
         "description": "Which chromosome to phase/analyze, please specify as \"--chrom=1 or --chrom=chr1\"",
