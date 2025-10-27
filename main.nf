@@ -16,10 +16,10 @@ if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Ple
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
-workflow start {
+workflow {
 
     chr_ch = Channel.from(1..22)
-    
+
     rfmix_results = chr_ch.flatMap { chr ->
 
         ref_vcf_path = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"
