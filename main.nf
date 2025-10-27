@@ -16,11 +16,12 @@ if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Ple
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
-input_genotype_ch = Channel.fromPath(params.input_genotype)
-genetic_map_ch = Channel.fromPath(params.genetic_map)
-sample_map_ch = Channel.fromPath(params.sample_map)
 
 workflow ancestry_pipeline {
+
+    input_genotype_ch = Channel.fromPath(params.input_genotype)
+    genetic_map_ch = Channel.fromPath(params.genetic_map)
+    sample_map_ch = Channel.fromPath(params.sample_map)
 
     chr_ch = Channel.from(1..22)
 
@@ -54,6 +55,8 @@ workflow ancestry_pipeline {
         rfmix_results
 }
 
+// Default workflow for Cirro to run
+workflow { ancestry_pipeline() }
 
 // workflow ancestry_pipeline {
 
