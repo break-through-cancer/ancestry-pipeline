@@ -19,3 +19,4 @@ process phase_with_eagle {
             --chrom=${chromosome}
         """
 }
+z
