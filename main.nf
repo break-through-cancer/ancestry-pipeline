@@ -16,7 +16,7 @@ if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Ple
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
-workflow main {
+workflow ancestry_pipeline {
 
     chr_ch = Channel.from(1..22)
 
@@ -35,6 +35,8 @@ workflow main {
     emit:
         rfmix_results
 }
+
+workflow { ancestry_pipeline() }
 
 // workflow start {
 
