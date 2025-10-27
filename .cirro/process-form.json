@@ -12,8 +12,7 @@
       }
     },
     "required": [
-      "input_genotype",
-      "chromosome"
+      "input_genotype"
     ]
   },
   "ui": {}
