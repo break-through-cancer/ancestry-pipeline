@@ -4,6 +4,5 @@
     "final_workflow_outputs_dir": "$.dataset.dataPath",
     "input_genotype": "$.dataset.params.input_genotype",
     "genetic_map": "./tables/genetic_map_hg38_withX.txt.gz",
-    "sample_map": "sample_map.txt",
-    "chromosome": "$.dataset.params.chromosome"
+    "sample_map": "sample_map.txt"
  }
