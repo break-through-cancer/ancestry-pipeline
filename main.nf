@@ -54,8 +54,6 @@ workflow ancestry_pipeline {
         rfmix_results
 }
 
-// Default workflow for Cirro to run
-workflow { ancestry_pipeline() }
 
 // workflow ancestry_pipeline {
 
