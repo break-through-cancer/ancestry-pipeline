@@ -15,90 +15,98 @@ if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Ple
 // if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
-
-
 workflow ancestry_pipeline {
 
     input_genotype_ch = Channel.fromPath(params.input_genotype)
-    genetic_map_ch = Channel.fromPath(params.genetic_map)
-    sample_map_ch = Channel.fromPath(params.sample_map)
+    genetic_map_ch    = Channel.fromPath(params.genetic_map)
+    sample_map_ch     = Channel.fromPath(params.sample_map)
+    chr_ch            = Channel.from(1..22)
 
-    chr_ch = Channel.from(1..22)
-
-    rfmix_results = chr_ch.flatMap { chr ->
-
-        // VCF path as channel
-        ref_vcf_path = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"
-        reference_vcf_ch = Channel.fromPath(ref_vcf_path)
-
-        // Call Eagle process via channels
-        phased_vcf_ch = phase_with_eagle(
-            input_genotype_ch,
-            reference_vcf_ch,
-            genetic_map_ch,
-            Channel.value(chr)      // wrap single value as a channel
+    // Create reference vcf channel dynamically per chromosome
+    chr_ch.map { chr ->
+        tuple(
+            chr,
+            "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"
         )
+    }.set { ref_ch }
 
-        // Call RFMix process via channels
-        rfmix_out_ch = run_rfmix(
-            phased_vcf_ch,
-            reference_vcf_ch,
-            sample_map_ch,
-            genetic_map_ch,
-            Channel.value(chr)
+    // Run phasing for each chromosome
+    phased_results_ch = ref_ch.map { chr, ref_vcf_path ->
+        def reference_vcf_ch = Channel.fromPath(ref_vcf_path)
+        tuple(chr, reference_vcf_ch)
+    }.flatMap { chr, reference_vcf_ch ->
+
+        phase_with_eagle(
+            input: [
+                input_genotype_ch,
+                reference_vcf_ch,
+                genetic_map_ch,
+                Channel.value(chr)
+            ]
         )
+    }
 
-        return rfmix_out_ch
+    // Chain to RFMix
+    rfmix_results_ch = phased_results_ch.flatMap { phased_vcf ->
+        chr = phased_vcf.getName().replaceAll(/.*chr(\d+).*/, '$1')
+        reference_vcf_path = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"
+        reference_vcf_ch = Channel.fromPath(reference_vcf_path)
+
+        run_rfmix(
+            input: [
+                Channel.value(phased_vcf),
+                reference_vcf_ch,
+                sample_map_ch,
+                genetic_map_ch,
+                Channel.value(chr)
+            ]
+        )
     }
 
     emit:
-        rfmix_results
+        rfmix_results_ch
 }
 
-// Default workflow for Cirro to run
+// Default workflow
 workflow { ancestry_pipeline() }
 
 // workflow ancestry_pipeline {
+
+//     input_genotype_ch = Channel.fromPath(params.input_genotype)
+//     genetic_map_ch = Channel.fromPath(params.genetic_map)
+//     sample_map_ch = Channel.fromPath(params.sample_map)
 
 //     chr_ch = Channel.from(1..22)
 
 //     rfmix_results = chr_ch.flatMap { chr ->
 
+//         // VCF path as channel
 //         ref_vcf_path = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"
-//         reference_vcf_for_eagle = Channel.fromPath(ref_vcf_path)
-//         reference_vcf_for_rfmix = Channel.fromPath(ref_vcf_path)
+//         reference_vcf_ch = Channel.fromPath(ref_vcf_path)
 
-//         phased_vcf = phase_with_eagle(input_genotype, reference_vcf_for_eagle, genetic_map, chr)
-//         rfmix_out = run_rfmix(phased_vcf, reference_vcf_for_rfmix, sample_map, genetic_map, chr)
+//         // Call Eagle process via channels
+//         phased_vcf_ch = phase_with_eagle(
+//             input_genotype_ch,
+//             reference_vcf_ch,
+//             genetic_map_ch,
+//             Channel.value(chr)      // wrap single value as a channel
+//         )
 
-//         return rfmix_out
+//         // Call RFMix process via channels
+//         rfmix_out_ch = run_rfmix(
+//             phased_vcf_ch,
+//             reference_vcf_ch,
+//             sample_map_ch,
+//             genetic_map_ch,
+//             Channel.value(chr)
+//         )
+
+//         return rfmix_out_ch
 //     }
 
 //     emit:
 //         rfmix_results
 // }
 
+// // Default workflow for Cirro to run
 // workflow { ancestry_pipeline() }
-
-// workflow start {
-
-//     main:
-//         rfmix_results = Channel.empty() 
-
-//         for chr in 1..22 {
-//             echo "Processing chr${chr}..."
-            
-//             ref_vcf_path = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"
-
-//             reference_vcf_for_eagle = Channel.fromPath(ref_vcf_path)
-//             reference_vcf_for_rfmix = Channel.fromPath(ref_vcf_path)
-//             //phase w eagle
-//             phased_vcf = phase_with_eagle(input_genotype, reference_vcf_for_eagle, genetic_map, chr)
-//             //run rfmix
-//             rfmix_out = run_rfmix(phased_vcf, reference_vcf_for_rfmix, sample_map, genetic_map, chr)
-//             rfmix_results = rfmix_results.mix(rfmix_out) // append each iteration
-//         }
-
-//     emit:
-//         rfmix_results
-// }
