@@ -32,6 +32,7 @@ process download_genetic_map {
 
 workflow ancestry_pipeline {
 
+    genetic_map_ch = Channel.fromPath(download_genetic_map.out).broadcast()
     chr_ch = Channel.from(1..22)
 
     genetic_map_ch = download_genetic_map.out
