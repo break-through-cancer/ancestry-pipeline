@@ -3,11 +3,9 @@ process run_rfmix {
 
     input:
         path phased_vcf
-        path reference_vcf
         path sample_map
         path genetic_map
-        val chromosome
-
+        
     output:
         path "rfmix_${chromosome}_results/*"
 
