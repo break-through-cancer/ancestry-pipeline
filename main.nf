@@ -16,10 +16,25 @@ if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Ple
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
+process download_genetic_map {
+    
+    output:
+    path "genetic_map_hg38_withX.txt.gz"
+
+    script:
+    """
+    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+        wget -q https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+    fi
+    """
+}
+
 
 workflow ancestry_pipeline {
 
     chr_ch = Channel.from(1..22)
+
+    genetic_map_ch = download_genetic_map.out
 
     eagle_inputs_ch = chr_ch.map { chr ->
         [
@@ -32,7 +47,7 @@ workflow ancestry_pipeline {
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
-    rfmix_results = run_rfmix(phased_vcf_ch, file(params.sample_map), file(params.genetic_map))
+    rfmix_results = run_rfmix(phased_vcf_ch, file(params.sample_map), genetic_map_ch)
 
     emit:
         rfmix_results
@@ -41,3 +56,5 @@ workflow ancestry_pipeline {
 
 // Default workflow for Cirro to run
 workflow { ancestry_pipeline() }
+
+
