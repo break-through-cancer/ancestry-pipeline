@@ -34,7 +34,7 @@ workflow ancestry_pipeline {
 
     genetic_map_ch = Channel.fromPath(download_genetic_map.out).broadcast()
     chr_ch = Channel.from(1..22)
-
+    download_genetic_map()
     genetic_map_ch = download_genetic_map.out
 
     eagle_inputs_ch = chr_ch.map { chr ->
