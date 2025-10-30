@@ -1,1278 +1,200 @@
-Oct-29 11:06:52.155 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/GBM1.MSK1.S1.C4_vs_GBM1.MSK1.PBMC.manta.somatic_sv.vcf.gz --genetic_map tables/genetic_map_hg38_withX.txt.gz --sample_map sample_map.txt
-Oct-29 11:06:52.195 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Oct-29 11:06:52.216 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
-Oct-29 11:06:52.217 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
-Oct-29 11:06:52.232 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Oct-29 11:06:52.454 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/jenc/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Oct-29 11:06:52.463 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-29 11:06:52.463 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-29 11:06:52.466 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Oct-29 11:06:52.473 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Oct-29 11:06:52.536 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-29 11:06:52.537 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Oct-29 11:06:52.537 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Oct-29 11:06:52.546 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/jenc/.nextflow/secrets/store.json
-Oct-29 11:06:52.548 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@553bc36c] - activable => nextflow.secret.LocalSecretsProvider@553bc36c
-Oct-29 11:06:52.549 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Oct-29 11:06:52.556 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [modest_goodall] DSL2 - revision: 64bce2e221
-Oct-29 11:06:52.580 [main] DEBUG nextflow.Session - Session UUID: 8dbfccf0-5b12-40c4-90a4-f67c8284cbe9
-Oct-29 11:06:52.580 [main] DEBUG nextflow.Session - Run name: modest_goodall
-Oct-29 11:06:52.580 [main] DEBUG nextflow.Session - Executor pool size: 12
-Oct-29 11:06:52.584 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Oct-29 11:06:52.587 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Oct-29 11:06:52.601 [main] DEBUG nextflow.cli.CmdRun - 
+Oct-30 11:51:42.454 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/GBM1.MSK1.S1.C4_vs_GBM1.MSK1.PBMC.manta.somatic_sv.vcf.gz --genetic_map tables/genetic_map_hg38_withX.txt.gz --sample_map sample_map.txt
+Oct-30 11:51:42.502 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Oct-30 11:51:42.522 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
+Oct-30 11:51:42.524 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
+Oct-30 11:51:42.536 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Oct-30 11:51:42.746 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/jenc/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Oct-30 11:51:42.754 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-30 11:51:42.755 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-30 11:51:42.758 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-30 11:51:42.765 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Oct-30 11:51:42.823 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-30 11:51:42.824 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-30 11:51:42.824 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-30 11:51:42.831 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/jenc/.nextflow/secrets/store.json
+Oct-30 11:51:42.833 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@553bc36c] - activable => nextflow.secret.LocalSecretsProvider@553bc36c
+Oct-30 11:51:42.834 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Oct-30 11:51:42.840 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [nostalgic_bohr] DSL2 - revision: 1cb236c07c
+Oct-30 11:51:42.862 [main] DEBUG nextflow.Session - Session UUID: e6b2962e-312a-4474-b370-46df6d4440b1
+Oct-30 11:51:42.863 [main] DEBUG nextflow.Session - Run name: nostalgic_bohr
+Oct-30 11:51:42.863 [main] DEBUG nextflow.Session - Executor pool size: 12
+Oct-30 11:51:42.867 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-30 11:51:42.869 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-30 11:51:42.881 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (12:26 EDT)
   System: Mac OS X 15.6.1
   Runtime: Groovy 4.0.28 on Java HotSpot(TM) 64-Bit Server VM 20.0.2+9-78
   Encoding: UTF-8 (UTF-8)
-  Process: 85902@wm718-194 [10.33.16.243]
-  CPUs: 12 - Mem: 32 GB (1 GB) - Swap: 6 GB (955 MB)
-Oct-29 11:06:52.609 [main] DEBUG nextflow.Session - Work-dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work [Mac OS X]
-Oct-29 11:06:52.609 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/jenc/Desktop/pipelines/ancestry-pipeline/bin
-Oct-29 11:06:52.615 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Oct-29 11:06:52.619 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Oct-29 11:06:52.620 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Oct-29 11:06:52.639 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Oct-29 11:06:52.644 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Oct-29 11:06:52.677 [main] DEBUG nextflow.Session - Session start
-Oct-29 11:06:52.789 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Oct-29 11:06:52.931 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Oct-29 11:06:52.931 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-29 11:06:52.936 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Oct-29 11:06:52.940 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=32 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
-Oct-29 11:06:52.941 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Oct-29 11:06:52.953 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
-Oct-29 11:06:52.972 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Oct-29 11:06:52.972 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-29 11:06:52.972 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
-Oct-29 11:06:52.974 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix
-Oct-29 11:06:52.975 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
-Oct-29 11:06:52.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
-Oct-29 11:06:52.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
-Oct-29 11:06:52.976 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Process: 7804@wm718-194 [10.0.0.106]
+  CPUs: 12 - Mem: 32 GB (206.4 MB) - Swap: 5 GB (1.1 GB)
+Oct-30 11:51:42.888 [main] DEBUG nextflow.Session - Work-dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work [Mac OS X]
+Oct-30 11:51:42.888 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/jenc/Desktop/pipelines/ancestry-pipeline/bin
+Oct-30 11:51:42.894 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-30 11:51:42.898 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-30 11:51:42.899 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Oct-30 11:51:42.917 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-30 11:51:42.920 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Oct-30 11:51:42.949 [main] DEBUG nextflow.Session - Session start
+Oct-30 11:51:43.123 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-30 11:51:43.234 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-30 11:51:43.234 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 11:51:43.238 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-30 11:51:43.242 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=32 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Oct-30 11:51:43.243 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-30 11:51:43.253 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
+Oct-30 11:51:43.281 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-30 11:51:43.282 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 11:51:43.282 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
+Oct-30 11:51:43.288 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-30 11:51:43.288 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-30 11:51:43.289 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
+Oct-30 11:51:43.291 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map
+Oct-30 11:51:43.292 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
+Oct-30 11:51:43.292 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
+Oct-30 11:51:43.292 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
+Oct-30 11:51:43.293 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
+Oct-30 11:51:43.293 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_da5856e2cd2edff5: /Users/jenc/Desktop/pipelines/ancestry-pipeline/main.nf
   Script_2efc4f80b8be9152: /Users/jenc/Desktop/pipelines/ancestry-pipeline/modules/eagle.nf
-  Script_12db6aa0fb669740: /Users/jenc/Desktop/pipelines/ancestry-pipeline/main.nf
   Script_6620abfff735e61c: /Users/jenc/Desktop/pipelines/ancestry-pipeline/modules/rfmix.nf
-Oct-29 11:06:52.976 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Oct-29 11:06:52.976 [main] DEBUG nextflow.Session - Session await
-Oct-29 11:06:53.391 [Actor Thread 2] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-amazon%403.4.1&nextflowVersion=25.10.0
-- code: 200
-- body: {"plugins":[{"id":"nf-amazon","downloadCount":5775,"downloadGhCount":1325854,"releases":[{"version":"3.4.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-amazon/3.4.1/download/nf-amazon-3.4.1.zip","date":"2025-10-22T16:29:06.396625Z","sha512sum":"bc7c4b6166aa5ef32df3362ceec263df434875b1db332594cd71c8d3f462adfcad55802034cbcfd269917e1efa4f45d224143f024fc1170d156daa40897f3873","requires":">=25.09.2-edge","dependsOn":[],"downloadCount":3225,"downloadGhCount":0,"status":"PUBLISHED","spec":null}],"projectUrl":"https://github.com/nextflow-io/nf-amazon","provider":"nextflow-io","description":null}]}
-Oct-29 11:06:53.414 [Actor Thread 2] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 3.4.1
-Oct-29 11:06:53.418 [Actor Thread 2] INFO  nextflow.plugin.PluginUpdater - Downloading plugin nf-amazon@3.4.1
-Oct-29 11:06:57.103 [Actor Thread 2] INFO  org.pf4j.util.FileUtils - Expanded plugin zip 'nf-amazon-3.4.1.zip' in 'nf-amazon-3.4.1'
-Oct-29 11:06:57.126 [Actor Thread 2] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@3.4.1' resolved
-Oct-29 11:06:57.126 [Actor Thread 2] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@3.4.1'
-Oct-29 11:06:57.151 [Actor Thread 2] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@3.4.1
-Oct-29 11:06:57.158 [Actor Thread 2] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
-Oct-29 11:06:57.158 [Actor Thread 2] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:06:57.163 [Actor Thread 2] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider; config=[:]
-Oct-29 11:06:57.171 [Actor Thread 2] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
-Oct-29 11:06:59.259 [Actor Thread 2] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
-Oct-29 11:06:59.555 [Actor Thread 2] DEBUG nextflow.cloud.aws.nio.S3Client - Unable to fetch caller account - (Service: S3, Status Code: 307, Request ID: KE8ABF3SXGKR97D3, Extended Request ID: OuxQOaagu3PpOnt29kWPn5r/KGULf+JFyWamE8bZrqXIimdoOsHqhH15KUnG5C4btk6sfSc2eNM=) (SDK Attempt Count: 1) 
-Oct-29 11:06:59.730 [Actor Thread 4] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr8.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr8.vcf.gz
-Oct-29 11:06:59.762 [Actor Thread 7] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr1.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:06:59.789 [Actor Thread 10] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr5.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr5.vcf.gz
-Oct-29 11:06:59.816 [Actor Thread 14] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr11.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr11.vcf.gz
-Oct-29 11:06:59.841 [Actor Thread 15] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr12.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr12.vcf.gz
-Oct-29 11:06:59.868 [Actor Thread 6] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr7.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr7.vcf.gz
-Oct-29 11:06:59.900 [Actor Thread 1] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr10.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr10.vcf.gz
-Oct-29 11:06:59.930 [Actor Thread 13] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr4.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr4.vcf.gz
-Oct-29 11:06:59.958 [Actor Thread 8] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr6.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr6.vcf.gz
-Oct-29 11:06:59.986 [Actor Thread 3] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr9.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr9.vcf.gz
-Oct-29 11:07:00.019 [Actor Thread 9] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr2.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr2.vcf.gz
-Oct-29 11:07:00.053 [Actor Thread 11] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: s3://1000genomes/...chr3.vcf.gz -- Cause: java.nio.file.NoSuchFileException: s3://1000genomes/...chr3.vcf.gz
-Oct-29 11:07:00.059 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr1.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz
-Oct-29 11:07:00.059 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr8.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/2a/e0063991d5c6370e7c7d1780200612/...chr8.vcf.gz
-Oct-29 11:07:00.060 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr5.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/44/4ec2e3f1a3f609a1f38eb5967aa180/...chr5.vcf.gz
-Oct-29 11:07:00.061 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr11.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/73/dc3471f2cf9adfa154e6ebfbd7c674/...chr11.vcf.gz
-Oct-29 11:07:00.062 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr7.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/dc/79aea1e94f926ddfedbd71b935b026/...chr7.vcf.gz
-Oct-29 11:07:00.062 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr12.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/ac/fa31913b0bd14b35c49a4378550d01/...chr12.vcf.gz
-Oct-29 11:07:00.063 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr10.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz
-Oct-29 11:07:00.064 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr4.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/da/fede62916f447eed54d8b73394e0cb/...chr4.vcf.gz
-Oct-29 11:07:00.065 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr6.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/79/1c35b8b81d11a5459b178b0e4292a6/...chr6.vcf.gz
-Oct-29 11:07:00.065 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr9.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz
-Oct-29 11:07:00.088 [FileTransfer-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr8.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/2a/e0063991d5c6370e7c7d1780200612/...chr8.vcf.gz size=0
-Oct-29 11:07:00.092 [FileTransfer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'S3TransferManager' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Oct-29 11:07:00.143 [FileTransfer-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr6.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/79/1c35b8b81d11a5459b178b0e4292a6/...chr6.vcf.gz size=0
-Oct-29 11:07:00.145 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr4.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/da/fede62916f447eed54d8b73394e0cb/...chr4.vcf.gz size=0
-Oct-29 11:07:00.149 [FileTransfer-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr12.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/ac/fa31913b0bd14b35c49a4378550d01/...chr12.vcf.gz size=0
-Oct-29 11:07:00.153 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr1.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz size=0
-Oct-29 11:07:00.155 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr10.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz size=0
-Oct-29 11:07:00.155 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr11.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/73/dc3471f2cf9adfa154e6ebfbd7c674/...chr11.vcf.gz size=0
-Oct-29 11:07:00.155 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr9.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz size=0
-Oct-29 11:07:00.155 [FileTransfer-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr5.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/44/4ec2e3f1a3f609a1f38eb5967aa180/...chr5.vcf.gz size=0
-Oct-29 11:07:00.210 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr7.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/dc/79aea1e94f926ddfedbd71b935b026/...chr7.vcf.gz size=0
-Oct-29 11:07:02.065 [Actor Thread 4] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr8.vcf.gz
-Oct-29 11:07:02.065 [Actor Thread 14] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr11.vcf.gz
-Oct-29 11:07:02.066 [Actor Thread 7] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:07:02.066 [Actor Thread 10] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr5.vcf.gz
-Oct-29 11:07:02.065 [Actor Thread 15] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr12.vcf.gz
-Oct-29 11:07:02.066 [Actor Thread 1] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr10.vcf.gz
-Oct-29 11:07:02.067 [Actor Thread 6] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr7.vcf.gz
-Oct-29 11:07:02.068 [Actor Thread 13] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr4.vcf.gz
-Oct-29 11:07:02.068 [Actor Thread 3] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr9.vcf.gz
-Oct-29 11:07:02.068 [Actor Thread 9] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr2.vcf.gz
-Oct-29 11:07:02.068 [Actor Thread 8] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr6.vcf.gz
-Oct-29 11:07:02.068 [Actor Thread 11] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/...chr3.vcf.gz
-Oct-29 11:07:02.099 [FileTransfer-1] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
-Oct-29 11:07:02.514 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-Oct-29 11:07:02.514 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr7.vcf.gz
-Oct-29 11:07:02.514 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-Oct-29 11:07:02.514 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-Oct-29 11:07:02.514 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-Oct-29 11:07:02.515 [FileTransfer-6] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr7.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr7.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr7.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTVARBMARAF53WB, Extended Request ID: qrES3ad0UnYrZEmO2xXW8t317bgYPUfyhxOnLl4C9O8QhZyPV/FZNS/aMBttpNUMhczE7knDIoY=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.515 [FileTransfer-3] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr5.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTNEERYBYDBCDZ5, Extended Request ID: 46njjd90tsDGEBxwGneLRNwDzhktlKwJ/8p27zXBIXj9DUq8rGkmOfKYMwUp2mINtzP8TOO7+qQ=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.515 [FileTransfer-10] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr9.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTKY2DMWRD4Z085, Extended Request ID: EZUuPG5Ja7tRdSQcW3Wr6iB6Y12C4x45egE7W/y7BzwDPzeiaLR7W0UAC1wM2FZUvFkmxi3vFb9/7bFjk5dVTXuqMWAoAM4bDKLHmB12cYQ=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.515 [FileTransfer-8] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr4.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTNXCX89XYFR4WM, Extended Request ID: wnWP+o/pk2eUfmLrNt3lWxkYTtlWjc+Io4S96hJiyvh1vSkp1vDX1izbVlf86aHkHWOHy2akvV0=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.515 [FileTransfer-7] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr10.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTJCGA6KWYFEXW7, Extended Request ID: eek2bmjpqraRgjNhnQoH/N9gN4uc1svX4sX78+nND/QzhieCv9TCbmvF2zTYRU6rRIKaEMKudzk=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.516 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr8.vcf.gz
-Oct-29 11:07:02.516 [FileTransfer-1] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr8.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr8.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr8.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTQ2N16AVMBJDKC, Extended Request ID: KT2QAl3CVAxpRNHTPMD2fWwVm42oCDVOzxqOoxZcY1sFR9xSPGWnBkdqTWd+UXP729Kc5hp7w8Q=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.518 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-Oct-29 11:07:02.518 [FileTransfer-9] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr6.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTHJZ2C6EA08K62, Extended Request ID: jVMEgURyG+W20MSeM2TESUjgDha4lINNTbqg2vwA2NAWogChfos+kmu7gIKuuFXRCaiBNM/6eEY=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.528 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-Oct-29 11:07:02.528 [FileTransfer-4] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr11.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTJD4ESTHZC7C4E, Extended Request ID: NLh+TaHFL1C+42EOX1gOxgDZYx5+jGtp8TqT8dNi0maM1AfjBPIXosHP6GxQD2RuejTYXKdnOPpzhToaDq7CjttI5F9DoNBq) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.536 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-Oct-29 11:07:02.536 [FileTransfer-5] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr12.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTGA2VP3DS8526Y, Extended Request ID: qybg1/b9MA5csZn8uHp22J8zOImP5EpMJJiE+IMuosZKDaUEIRCs/vlx8P8hymQpCi2eoAocZpI=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.543 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:07:02.543 [FileTransfer-2] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr1.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTK6P2ZZDETH6QM, Extended Request ID: Z4FVk3TlM7y+CVt8XtAkLnIZmsTOFu9aU+psrIehpR5kln0yz/gFNUkjG73MOdDX+87S8zve/6KdNXNtmj1qOqEy4BT8Zp0ngc0Si6PRmTs=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.558 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr1.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz
-Oct-29 11:07:02.587 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr1.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz size=0
-Oct-29 11:07:02.629 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr9.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz
-Oct-29 11:07:02.659 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr9.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz size=0
-Oct-29 11:07:02.672 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr11.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/73/dc3471f2cf9adfa154e6ebfbd7c674/...chr11.vcf.gz
-Oct-29 11:07:02.711 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:07:02.711 [FileTransfer-2] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr1.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTSYVYPT74B6SHB, Extended Request ID: YuUCbnzqGV6JzZf0Uyz8IUW2f3ms0LybSap4OUASNZD8dnRGSOKlvllcOpadmTKg53pRyd2xnOWgfxtKzAGKQ+hT+JeMPZ4C) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.713 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr11.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/73/dc3471f2cf9adfa154e6ebfbd7c674/...chr11.vcf.gz size=0
-Oct-29 11:07:02.733 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr8.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/2a/e0063991d5c6370e7c7d1780200612/...chr8.vcf.gz
-Oct-29 11:07:02.744 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr1.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz
-Oct-29 11:07:02.745 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr4.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/da/fede62916f447eed54d8b73394e0cb/...chr4.vcf.gz
-Oct-29 11:07:02.756 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr12.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/ac/fa31913b0bd14b35c49a4378550d01/...chr12.vcf.gz
-Oct-29 11:07:02.764 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr5.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/44/4ec2e3f1a3f609a1f38eb5967aa180/...chr5.vcf.gz
-Oct-29 11:07:02.764 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr6.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/79/1c35b8b81d11a5459b178b0e4292a6/...chr6.vcf.gz
-Oct-29 11:07:02.765 [FileTransfer-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr8.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/2a/e0063991d5c6370e7c7d1780200612/...chr8.vcf.gz size=0
-Oct-29 11:07:02.773 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr7.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/dc/79aea1e94f926ddfedbd71b935b026/...chr7.vcf.gz
-Oct-29 11:07:02.777 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-Oct-29 11:07:02.777 [FileTransfer-10] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr9.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTGT0Z01CHCZJH1, Extended Request ID: EUw9evvGKVLdDZI21hZI+slI32cTzh5ms5AXsLL7q5Fp/5cxEiTbMpei25y/YTomPa94z24uyjM=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.778 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr1.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz size=0
-Oct-29 11:07:02.778 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr4.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/da/fede62916f447eed54d8b73394e0cb/...chr4.vcf.gz size=0
-Oct-29 11:07:02.786 [FileTransfer-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr12.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/ac/fa31913b0bd14b35c49a4378550d01/...chr12.vcf.gz size=0
-Oct-29 11:07:02.792 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr10.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz
-Oct-29 11:07:02.795 [FileTransfer-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr6.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/79/1c35b8b81d11a5459b178b0e4292a6/...chr6.vcf.gz size=0
-Oct-29 11:07:02.796 [FileTransfer-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr5.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/44/4ec2e3f1a3f609a1f38eb5967aa180/...chr5.vcf.gz size=0
-Oct-29 11:07:02.803 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr7.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/dc/79aea1e94f926ddfedbd71b935b026/...chr7.vcf.gz size=0
-Oct-29 11:07:02.819 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr10.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz size=0
-Oct-29 11:07:02.835 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-Oct-29 11:07:02.835 [FileTransfer-4] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr11.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTNTKW8CPEYG2WA, Extended Request ID: 6lq++oItpHUZippV2FIdxTQI1hFqe/ik1qM6ONOWBoLkxKdj7nGZVRh0VK21JFPIved+DJOY8Irfsmq5t7uT+fwQh2Ukpv+4DzbMQAYabns=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.872 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr8.vcf.gz
-Oct-29 11:07:02.873 [FileTransfer-1] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr8.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr8.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr8.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTSTB4JR5XHFA7Y, Extended Request ID: w/9HT7oANOKw64a8LAuEupJcqgIk3RqxOWIUmajk3SZCyUMEbbA2bRfaGMTG3LgSUmooC/pcIDQer2rlxh2ki5T8TzMLaERs+5zLkYdwnQ0=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.883 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:07:02.883 [FileTransfer-2] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr1.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTPVBB08QRXRFSY, Extended Request ID: caY5y2Yza/7qtMF2Ri1177Py89RBaz6api3ZLg3TOAFUUaMtCJPcWeuqDVE0bwGl/o/+fWjSbGU=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.896 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-Oct-29 11:07:02.896 [FileTransfer-5] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr12.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTGGT4EMSE9YPVG, Extended Request ID: DmE60WJKlkTIUpcmU+icOkojQMXR+6LMq0sW7kgCVrRGMfUzkcRdpXxNMACMPWS/m1k8sE9Vwx4=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.910 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr1.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz
-Oct-29 11:07:02.913 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-Oct-29 11:07:02.913 [FileTransfer-8] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr4.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTJS8VRXV9G66B4, Extended Request ID: yJw85GFXhEvvc6bjGIuws46wOG5E60KRKzBwvnsOZMQiMQyDKtKz8GFDux8qHEFk5BULzXfdZLQ=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.928 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-Oct-29 11:07:02.928 [FileTransfer-9] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr6.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTJSTF71ATB2YBE, Extended Request ID: OYat2xnTgKk/CiLFiAmsOvhHerUXbhxaNrjJftncbGXXakqJqxHQ8MSn9CsatqygRadjEUfX9tX0GhtCg7aoQmxkkDV9mS0t) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.930 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr7.vcf.gz
-Oct-29 11:07:02.931 [FileTransfer-6] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr7.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr7.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr7.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTZX09KJYWRCFHZ, Extended Request ID: R2+rsEJwg66inVZcA5bgc8UlxDLzHtZSDxmbSYk0b9D8lbRYW5XDLPxKRhDxA8RO3cRQic8COGg=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.936 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr9.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz
-Oct-29 11:07:02.947 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr1.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/54/f3d0fa2bf4b880e40a3cf718754f4f/...chr1.vcf.gz size=0
-Oct-29 11:07:02.949 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-Oct-29 11:07:02.949 [FileTransfer-7] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr10.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTYZHDZCSD2V5A9, Extended Request ID: lIX7egVkSAA2G6aHWxMVbe4oWHrnAwlT4XBsnT2B2hCFIF9lByUCaysoz401PeUBSGTKlY+BwJyDT9Y1BgQ2v4nMThCvGT8YYnzEBdRmWns=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.958 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-Oct-29 11:07:02.958 [FileTransfer-3] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr5.vcf.gz (try 2 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SGTW6B80KZB93B83, Extended Request ID: 91i4lyr4sVM2q6Vq3aVuar4sTanxa1FAXYOQDl3toMJzYjvXFPLnHhmV6KwpkXhV05eQ1swHEWY=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:02.968 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr9.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz size=0
-Oct-29 11:07:02.969 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr5.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/44/4ec2e3f1a3f609a1f38eb5967aa180/...chr5.vcf.gz
-Oct-29 11:07:02.996 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr12.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/ac/fa31913b0bd14b35c49a4378550d01/...chr12.vcf.gz
-Oct-29 11:07:02.996 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr10.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz
-Oct-29 11:07:02.997 [FileTransfer-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr5.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/44/4ec2e3f1a3f609a1f38eb5967aa180/...chr5.vcf.gz size=0
-Oct-29 11:07:03.024 [FileTransfer-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr12.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/ac/fa31913b0bd14b35c49a4378550d01/...chr12.vcf.gz size=0
-Oct-29 11:07:03.024 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr10.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz size=0
-Oct-29 11:07:03.054 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr6.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/79/1c35b8b81d11a5459b178b0e4292a6/...chr6.vcf.gz
-Oct-29 11:07:03.065 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr2.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/fd/0add9e60afb870680c4e0dd1ff9bca/...chr2.vcf.gz
-Oct-29 11:07:03.067 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (1); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3://1000genomes/...chr1.vcf.gz -- reason: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:07:03.078 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-Oct-29 11:07:03.078 [FileTransfer-10] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr9.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr9.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRRR272HW1N84FH, Extended Request ID: ppSPmmvQhofrAk7Vh12LGdT+1XJXRP2rHbut3wHrW/qL2TAm6M7n0h/tc4xmkzxU2878GHliYN6rpqGgDVfwMmHHaSiZnYD7dg9C6ovXoqI=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.079 [Actor Thread 7] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ancestry_pipeline:phase_with_eagle (1)'
+Oct-30 11:51:43.293 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-30 11:51:43.293 [main] DEBUG nextflow.Session - Session await
+Oct-30 11:51:43.363 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-30 11:51:43.365 [Task submitter] INFO  nextflow.Session - [bd/bcd90a] Submitted process > ancestry_pipeline:download_genetic_map
+Oct-30 11:51:43.439 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 127; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/bd/bcd90a80a0628d8bbfb666d441e70c]
+Oct-30 11:51:43.440 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-30 11:51:43.444 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ancestry_pipeline:download_genetic_map; work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/bd/bcd90a80a0628d8bbfb666d441e70c
+  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (127)
+Oct-30 11:51:43.452 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ancestry_pipeline:download_genetic_map'
 
 Caused by:
-  Can't stage file s3://1000genomes/...chr1.vcf.gz -- reason: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
+  Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (127)
 
 
 Command executed:
 
-  eagle             --vcf=GBM1.MSK1.S1.C4_vs_GBM1.MSK1.PBMC.manta.somatic_sv.vcf.gz             --ref=...chr1.vcf.gz             --geneticMapFile=genetic_map_hg38_withX.txt.gz             --chrom=1
+  if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+      wget -q https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+  fi
 
 Command exit status:
-  -
+  127
 
 Command output:
   (empty)
 
-Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
-Oct-29 11:07:03.080 [Actor Thread 7] DEBUG nextflow.Session - Session aborted -- Cause: Can't stage file s3://1000genomes/...chr1.vcf.gz -- reason: Exception thrown downloading S3 object s3://1000genomes/...chr1.vcf.gz
-Oct-29 11:07:03.081 [FileTransfer-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr6.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/79/1c35b8b81d11a5459b178b0e4292a6/...chr6.vcf.gz size=0
-Oct-29 11:07:03.086 [Actor Thread 7] DEBUG nextflow.Session - The following nodes are still active:
+Command error:
+  .command.sh: line 3: wget: command not found
+
+Work dir:
+  /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/bd/bcd90a80a0628d8bbfb666d441e70c
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Oct-30 11:51:43.455 [TaskFinalizer-1] DEBUG nextflow.Session - Session aborted -- Cause: Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (127)
+Oct-30 11:51:43.461 [TaskFinalizer-1] DEBUG nextflow.Session - The following nodes are still active:
 [process] ancestry_pipeline:phase_with_eagle
   status=ACTIVE
   port 0: (queue) OPEN  ; channel: -
   port 1: (cntrl) -     ; channel: $
 
-[process] ancestry_pipeline:run_rfmix
-  status=ACTIVE
-  port 0: (queue) OPEN  ; channel: phased_vcf
-  port 1: (value) bound ; channel: sample_map
-  port 2: (value) bound ; channel: genetic_map
-  port 3: (cntrl) -     ; channel: $
-
-Oct-29 11:07:03.093 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr2.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/fd/0add9e60afb870680c4e0dd1ff9bca/...chr2.vcf.gz size=0
-Oct-29 11:07:03.095 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr11.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/73/dc3471f2cf9adfa154e6ebfbd7c674/...chr11.vcf.gz
-Oct-29 11:07:03.096 [Actor Thread 7] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
-Oct-29 11:07:03.110 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-Oct-29 11:07:03.110 [FileTransfer-3] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr5.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr5.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+Oct-30 11:51:43.464 [TaskFinalizer-1] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=9ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Oct-30 11:51:43.535 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-30 11:51:43.661 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-30 11:51:43.661 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-30 11:51:43.662 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=9ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Oct-30 11:51:43.665 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-30 11:51:43.673 [Actor Thread 5] WARN  nextflow.file.FileHelper - Unable to start plugin 'nf-amazon' required by s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz
+java.util.UnknownFormatConversionException: Conversion = '4'
+	at java.base/java.util.Formatter.parse(Formatter.java:2842)
+	at java.base/java.util.Formatter.format(Formatter.java:2763)
+	at java.base/java.util.Formatter.format(Formatter.java:2717)
+	at java.base/java.lang.String.format(String.java:4155)
+	at org.pf4j.util.StringUtils.format(StringUtils.java:39)
+	at org.pf4j.PluginRuntimeException.<init>(PluginRuntimeException.java:41)
+	at nextflow.plugin.HttpPluginRepository.fetchMetadata0(HttpPluginRepository.groovy:140)
+	at nextflow.plugin.HttpPluginRepository.fetchMetadata(HttpPluginRepository.groovy:123)
+	at nextflow.plugin.HttpPluginRepository.prefetch(HttpPluginRepository.groovy:70)
+	at nextflow.plugin.PluginUpdater.prefetchMetadata(PluginUpdater.groovy:154)
+	at nextflow.plugin.PluginsFacade.start(PluginsFacade.groovy:398)
+	at nextflow.plugin.PluginsFacade.start(PluginsFacade.groovy:376)
+	at nextflow.plugin.PluginsFacade.startIfMissing(PluginsFacade.groovy:517)
+	at nextflow.plugin.Plugins.startIfMissing(Plugins.groovy:85)
+	at nextflow.file.FileHelper.autoStartMissingPlugin(FileHelper.groovy:376)
+	at nextflow.file.FileHelper.asPath0(FileHelper.groovy:356)
+	at nextflow.file.FileHelper.asPath(FileHelper.groovy:345)
+	at nextflow.extension.Bolts.asType(Bolts.groovy:468)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.Nextflow.file0(Nextflow.groovy:124)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.selectMethod(IndyInterface.java:355)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.Nextflow.file(Nextflow.groovy:117)
+	at nextflow.Nextflow.file(Nextflow.groovy)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_da5856e2cd2edff5$_runScript_closure2$_closure5$_closure7.doCall(Script_da5856e2cd2edff5:45)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.extension.MapOp$_apply_closure1.doCall(MapOp.groovy:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.onMessage(DataflowOperatorActor.java:108)
+	at groovyx.gpars.actor.impl.SDAClosure$1.call(SDAClosure.java:43)
+	at groovyx.gpars.actor.AbstractLoopingActor.runEnhancedWithoutRepliesOnMessages(AbstractLoopingActor.java:293)
+	at groovyx.gpars.actor.AbstractLoopingActor.access$400(AbstractLoopingActor.java:30)
+	at groovyx.gpars.actor.AbstractLoopingActor$1.handleMessage(AbstractLoopingActor.java:93)
+	at groovyx.gpars.util.AsyncMessagingCore.run(AsyncMessagingCore.java:132)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRX95QC8CKGKCSY, Extended Request ID: eR8AIUQnxMLEblbuQySUifz8sBjw7S9n5VhVs/PwPBmC7HkzF2xeMfloHZWJkUy0XFax9lOoWD4=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.130 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-Oct-29 11:07:03.130 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-Oct-29 11:07:03.131 [FileTransfer-5] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr12.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr12.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+Oct-30 11:51:43.675 [Actor Thread 5] ERROR nextflow.extension.OperatorImpl - @unknown
+java.lang.IllegalStateException: Missing plugin 'nf-amazon' required to read file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz
+	at nextflow.file.FileHelper.asPath(FileHelper.groovy:408)
+	at nextflow.file.FileHelper.asPath0(FileHelper.groovy:362)
+	at nextflow.file.FileHelper.asPath(FileHelper.groovy:345)
+	at nextflow.extension.Bolts.asType(Bolts.groovy:468)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.Nextflow.file0(Nextflow.groovy:124)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.selectMethod(IndyInterface.java:355)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.Nextflow.file(Nextflow.groovy:117)
+	at nextflow.Nextflow.file(Nextflow.groovy)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_da5856e2cd2edff5$_runScript_closure2$_closure5$_closure7.doCall(Script_da5856e2cd2edff5:45)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.extension.MapOp$_apply_closure1.doCall(MapOp.groovy:56)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.onMessage(DataflowOperatorActor.java:108)
+	at groovyx.gpars.actor.impl.SDAClosure$1.call(SDAClosure.java:43)
+	at groovyx.gpars.actor.AbstractLoopingActor.runEnhancedWithoutRepliesOnMessages(AbstractLoopingActor.java:293)
+	at groovyx.gpars.actor.AbstractLoopingActor.access$400(AbstractLoopingActor.java:30)
+	at groovyx.gpars.actor.AbstractLoopingActor$1.handleMessage(AbstractLoopingActor.java:93)
+	at groovyx.gpars.util.AsyncMessagingCore.run(AsyncMessagingCore.java:132)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRY7TKVG847V6K8, Extended Request ID: h0iapSAJNZFWolHJ1Z3JJrMWCo0YsZi3slL4f1k0cPnqAgSebxfc1Nhy2inM/1Kod5RqkjnAhNM=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.131 [FileTransfer-7] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr10.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr10.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRPH9M4T56G9RJ9, Extended Request ID: 20+5Hrqpq41KtZnt0C9MdfmC9AO+qGDFaaQQ0V8JPCfTgXr6hjgFTYJuqfzfrMa9cnQT+IicTK8=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.131 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr11.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/73/dc3471f2cf9adfa154e6ebfbd7c674/...chr11.vcf.gz size=0
-Oct-29 11:07:03.152 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr4.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/da/fede62916f447eed54d8b73394e0cb/...chr4.vcf.gz
-Oct-29 11:07:03.159 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Oct-29 11:07:03.184 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr8.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/2a/e0063991d5c6370e7c7d1780200612/...chr8.vcf.gz
-Oct-29 11:07:03.186 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr4.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/da/fede62916f447eed54d8b73394e0cb/...chr4.vcf.gz size=0
-Oct-29 11:07:03.189 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr9.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz
-Oct-29 11:07:03.200 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr2.vcf.gz
-Oct-29 11:07:03.200 [FileTransfer-2] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr2.vcf.gz (try 1 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr2.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr2.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRG24JDXTKFJM9J, Extended Request ID: gNDwx+MelpNetp/HkGKJPd4h/MkZIH4nkKY0XuxK/jC/88hol/Feh6l9+hLKTOrYI1q1EZNr7MI=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.205 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr7.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/dc/79aea1e94f926ddfedbd71b935b026/...chr7.vcf.gz
-Oct-29 11:07:03.209 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-Oct-29 11:07:03.209 [FileTransfer-9] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr6.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr6.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRWNK2JMWMZ6Z0N, Extended Request ID: +lN2qWnxIfqxqB3C3dmiamgdKaXDBMHwhC849G3pcIAfWeElXPJ9hNUVES8gqXIqW4hs+t+NFi5cvbLbJvDCHFwUc10VfbyD) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.216 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr9.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/5d/034fde7cb65fc29653a17b5208c0a7/...chr9.vcf.gz size=0
-Oct-29 11:07:03.224 [FileTransfer-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr8.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/2a/e0063991d5c6370e7c7d1780200612/...chr8.vcf.gz size=0
-Oct-29 11:07:03.235 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/...chr10.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz
-Oct-29 11:07:03.237 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr7.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/dc/79aea1e94f926ddfedbd71b935b026/...chr7.vcf.gz size=0
-Oct-29 11:07:03.261 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-Oct-29 11:07:03.262 [FileTransfer-4] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr11.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr11.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRKKCA4S6W171G2, Extended Request ID: CDqeYTy6olr/2MXH0kbnojbsD3oK+8lJ3Osb6EnC0DQP8x6GE+J9M7R5odyey6tjoerd7T2qi/qjusNAr+E49Gr0zIjHgGMBlssvBo4UOpU=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.265 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/...chr10.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-8dbfccf0-5b12-40c4-90a4-f67c8284cbe9/83/9f87cd43754de57d8b10e9027de87e/...chr10.vcf.gz size=0
-Oct-29 11:07:03.304 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=true; type=java.io.IOException; message=Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-Oct-29 11:07:03.304 [FileTransfer-8] WARN  nextflow.file.FilePorter - Unable to stage foreign file: s3://1000genomes/...chr4.vcf.gz (try 3 of 3) -- Cause: Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-java.io.IOException: Exception thrown downloading S3 object s3://1000genomes/...chr4.vcf.gz
-	at nextflow.cloud.aws.nio.S3Client.downloadFile(S3Client.java:333)
-	at nextflow.cloud.aws.nio.S3FileSystemProvider.download(S3FileSystemProvider.java:299)
-	at nextflow.file.FileHelper.copyPath(FileHelper.groovy:1008)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile0(FilePorter.groovy:373)
-	at nextflow.file.FilePorter$FileTransfer.stageForeignFile(FilePorter.groovy:328)
-	at nextflow.file.FilePorter$FileTransfer.run(FilePorter.groovy:300)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-Caused by: software.amazon.awssdk.services.s3.model.S3Exception: (Service: S3, Status Code: 404, Request ID: SDRSPJ87Q05YB9GY, Extended Request ID: pqVaXDqdwqSkd/4WllmHqDKHLc2XbuL/BWOvcEJuQG3oMwOmKXV8rw3DXMM/ejx4k2t4fiotFCHpn5oJusbyDOZh9igD8ZCAvKLH1Ly7qzI=) (SDK Attempt Count: 1)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:113)
-	at software.amazon.awssdk.services.s3.model.S3Exception$BuilderImpl.build(S3Exception.java:61)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.utils.RetryableStageHelper.retryPolicyDisallowedRetryException(RetryableStageHelper.java:168)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeAttemptExecute(AsyncRetryableStage.java:139)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.maybeRetryExecute(AsyncRetryableStage.java:157)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.AsyncRetryableStage$RetryingExecutor.lambda$attemptExecute$1(AsyncRetryableStage.java:127)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$execute$0(MakeAsyncHttpRequestStage.java:110)
-	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
-	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
-	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
-	at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2179)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.completeResponseFuture(MakeAsyncHttpRequestStage.java:253)
-	at software.amazon.awssdk.core.internal.http.pipeline.stages.MakeAsyncHttpRequestStage.lambda$executeHttpRequest$3(MakeAsyncHttpRequestStage.java:167)
-	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
-	at java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
-	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
-	... 3 common frames omitted
-Oct-29 11:07:03.311 [main] DEBUG nextflow.Session - Session await > all processes finished
-Oct-29 11:07:03.311 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Oct-29 11:07:03.311 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
-Oct-29 11:07:03.312 [Actor Thread 12] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle; work-dir=null
-  error [java.lang.IllegalStateException]: Cannot obtain the semaphore to fork operator's body.
-Oct-29 11:07:03.315 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Oct-29 11:07:03.324 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@3.4.1'
-Oct-29 11:07:03.324 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
-Oct-29 11:07:03.326 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
-Oct-29 11:07:03.326 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/...chr8.vcf.gz cancelled
-Oct-29 11:07:03.326 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/...chr7.vcf.gz cancelled
-Oct-29 11:07:03.326 [FileTransfer-7] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Oct-29 11:07:03.326 [FileTransfer-1] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Oct-29 11:07:03.326 [FileTransfer-10] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Oct-29 11:07:03.326 [FileTransfer-6] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Oct-29 11:07:03.327 [FileTransfer-7] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-29 11:07:03.327 [FileTransfer-7] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-29 11:07:03.328 [FileTransfer-7] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Oct-29 11:07:03.329 [Actor Thread 1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (10); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/...chr10.vcf.gz -- reason: S3 download file: s3://1000genomes/...chr10.vcf.gz cancelled
-Oct-29 11:07:03.330 [Actor Thread 6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (7); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/...chr7.vcf.gz -- reason: S3 download file: s3://1000genomes/...chr7.vcf.gz cancelled
-Oct-29 11:07:03.330 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (9); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/...chr9.vcf.gz -- reason: S3 download file: s3://1000genomes/...chr9.vcf.gz cancelled
-Oct-29 11:07:03.330 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (8); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/...chr8.vcf.gz -- reason: S3 download file: s3://1000genomes/...chr8.vcf.gz cancelled
+Oct-30 11:51:43.676 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
