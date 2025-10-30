@@ -1,61 +1,63 @@
-Oct-30 10:23:00.112 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/GBM1.MSK1.S1.C4_vs_GBM1.MSK1.PBMC.manta.somatic_sv.vcf.gz --genetic_map tables/genetic_map_hg38_withX.txt.gz --sample_map sample_map.txt
-Oct-30 10:23:00.158 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Oct-30 10:23:00.181 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
-Oct-30 10:23:00.183 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
-Oct-30 10:23:00.198 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Oct-30 10:23:00.417 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/jenc/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Oct-30 10:23:00.428 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Oct-30 10:23:00.428 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Oct-30 10:23:00.430 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Oct-30 10:23:00.439 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Oct-30 10:23:00.524 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Oct-30 10:23:00.525 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Oct-30 10:23:00.525 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Oct-30 10:23:00.535 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/jenc/.nextflow/secrets/store.json
-Oct-30 10:23:00.536 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@553bc36c] - activable => nextflow.secret.LocalSecretsProvider@553bc36c
-Oct-30 10:23:00.537 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Oct-30 10:23:00.545 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [small_rosalind] DSL2 - revision: 52e5b713bc
-Oct-30 10:23:00.572 [main] DEBUG nextflow.Session - Session UUID: d1be5f5e-5c78-4d12-83c3-3c5ed02c1fad
-Oct-30 10:23:00.572 [main] DEBUG nextflow.Session - Run name: small_rosalind
-Oct-30 10:23:00.572 [main] DEBUG nextflow.Session - Executor pool size: 12
-Oct-30 10:23:00.576 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Oct-30 10:23:00.579 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Oct-30 10:23:00.597 [main] DEBUG nextflow.cli.CmdRun - 
+Oct-30 15:25:35.301 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/GBM1.MSK1.S1.C4_vs_GBM1.MSK1.PBMC.manta.somatic_sv.vcf.gz --genetic_map tables/genetic_map_hg38_withX.txt.gz --sample_map sample_map.txt
+Oct-30 15:25:35.348 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Oct-30 15:25:35.368 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
+Oct-30 15:25:35.370 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
+Oct-30 15:25:35.384 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Oct-30 15:25:35.596 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/jenc/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Oct-30 15:25:35.603 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-30 15:25:35.603 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-30 15:25:35.604 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-30 15:25:35.611 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Oct-30 15:25:35.671 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-30 15:25:35.672 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-30 15:25:35.672 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-30 15:25:35.680 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/jenc/.nextflow/secrets/store.json
+Oct-30 15:25:35.681 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@506a1372] - activable => nextflow.secret.LocalSecretsProvider@506a1372
+Oct-30 15:25:35.683 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Oct-30 15:25:35.690 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [boring_caravaggio] DSL2 - revision: 4f5dc8cacc
+Oct-30 15:25:35.713 [main] DEBUG nextflow.Session - Session UUID: 5b09cb77-f4a3-467c-a3c6-6522d37a28e4
+Oct-30 15:25:35.714 [main] DEBUG nextflow.Session - Run name: boring_caravaggio
+Oct-30 15:25:35.714 [main] DEBUG nextflow.Session - Executor pool size: 12
+Oct-30 15:25:35.717 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-30 15:25:35.719 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-30 15:25:35.732 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (12:26 EDT)
   System: Mac OS X 15.6.1
   Runtime: Groovy 4.0.28 on Java HotSpot(TM) 64-Bit Server VM 20.0.2+9-78
   Encoding: UTF-8 (UTF-8)
-  Process: 6246@wm718-194 [10.0.0.106]
-  CPUs: 12 - Mem: 32 GB (96.2 MB) - Swap: 6 GB (1.6 GB)
-Oct-30 10:23:00.605 [main] DEBUG nextflow.Session - Work-dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work [Mac OS X]
-Oct-30 10:23:00.605 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/jenc/Desktop/pipelines/ancestry-pipeline/bin
-Oct-30 10:23:00.610 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Oct-30 10:23:00.615 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Oct-30 10:23:00.616 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Oct-30 10:23:00.632 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Oct-30 10:23:00.637 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Oct-30 10:23:00.667 [main] DEBUG nextflow.Session - Session start
-Oct-30 10:23:00.832 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Oct-30 10:23:00.951 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Oct-30 10:23:00.951 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Oct-30 10:23:00.955 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Oct-30 10:23:00.959 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=32 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
-Oct-30 10:23:00.960 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Oct-30 10:23:00.970 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
-Oct-30 10:23:00.998 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Process: 13386@wm718-194 [10.33.16.243]
+  CPUs: 12 - Mem: 32 GB (183.1 MB) - Swap: 5 GB (1.1 GB)
+Oct-30 15:25:35.739 [main] DEBUG nextflow.Session - Work-dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work [Mac OS X]
+Oct-30 15:25:35.739 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/jenc/Desktop/pipelines/ancestry-pipeline/bin
+Oct-30 15:25:35.745 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-30 15:25:35.749 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-30 15:25:35.750 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Oct-30 15:25:35.767 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-30 15:25:35.771 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Oct-30 15:25:35.800 [main] DEBUG nextflow.Session - Session start
+Oct-30 15:25:35.921 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-30 15:25:36.037 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_79f7672727fc08e1: /Users/jenc/Desktop/pipelines/ancestry-pipeline/main.nf
   Script_2efc4f80b8be9152: /Users/jenc/Desktop/pipelines/ancestry-pipeline/modules/eagle.nf
-  Script_ac6ef491958095e6: /Users/jenc/Desktop/pipelines/ancestry-pipeline/main.nf
   Script_6620abfff735e61c: /Users/jenc/Desktop/pipelines/ancestry-pipeline/modules/rfmix.nf
-Oct-30 10:23:00.998 [main] DEBUG nextflow.Session - Session aborted -- Cause: Missing process or function broadcast()
-Oct-30 10:23:01.005 [main] DEBUG nextflow.Session - The following nodes are still active:
-  [operator] flatten
-
-Oct-30 10:23:01.009 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
-Oct-30 10:23:01.066 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Oct-30 10:23:01.170 [main] ERROR nextflow.cli.Launcher - @unknown
-nextflow.exception.MissingProcessException: Missing process or function broadcast()
-	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:192)
+Oct-30 15:25:36.038 [main] DEBUG nextflow.Session - Session aborted -- Cause: Access to 'download_genetic_map.out' is undefined since the process 'download_genetic_map' has not been invoked before accessing the output attribute
+Oct-30 15:25:36.044 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Oct-30 15:25:36.216 [main] ERROR nextflow.cli.Launcher - Access to 'download_genetic_map.out' is undefined since the process 'download_genetic_map' has not been invoked before accessing the output attribute
+nextflow.exception.ScriptRuntimeException: Access to 'download_genetic_map.out' is undefined since the process 'download_genetic_map' has not been invoked before accessing the output attribute
+	at nextflow.script.ProcessDef.getOut(ProcessDef.groovy:133)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_79f7672727fc08e1$_runScript_closure2$_closure5.doCall(Script_79f7672727fc08e1:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
 	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
 	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
 	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
@@ -65,7 +67,7 @@ nextflow.exception.MissingProcessException: Missing process or function broadcas
 	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
 	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
 	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at Script_ac6ef491958095e6$_runScript_closure3$_closure7.doCall(Script_ac6ef491958095e6:61)
+	at Script_79f7672727fc08e1$_runScript_closure3$_closure7.doCall(Script_79f7672727fc08e1:63)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
@@ -86,19 +88,3 @@ nextflow.exception.MissingProcessException: Missing process or function broadcas
 	at nextflow.cli.CmdRun.run(CmdRun.groovy:428)
 	at nextflow.cli.Launcher.run(Launcher.groovy:515)
 	at nextflow.cli.Launcher.main(Launcher.groovy:675)
-Caused by: groovy.lang.MissingMethodException: No signature of method: groovyx.gpars.dataflow.DataflowBroadcast.broadcast() is applicable for argument types: () values: []
-	at org.codehaus.groovy.runtime.ScriptBytecodeAdapter.unwrap(ScriptBytecodeAdapter.java:73)
-	at org.codehaus.groovy.vmplugin.v8.IndyGuardsFiltersAndSignatures.unwrap(IndyGuardsFiltersAndSignatures.java:163)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at Script_ac6ef491958095e6$_runScript_closure2$_closure5.doCall(Script_ac6ef491958095e6:41)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
-	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
-	at groovy.lang.Closure.call(Closure.java:433)
-	at groovy.lang.Closure.call(Closure.java:412)
-	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
-	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
-	... 30 common frames omitted
