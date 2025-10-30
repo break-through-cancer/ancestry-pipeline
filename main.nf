@@ -11,7 +11,7 @@ include { run_rfmix } from './modules/rfmix'
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
 // if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
-if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
+//if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
 // if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
@@ -24,7 +24,11 @@ process download_genetic_map {
     script:
     """
     if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
-        wget -q https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+        echo "Downloading genetic map with curl..."
+        curl -s -L -o genetic_map_hg38_withX.txt.gz \
+        https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+    else
+        echo "Genetic map already exists, skipping download."
     fi
     """
 }
@@ -32,10 +36,12 @@ process download_genetic_map {
 
 workflow ancestry_pipeline {
 
-    genetic_map_ch = Channel.fromPath(download_genetic_map.out).broadcast()
+    
     chr_ch = Channel.from(1..22)
     download_genetic_map()
-    genetic_map_ch = download_genetic_map.out
+
+    // broadcast so every chromosome can use it
+    genetic_map_ch = download_genetic_map.out.flatten().map { it -> Channel.value(it) }.flatten()
 
     eagle_inputs_ch = chr_ch.map { chr ->
         [
