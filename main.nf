@@ -36,29 +36,29 @@ process download_genetic_map {
 
 workflow ancestry_pipeline {
 
-    
     chr_ch = Channel.from(1..22)
-    download_genetic_map()
+    download_genetic_map()          
+    // ensure the process emits a usable file path
+    map_file_ch = download_genetic_map.out.flatten()
 
-    // broadcast so every chromosome can use it
-    genetic_map_ch = download_genetic_map.out.flatten().map { it -> Channel.value(it) }.flatten()
-
-    eagle_inputs_ch = chr_ch.map { chr ->
+    // now combine chromosomes with the actual file
+    eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->
         [
             file(params.input_genotype),
             file("s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"),
-            file(params.genetic_map),
+            file(map_file),  // ✅ now a resolved path, not a DataflowVariable
             chr
         ]
     }
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
-    rfmix_results = run_rfmix(phased_vcf_ch, file(params.sample_map), genetic_map_ch)
+    rfmix_results = run_rfmix(phased_vcf_ch, file(params.sample_map), map_file_ch)
 
     emit:
         rfmix_results
 }
+
 
 
 // Default workflow for Cirro to run
