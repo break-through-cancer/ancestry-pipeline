@@ -15,6 +15,14 @@ RUN wget https://data.broadinstitute.org/alkesgroup/Eagle/downloads/Eagle_v2.4.1
     && mv Eagle_v2.4.1/eagle /usr/local/bin/ \
     && rm -rf Eagle_v2.4.1 Eagle_v2.4.1.tar.gz
     
+# Install built tools 
+RUN apt-get update && apt-get install -y \
+    git \
+    autoconf \
+    automake \
+    make \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
 
 # 4. Install RFMix
 RUN git clone https://github.com/slowkoni/rfmix.git /opt/rfmix \
