@@ -5,7 +5,7 @@ FROM --platform=linux/x86_64 ubuntu:22.04
 WORKDIR /opt
 
 #run system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y curl \
     wget unzip git g++ make python3 python3-pip \
     zlib1g-dev libbz2-dev liblzma-dev libcurl4-openssl-dev libssl-dev 
 
