@@ -125,3 +125,16 @@ Nov-04 14:09:38.642 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! exe
   port 2: (queue) OPEN  ; channel: genetic_map
   port 3: (cntrl) -     ; channel: $
 
+Nov-04 14:14:38.649 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: phased_vcf
+  port 1: (value) bound ; channel: sample_map
+  port 2: (queue) OPEN  ; channel: genetic_map
+  port 3: (cntrl) -     ; channel: $
+

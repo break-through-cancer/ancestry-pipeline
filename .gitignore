@@ -1,5 +1,7 @@
 work/
 
+test_data/
+
 .nextflow.log*
 
 .cirro/.nextflow/
