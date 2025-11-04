@@ -45,7 +45,7 @@ workflow ancestry_pipeline {
     eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->
         [
             file(params.input_genotype),
-            file("s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.filtered.shapeit2-duohmm-phased.vcf.gz"),
+            file("s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"),
             file(map_file),  // ✅ now a resolved path, not a DataflowVariable
             chr
         ]

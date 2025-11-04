@@ -10,9 +10,10 @@ process phase_with_eagle {
     script:
         """
         eagle \
-            --vcf=${input_genotype} \
-            --ref=${reference_vcf} \
+            --vcfTarget=${input_genotype} \
+            --vcfRef=${reference_vcf} \
             --geneticMapFile=${genetic_map} \
-            --chrom=${chromosome}
+            --chrom=${chromosome} \
+            --outPrefix=test
         """
 }
