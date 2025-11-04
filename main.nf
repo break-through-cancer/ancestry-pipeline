@@ -26,11 +26,12 @@ process download_genetic_map {
     if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
         echo "Downloading genetic map with curl..."
         curl -s -L -o genetic_map_hg38_withX.txt.gz \
-        
-        
+        https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
     else
         echo "Genetic map already exists, skipping download."
     fi
+
+    zcat genetic_map_hg38_withX.txt.gz | sed -E '1!s/^([0-9XYM])/chr\\1/' > genetic_map_chr.txt
     """
 }
 
@@ -38,10 +39,9 @@ process download_genetic_map {
 workflow ancestry_pipeline {
 
     chr_ch = Channel.from(1..22)
-    // download_genetic_map()          
-    // // ensure the process emits a usable file path
-    // map_file_ch = download_genetic_map.out.flatten()
-    map_file_ch = Channel.fromPath("./genetic_map_hg38_chr.txt")
+    download_genetic_map()          
+    // ensure the process emits a usable file path
+    map_file_ch = download_genetic_map.out.flatten()
 
     // now combine chromosomes with the actual file
     eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->

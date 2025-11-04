@@ -4,4 +4,9 @@ test_data/
 
 .nextflow.log*
 
+genetic_map_hg38_chr.txt
+genetic_map_hg38_withX.txt
+
 .cirro/.nextflow/
+
+genetic_map_hg38*.txt

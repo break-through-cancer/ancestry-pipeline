@@ -1,311 +1,140 @@
-Nov-03 15:05:13.124 [main] DEBUG nextflow.cli.Launcher - $> nextflow run break-through-cancer/ancestry-pipeline
-Nov-03 15:05:13.183 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Nov-03 15:05:13.244 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /Users/jenc/.nextflow/scm
-Nov-03 15:05:13.260 [main] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-03 15:05:13.264 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-03 15:05:13.265 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-03 15:05:13.266 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov-03 15:05:13.279 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
-Nov-03 15:05:13.286 [main] INFO  nextflow.cli.CmdRun - Pulling break-through-cancer/ancestry-pipeline ...
-Nov-03 15:05:13.289 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> https://api.github.com/repos/break-through-cancer/ancestry-pipeline/contents/nextflow.config
-Nov-03 15:05:13.889 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> https://api.github.com/repos/break-through-cancer/ancestry-pipeline/contents/main.nf
-Nov-03 15:05:13.981 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> https://api.github.com/repos/break-through-cancer/ancestry-pipeline
-Nov-03 15:05:14.075 [main] DEBUG nextflow.scm.AssetManager - Pulling break-through-cancer/ancestry-pipeline -- Using remote clone url: https://github.com/break-through-cancer/ancestry-pipeline.git
-Nov-03 15:05:50.135 [main] INFO  nextflow.cli.CmdRun -  downloaded from https://github.com/break-through-cancer/ancestry-pipeline.git
-Nov-03 15:05:50.147 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /Users/jenc/.nextflow/assets/break-through-cancer/ancestry-pipeline/nextflow.config
-Nov-03 15:05:50.147 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
-Nov-03 15:05:50.148 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/.nextflow/assets/break-through-cancer/ancestry-pipeline/nextflow.config
-Nov-03 15:05:50.148 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
-Nov-03 15:05:50.154 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-03 15:05:50.171 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-03 15:05:50.202 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/jenc/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Nov-03 15:05:50.204 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-03 15:05:50.204 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-03 15:05:50.205 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov-03 15:05:50.209 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Nov-03 15:05:50.213 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov-03 15:05:50.213 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov-03 15:05:50.213 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Nov-03 15:05:50.215 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/jenc/.nextflow/secrets/store.json
-Nov-03 15:05:50.216 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4bb1b96b] - activable => nextflow.secret.LocalSecretsProvider@4bb1b96b
-Nov-03 15:05:50.222 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Nov-03 15:05:50.222 [main] DEBUG nextflow.cli.CmdRun - Launching `https://github.com/break-through-cancer/ancestry-pipeline` [kickass_lavoisier] DSL2 - revision: 645bc34ffb [main]
-Nov-03 15:05:50.255 [main] DEBUG nextflow.Session - Session UUID: f603af36-03d5-4fa4-bdab-bb7681cc4555
-Nov-03 15:05:50.255 [main] DEBUG nextflow.Session - Run name: kickass_lavoisier
-Nov-03 15:05:50.255 [main] DEBUG nextflow.Session - Executor pool size: 12
-Nov-03 15:05:50.260 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Nov-03 15:05:50.264 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-03 15:05:50.288 [main] DEBUG nextflow.cli.CmdRun - 
+Nov-04 10:49:35.670 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -with-docker 'ghcr.io/jchen1095/ancestry-pipeline:latest'
+Nov-04 10:49:35.724 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-04 10:49:35.746 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
+Nov-04 10:49:35.747 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/nextflow.config
+Nov-04 10:49:35.760 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-04 10:49:35.966 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Docker container as requested by command-line option `-with-docker ghcr.io/jchen1095/ancestry-pipeline:latest`
+Nov-04 10:49:35.980 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/jenc/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-04 10:49:35.986 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-04 10:49:35.987 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-04 10:49:35.988 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-04 10:49:35.998 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-04 10:49:36.084 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-04 10:49:36.085 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-04 10:49:36.085 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-04 10:49:36.094 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/jenc/.nextflow/secrets/store.json
+Nov-04 10:49:36.095 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@5ec5ea63] - activable => nextflow.secret.LocalSecretsProvider@5ec5ea63
+Nov-04 10:49:36.101 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Nov-04 10:49:36.109 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [serene_northcutt] DSL2 - revision: fd2fdb778a
+Nov-04 10:49:36.135 [main] DEBUG nextflow.Session - Session UUID: 25439b32-414d-4f67-8556-c6dd2e989d76
+Nov-04 10:49:36.135 [main] DEBUG nextflow.Session - Run name: serene_northcutt
+Nov-04 10:49:36.135 [main] DEBUG nextflow.Session - Executor pool size: 12
+Nov-04 10:49:36.139 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-04 10:49:36.142 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-04 10:49:36.160 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (12:26 EDT)
   System: Mac OS X 15.6.1
   Runtime: Groovy 4.0.28 on Java HotSpot(TM) 64-Bit Server VM 20.0.2+9-78
   Encoding: UTF-8 (UTF-8)
-  Process: 79161@wm718-194 [172.18.150.94]
-  CPUs: 12 - Mem: 32 GB (473.5 MB) - Swap: 0 (0)
-Nov-03 15:05:50.295 [main] DEBUG nextflow.Session - Work-dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work [Mac OS X]
-Nov-03 15:05:50.295 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/jenc/.nextflow/assets/break-through-cancer/ancestry-pipeline/bin
-Nov-03 15:05:50.302 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov-03 15:05:50.307 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Nov-03 15:05:50.308 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Nov-03 15:05:50.334 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov-03 15:05:50.339 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Nov-03 15:05:50.376 [main] DEBUG nextflow.Session - Session start
-Nov-03 15:05:50.561 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Nov-03 15:05:50.673 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-03 15:05:50.673 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-03 15:05:50.678 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Nov-03 15:05:50.681 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=32 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
-Nov-03 15:05:50.682 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Nov-03 15:05:50.692 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
-Nov-03 15:05:50.726 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-03 15:05:50.726 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-03 15:05:50.727 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
-Nov-03 15:05:50.733 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-03 15:05:50.733 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-03 15:05:50.733 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
-Nov-03 15:05:50.735 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map
-Nov-03 15:05:50.736 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
-Nov-03 15:05:50.737 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
-Nov-03 15:05:50.737 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
-Nov-03 15:05:50.737 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
-Nov-03 15:05:50.737 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_2efc4f80b8be9152: /Users/jenc/.nextflow/assets/break-through-cancer/ancestry-pipeline/modules/eagle.nf
-  Script_6620abfff735e61c: /Users/jenc/.nextflow/assets/break-through-cancer/ancestry-pipeline/modules/rfmix.nf
-  Script_54b9b7a4a0e9771e: /Users/jenc/.nextflow/assets/break-through-cancer/ancestry-pipeline/main.nf
-Nov-03 15:05:50.737 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Nov-03 15:05:50.737 [main] DEBUG nextflow.Session - Session await
-Nov-03 15:05:50.794 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:05:50.794 [Task submitter] INFO  nextflow.Session - [60/069aec] Submitted process > ancestry_pipeline:download_genetic_map
-Nov-03 15:06:04.449 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 0; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/60/069aec921c31492c9b0564278e6b0d]
-Nov-03 15:06:04.451 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-03 15:06:04.863 [Actor Thread 13] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-amazon%403.4.1&nextflowVersion=25.10.0
-- code: 200
-- body: {"plugins":[{"id":"nf-amazon","downloadCount":8404,"downloadGhCount":1331835,"releases":[{"version":"3.4.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-amazon/3.4.1/download/nf-amazon-3.4.1.zip","date":"2025-10-22T16:29:06.396625Z","sha512sum":"bc7c4b6166aa5ef32df3362ceec263df434875b1db332594cd71c8d3f462adfcad55802034cbcfd269917e1efa4f45d224143f024fc1170d156daa40897f3873","requires":">=25.09.2-edge","dependsOn":[],"downloadCount":5747,"downloadGhCount":0,"status":"PUBLISHED","spec":null}],"projectUrl":"https://github.com/nextflow-io/nf-amazon","provider":"nextflow-io","description":null}]}
-Nov-03 15:06:04.893 [Actor Thread 13] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 3.4.1
-Nov-03 15:06:04.915 [Actor Thread 13] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@3.4.1' resolved
-Nov-03 15:06:04.915 [Actor Thread 13] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@3.4.1'
-Nov-03 15:06:04.959 [Actor Thread 13] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@3.4.1
-Nov-03 15:06:04.970 [Actor Thread 13] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
-Nov-03 15:06:04.970 [Actor Thread 13] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:04.976 [Actor Thread 13] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider; config=[:]
-Nov-03 15:06:04.983 [Actor Thread 13] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
-Nov-03 15:06:07.051 [Actor Thread 13] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
-Nov-03 15:06:07.423 [Actor Thread 13] DEBUG nextflow.cloud.aws.nio.S3Client - Unable to fetch caller account - (Service: S3, Status Code: 307, Request ID: JGDGHFQ1992710E6, Extended Request ID: MaG62jvFMc/+noSTyQdcCRXGxKhcb6fqt+L1jiBK2fGeBqRZkF9KMFmhTxAlmkcQLnqQlBFrRziGOSPosAqvP4qzhPiTmiIDgrDvGGJ9hwY=) (SDK Attempt Count: 1) 
-Nov-03 15:06:08.149 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/7c/e6f114a859ef45e7997a5307f4e5b7/CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.149 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/ec/792b00618245458aeb8b1d2b49980f/CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.151 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/57/97b65fbeba49ff2553c1abc570587d/CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.151 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/c9/0d8e30f50b3cf64e386a5b52f710d5/CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.151 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/2b/b740adea4f41ef8e872feb5b7ec385/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.152 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/1c/86ccdf898d39c8630fef0bbeba34fe/CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.153 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/d9/e05ea5ac744c8e4eed98b694d797be/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.153 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/8f/defa614ce80e49850d0eae8896f592/CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.154 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/d1/6a55fb700849053eb94360e644005b/CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.154 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/e7/8b1bd92348ebf4ac81e054a3507fb4/CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:08.186 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/ec/792b00618245458aeb8b1d2b49980f/CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.190 [FileTransfer-2] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'S3TransferManager' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-03 15:06:08.243 [FileTransfer-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/2b/b740adea4f41ef8e872feb5b7ec385/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.243 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/c9/0d8e30f50b3cf64e386a5b52f710d5/CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.245 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/e7/8b1bd92348ebf4ac81e054a3507fb4/CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.246 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/d9/e05ea5ac744c8e4eed98b694d797be/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.246 [FileTransfer-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/57/97b65fbeba49ff2553c1abc570587d/CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.246 [FileTransfer-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/7c/e6f114a859ef45e7997a5307f4e5b7/CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.246 [FileTransfer-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/d1/6a55fb700849053eb94360e644005b/CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.248 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/8f/defa614ce80e49850d0eae8896f592/CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:08.256 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/1c/86ccdf898d39c8630fef0bbeba34fe/CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:10.153 [Actor Thread 5] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.153 [Actor Thread 8] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.153 [Actor Thread 2] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.153 [Actor Thread 3] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.154 [Actor Thread 1] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.153 [Actor Thread 7] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.157 [Actor Thread 11] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.157 [Actor Thread 9] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.157 [Actor Thread 4] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.157 [Actor Thread 14] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.157 [Actor Thread 15] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.157 [Actor Thread 6] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.196 [FileTransfer-2] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
-Nov-03 15:06:10.731 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/a4/ea709cf72d43facbc1c5915f37c1a8/CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.732 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/2f/d90857212acc9321f9800158459d48/CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:10.732 [Actor Thread 8] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.732 [Actor Thread 5] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.732 [Actor Thread 11] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.733 [Actor Thread 4] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.735 [Actor Thread 6] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.744 [Actor Thread 9] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.745 [Actor Thread 1] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.761 [Actor Thread 3] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.767 [Actor Thread 7] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.771 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/2f/d90857212acc9321f9800158459d48/CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:10.772 [Actor Thread 2] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.773 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/a4/ea709cf72d43facbc1c5915f37c1a8/CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:10.780 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.780 [Task submitter] INFO  nextflow.Session - [19/193696] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.783 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.783 [Task submitter] INFO  nextflow.Session - [98/4921eb] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.787 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.788 [Task submitter] INFO  nextflow.Session - [83/8297f2] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.790 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.790 [Task submitter] INFO  nextflow.Session - [7d/f71642] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.792 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.792 [Task submitter] INFO  nextflow.Session - [26/bca992] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.794 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.794 [Task submitter] INFO  nextflow.Session - [1d/1f7d08] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.797 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.797 [Task submitter] INFO  nextflow.Session - [ae/2772ef] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.799 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.799 [Task submitter] INFO  nextflow.Session - [6d/edb603] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.834 [Actor Thread 14] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.836 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.836 [Task submitter] INFO  nextflow.Session - [cf/4785df] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.840 [Actor Thread 15] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:10.858 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.858 [Task submitter] INFO  nextflow.Session - [0c/8bb3ac] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.877 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.877 [Task submitter] INFO  nextflow.Session - [26/2ef274] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.902 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-03 15:06:10.902 [Task submitter] INFO  nextflow.Session - [f6/488e82] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
-Nov-03 15:06:10.993 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/26/2ef274cfa57a3856db62987d46c288]
-Nov-03 15:06:10.995 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/26/2ef274cfa57a3856db62987d46c288
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.011 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/98/4921ebb4db56d10a1ac4fe72b2f440]
-Nov-03 15:06:11.012 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/83/8297f27e0ba10fd7747c61af973ef2]
-Nov-03 15:06:11.014 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/7d/f71642c218bdec5b575ce9e43785f4]
-Nov-03 15:06:11.015 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/ae/2772efd7f4b105ce6902e7a13cd4e1]
-Nov-03 15:06:11.017 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/6d/edb6037b16d9a716194db374912022]
-Nov-03 15:06:11.018 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 126; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/cf/4785df885f729214513c57fc0e8461]
-Nov-03 15:06:11.018 [TaskFinalizer-2] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ancestry_pipeline:phase_with_eagle (Eagle Phasing)'
+  Process: 96034@wm718-194 [10.33.16.243]
+  CPUs: 12 - Mem: 32 GB (154.5 MB) - Swap: 0 (0)
+Nov-04 10:49:36.168 [main] DEBUG nextflow.Session - Work-dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work [Mac OS X]
+Nov-04 10:49:36.168 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/jenc/Desktop/pipelines/ancestry-pipeline/bin
+Nov-04 10:49:36.175 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-04 10:49:36.179 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-04 10:49:36.180 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-04 10:49:36.197 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-04 10:49:36.201 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Nov-04 10:49:36.231 [main] DEBUG nextflow.Session - Session start
+Nov-04 10:49:36.362 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-04 10:49:36.480 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-04 10:49:36.480 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-04 10:49:36.484 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-04 10:49:36.488 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=32 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Nov-04 10:49:36.489 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-04 10:49:36.500 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
+Nov-04 10:49:36.534 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-04 10:49:36.534 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-04 10:49:36.534 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
+Nov-04 10:49:36.540 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-04 10:49:36.541 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-04 10:49:36.541 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
+Nov-04 10:49:36.543 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map
+Nov-04 10:49:36.544 [main] DEBUG nextflow.Session - Igniting dataflow network (4)
+Nov-04 10:49:36.544 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
+Nov-04 10:49:36.545 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
+Nov-04 10:49:36.545 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
+Nov-04 10:49:36.545 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_ebaf0a18e75bb450: /Users/jenc/Desktop/pipelines/ancestry-pipeline/modules/eagle.nf
+  Script_6620abfff735e61c: /Users/jenc/Desktop/pipelines/ancestry-pipeline/modules/rfmix.nf
+  Script_54b9b7a4a0e9771e: /Users/jenc/Desktop/pipelines/ancestry-pipeline/main.nf
+Nov-04 10:49:36.545 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-04 10:49:36.545 [main] DEBUG nextflow.Session - Session await
+Nov-04 10:49:36.617 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-04 10:49:36.618 [Task submitter] INFO  nextflow.Session - [21/d2e127] Submitted process > ancestry_pipeline:download_genetic_map
+Nov-04 10:49:36.738 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 127; error: -; workDir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/21/d2e127d56d0fe95e94cfd73ada5fbe]
+Nov-04 10:49:36.738 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-04 10:49:36.743 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ancestry_pipeline:download_genetic_map; work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/21/d2e127d56d0fe95e94cfd73ada5fbe
+  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (127)
+Nov-04 10:49:36.752 [TaskFinalizer-1] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ancestry_pipeline:download_genetic_map'
 
 Caused by:
-  Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
+  Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (127)
 
 
 Command executed:
 
-  eagle             --vcf=input.vcf.gz             --ref=CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.filtered.shapeit2-duohmm-phased.vcf.gz             --geneticMapFile=genetic_map_hg38_withX.txt.gz             --chrom=12
+  if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+      echo "Downloading genetic map with curl..."
+      curl -s -L -o genetic_map_hg38_withX.txt.gz         https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+  else
+      echo "Genetic map already exists, skipping download."
+  fi
 
 Command exit status:
-  126
+  127
 
 Command output:
   (empty)
 
 Command error:
-  .command.sh: line 2: /usr/local/bin/eagle: cannot execute binary file
+  .command.run: line 101: docker: command not found
 
 Work dir:
-  /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/26/2ef274cfa57a3856db62987d46c288
+  /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/21/d2e127d56d0fe95e94cfd73ada5fbe
 
-Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
-Nov-03 15:06:11.020 [TaskFinalizer-2] DEBUG nextflow.Session - Session aborted -- Cause: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.021 [TaskFinalizer-8] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/cf/4785df885f729214513c57fc0e8461
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.021 [TaskFinalizer-7] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/6d/edb6037b16d9a716194db374912022
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.022 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/ae/2772efd7f4b105ce6902e7a13cd4e1
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.022 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/7d/f71642c218bdec5b575ce9e43785f4
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.023 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/83/8297f27e0ba10fd7747c61af973ef2
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.025 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/98/4921ebb4db56d10a1ac4fe72b2f440
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` terminated with an error exit status (126)
-Nov-03 15:06:11.034 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Nov-03 15:06:11.042 [TaskFinalizer-2] DEBUG nextflow.Session - The following nodes are still active:
-[process] ancestry_pipeline:phase_with_eagle
-  status=ACTIVE
-  port 0: (queue) closed; channel: -
-  port 1: (cntrl) -     ; channel: $
+Container:
+  ghcr.io/jchen1095/ancestry-pipeline:latest
 
-[process] ancestry_pipeline:run_rfmix
-  status=ACTIVE
-  port 0: (queue) OPEN  ; channel: phased_vcf
-  port 1: (value) bound ; channel: sample_map
-  port 2: (queue) OPEN  ; channel: genetic_map
-  port 3: (cntrl) -     ; channel: $
-
-Nov-03 15:06:11.047 [TaskFinalizer-2] WARN  n.processor.TaskPollingMonitor - Killing running tasks (5)
-Nov-03 15:06:11.056 [TaskFinalizer-2] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:phase_with_eagle (Eagle Phasing) -- command: kill -TERM 79257; exit: 1 
- bash: line 0: kill: (79257) - No such process
-
-Nov-03 15:06:11.063 [TaskFinalizer-2] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:phase_with_eagle (Eagle Phasing) -- command: kill -TERM 79261; exit: 1 
- bash: line 0: kill: (79261) - No such process
-
-Nov-03 15:06:11.069 [TaskFinalizer-2] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:phase_with_eagle (Eagle Phasing) -- command: kill -TERM 79262; exit: 1 
- bash: line 0: kill: (79262) - No such process
-
-Nov-03 15:06:11.074 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr13.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/44/e192490ac548edc4019a3064cec134/CCDG_14151_B01_GRM_WGS_2020-08-05_chr13.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.075 [TaskFinalizer-2] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:phase_with_eagle (Eagle Phasing) -- command: kill -TERM 79309; exit: 1 
- bash: line 0: kill: (79309) - No such process
-
-Nov-03 15:06:11.081 [TaskFinalizer-2] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:phase_with_eagle (Eagle Phasing) -- command: kill -TERM 79394; exit: 1 
- bash: line 0: kill: (79394) - No such process
-
-Nov-03 15:06:11.085 [TaskFinalizer-2] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=7; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=5; succeedDuration=13.6s; failedDuration=1.1s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=12; peakCpus=12; peakMemory=0; ]
-Nov-03 15:06:11.107 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr14.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/79/2de4ac069f55137529c5fb28ae287c/CCDG_14151_B01_GRM_WGS_2020-08-05_chr14.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.110 [FileTransfer-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr13.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/44/e192490ac548edc4019a3064cec134/CCDG_14151_B01_GRM_WGS_2020-08-05_chr13.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.141 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr14.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/79/2de4ac069f55137529c5fb28ae287c/CCDG_14151_B01_GRM_WGS_2020-08-05_chr14.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.142 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/06/d44d8677b1eee0bd5f8c8e51cecd35/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.142 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/74/00ddc605c82aec0f8dcb185fa0701a/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.142 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/2c/eb3b532e7d0a2b9659eebdd4ca92ae/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.142 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr18.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/9e/ffc5944f784a39b1fac47016e51721/CCDG_14151_B01_GRM_WGS_2020-08-05_chr18.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.143 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/22/cb3c9c833dd497dcfc9e0cc22c4ef0/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.143 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr20.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/ec/c46763cc1ada33bcb9bf1432f9af5b/CCDG_14151_B01_GRM_WGS_2020-08-05_chr20.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.143 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr21.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/5d/0d0a7da84c2e1aa16fd6bd6d149425/CCDG_14151_B01_GRM_WGS_2020-08-05_chr21.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.143 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz to work dir: /Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/95/083aa5946ad5265dec65a5b48177dd/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz
-Nov-03 15:06:11.174 [FileTransfer-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/74/00ddc605c82aec0f8dcb185fa0701a/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.175 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/06/d44d8677b1eee0bd5f8c8e51cecd35/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.175 [FileTransfer-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/2c/eb3b532e7d0a2b9659eebdd4ca92ae/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.176 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr18.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/9e/ffc5944f784a39b1fac47016e51721/CCDG_14151_B01_GRM_WGS_2020-08-05_chr18.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.176 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr21.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/5d/0d0a7da84c2e1aa16fd6bd6d149425/CCDG_14151_B01_GRM_WGS_2020-08-05_chr21.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.177 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/22/cb3c9c833dd497dcfc9e0cc22c4ef0/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.177 [FileTransfer-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr20.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/ec/c46763cc1ada33bcb9bf1432f9af5b/CCDG_14151_B01_GRM_WGS_2020-08-05_chr20.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.181 [Actor Thread 11] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:11.192 [Actor Thread 5] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:11.203 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz to=/Users/jenc/Desktop/pipelines/ancestry-pipeline/work/stage-f603af36-03d5-4fa4-bdab-bb7681cc4555/95/083aa5946ad5265dec65a5b48177dd/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz size=0
-Nov-03 15:06:11.227 [main] DEBUG nextflow.Session - Session await > all processes finished
-Nov-03 15:06:11.227 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Nov-03 15:06:11.228 [Actor Thread 12] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle; work-dir=null
-  error [java.lang.InterruptedException]: java.lang.InterruptedException
-Nov-03 15:06:11.228 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=7; ignoredCount=0; cachedCount=0; pendingCount=2; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=5; succeedDuration=13.6s; failedDuration=1.1s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=12; peakCpus=12; peakMemory=0; ]
-Nov-03 15:06:11.232 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Nov-03 15:06:11.232 [Actor Thread 2] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:11.233 [Actor Thread 3] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:11.241 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@3.4.1'
-Nov-03 15:06:11.241 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
-Nov-03 15:06:11.241 [Actor Thread 9] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz -- Cause: java.nio.file.NoSuchFileException: /Users/jenc/Desktop/pipelines/ancestry-pipeline/test_data/input.vcf.gz
-Nov-03 15:06:11.242 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
-Nov-03 15:06:11.242 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.242 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.242 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.242 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.242 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.242 [FileTransfer-8] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-03 15:06:11.242 [FileTransfer-1] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-03 15:06:11.242 [FileTransfer-7] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-03 15:06:11.242 [FileTransfer-4] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-03 15:06:11.242 [FileTransfer-9] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-03 15:06:11.243 [Actor Thread 6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (16); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz -- reason: S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr16.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.244 [Actor Thread 1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (17); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz -- reason: S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr17.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.244 [Actor Thread 8] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (19); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz -- reason: S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr19.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.244 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (15); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz -- reason: S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr15.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
-Nov-03 15:06:11.244 [Actor Thread 7] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle (22); work-dir=null
-  error [nextflow.exception.ProcessStageException]: Can't stage file s3:///1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz -- reason: S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr22.filtered.shapeit2-duohmm-phased.vcf.gz cancelled
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Nov-04 10:49:36.755 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-04 10:49:36.755 [TaskFinalizer-1] DEBUG nextflow.Session - Session aborted -- Cause: Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (127)
+Nov-04 10:49:36.765 [TaskFinalizer-1] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=34ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Nov-04 10:49:36.834 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-04 10:49:36.835 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-04 10:49:36.836 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=34ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Nov-04 10:49:36.836 [TaskFinalizer-1] DEBUG nextflow.Session - null
+java.lang.InterruptedException: null
+	at java.base/java.lang.Object.wait0(Native Method)
+	at java.base/java.lang.Object.wait(Object.java:366)
+	at java.base/java.lang.Thread.join(Thread.java:2115)
+	at java.base/java.lang.Thread.join(Thread.java:2191)
+	at nextflow.trace.AnsiLogObserver.onFlowComplete(AnsiLogObserver.groovy:520)
+	at nextflow.Session$_notifyFlowComplete_lambda39.doCall(Session.groovy:1121)
+	at nextflow.Session.notifyEvent(Session.groovy:1151)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1121)
+	at nextflow.Session.shutdown0(Session.groovy:779)
+	at nextflow.Session.abort(Session.groovy:834)
+	at nextflow.Session.fault(Session.groovy:796)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:753)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:736)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1339)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1094)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:726)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:577)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Nov-04 10:49:36.964 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-04 10:49:36.974 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
