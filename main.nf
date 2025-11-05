@@ -45,9 +45,13 @@ workflow ancestry_pipeline {
 
     // now combine chromosomes with the actual file
     eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->
+
+        def vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+        def vcf_index = "${vcf}.tbi"
         [
             file(params.input_genotype),
-            file("s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"),
+            file(vcf),                    // reference VCF
+            file(vcf_index),              // reference VCF index
             file(map_file),  // ✅ now a resolved path, not a DataflowVariable
             chr
         ]
