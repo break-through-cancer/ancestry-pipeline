@@ -10,6 +10,7 @@ include { run_rfmix } from './modules/rfmix'
 */
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
+if (params.input_genotype_index) { input_genotype = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
 // if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
 //if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
 // if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
@@ -50,6 +51,7 @@ workflow ancestry_pipeline {
         def vcf_index = "${vcf}.tbi"
         [
             file(params.input_genotype),
+            file(params.input_genotype_index),
             file(vcf),                    // reference VCF
             file(vcf_index),              // reference VCF index
             file(map_file),  // ✅ now a resolved path, not a DataflowVariable

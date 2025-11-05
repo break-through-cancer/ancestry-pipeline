@@ -9,10 +9,19 @@
         "multiple": false,
         "pathType": "dataset",
         "file": "**/*"
+      },
+      "input_genotype_index": {
+        "title": "Input Genotype index",
+        "description": ".tbi file",
+        "type": "string",
+        "multiple": false,
+        "pathType": "dataset",
+        "file": "**/*"
       }
     },
     "required": [
-      "input_genotype"
+      "input_genotype",
+      "input_genotype_index"
     ]
   },
   "ui": {}

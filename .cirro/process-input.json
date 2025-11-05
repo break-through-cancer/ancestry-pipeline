@@ -3,5 +3,6 @@
     "write_to_cache": true,
     "final_workflow_outputs_dir": "$.dataset.dataPath",
     "input_genotype": "$.dataset.params.input_genotype",
+    "input_genotype_index": "$.dataset.params.input_genotype_index",
     "sample_map": "sample_map.txt"
  }

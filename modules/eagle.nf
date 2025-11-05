@@ -2,7 +2,7 @@ process phase_with_eagle {
     tag "Eagle Phasing"
 
     input:
-        tuple path(input_genotype), path(reference_vcf), path(ref_vcf_index), path(genetic_map), val(chromosome)
+        tuple path(input_genotype), path(input_genotype_index), path(reference_vcf), path(ref_vcf_index), path(genetic_map), val(chromosome)
 
     output:
         path "*.vcf.gz", emit: phased_vcf
