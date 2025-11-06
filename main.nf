@@ -66,7 +66,7 @@ workflow ancestry_pipeline {
         def ref_vcf_index = "${ref_vcf}.tbi"
 
         tuple(
-            val(chr),
+            chr,
             file(phased_vcf),
             file(ref_vcf),
             file(ref_vcf_index),

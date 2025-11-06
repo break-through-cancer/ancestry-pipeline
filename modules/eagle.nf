@@ -5,7 +5,7 @@ process phase_with_eagle {
         tuple path(input_genotype), path(input_genotype_index), path(reference_vcf), path(ref_vcf_index), path(genetic_map), val(chromosome)
 
     output:
-        tuple val(chromosome), path("*.vcf.gz"), emit: phased_vcf
+        tuple(val(chromosome), path("test.*.vcf.gz")), emit: phased_vcf
 
     script:
         """
