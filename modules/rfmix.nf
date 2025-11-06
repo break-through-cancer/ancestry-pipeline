@@ -2,10 +2,8 @@ process run_rfmix {
     tag "RFMix Ancestry"
 
     input:
-        path phased_vcf
-        path sample_map
-        path genetic_map
-        
+        tuple val(chromosome), file(phased_vcf), file(reference_vcf), file(reference_vcf_index), file(genetic_map), file(sample_map)
+
     output:
         path "rfmix_${chromosome}_results/*"
 

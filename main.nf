@@ -61,7 +61,21 @@ workflow ancestry_pipeline {
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
-    rfmix_results = run_rfmix(phased_vcf_ch, file(params.sample_map), map_file_ch)
+    rfmix_inputs_ch = phased_vcf_ch.combine(map_file_ch).map { chr, phased_vcf, map_file ->
+        def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+        def ref_vcf_index = "${ref_vcf}.tbi"
+
+        tuple(
+            val(chr),
+            file(phased_vcf),
+            file(ref_vcf),
+            file(ref_vcf_index),
+            file(map_file),
+            file(params.sample_map)
+        )
+    }
+
+    rfmix_results = run_rfmix(rfmix_inputs_ch)
 
     emit:
         rfmix_results
