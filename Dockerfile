@@ -18,11 +18,15 @@ RUN wget https://data.broadinstitute.org/alkesgroup/Eagle/downloads/Eagle_v2.4.1
 # Install built tools 
 RUN apt-get update && apt-get install -y \
     git \
+    libtool \
     autoconf \
     automake \
     make \
     g++ \
     && rm -rf /var/lib/apt/lists/*
+# install pandas
+
+RUN pip install pandas
 
 # 4. Install RFMix
 RUN git clone https://github.com/slowkoni/rfmix.git /opt/rfmix \

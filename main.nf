@@ -54,11 +54,11 @@ process download_sample_map {
     python3 - <<'EOF'
     import pandas as pd
 
-        panel_file = "integrated_call_samples_v3.20130502.ALL.panel"
-        df = pd.read_csv(panel_file, sep='\\t')
-        sample_map = df[['sample', 'pop']]
-        sample_map.to_csv("rfmix_sample_map.txt", sep='\\t', index=False, header=False)
-        print("✅ Sample map saved to rfmix_sample_map.txt")
+    panel_file = "integrated_call_samples_v3.20130502.ALL.panel"
+    df = pd.read_csv(panel_file, sep='\\t')
+    sample_map = df[['sample', 'pop']]
+    sample_map.to_csv("rfmix_sample_map.txt", sep='\\t', index=False, header=False)
+    print("✅ Sample map saved to rfmix_sample_map.txt")
     EOF
         """
     }
