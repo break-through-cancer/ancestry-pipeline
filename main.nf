@@ -36,13 +36,43 @@ process download_genetic_map {
     """
 }
 
+process download_sample_map {
+
+    output:
+        path "rfmix_sample_map.txt"
+
+    script:
+    """
+    if [ ! -f integrated_call_samples_v3.20130502.ALL.panel ]; then
+        echo "Downloading 1000 Genomes sample metadata..."
+        curl -s -L -o integrated_call_samples_v3.20130502.ALL.panel \\
+        https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+    else
+        echo "Panel file already exists, skipping download."
+    fi
+
+    python3 - <<'EOF'
+    import pandas as pd
+
+        panel_file = "integrated_call_samples_v3.20130502.ALL.panel"
+        df = pd.read_csv(panel_file, sep='\\t')
+        sample_map = df[['sample', 'pop']]
+        sample_map.to_csv("rfmix_sample_map.txt", sep='\\t', index=False, header=False)
+        print("✅ Sample map saved to rfmix_sample_map.txt")
+    EOF
+        """
+    }
+
+
 
 workflow ancestry_pipeline {
 
     chr_ch = Channel.from(1..22)
-    download_genetic_map()          
+    download_genetic_map()
+    download_sample_map()
     // ensure the process emits a usable file path
     map_file_ch = download_genetic_map.out.flatten()
+    sample_file_ch = download_sample_map.out.flatten()
 
     // now combine chromosomes with the actual file
     eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->
@@ -67,19 +97,24 @@ workflow ancestry_pipeline {
             tuple(chr, phased_vcf_file)
         }
 
-    rfmix_inputs_ch = phased_vcf_with_chr_ch.combine(map_file_ch).map { chr, phased_vcf, map_file ->
-        def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-        def ref_vcf_index = "${ref_vcf}.tbi"
+    rfmix_inputs_ch = phased_vcf_with_chr_ch
+        .combine(map_file_ch)
+        .combine(sample_file_ch)
+        .map { chr, phased_vcf, map_file, sample_map ->
 
-        tuple(
-            chr,
-            file(phased_vcf),
-            file(ref_vcf),
-            file(ref_vcf_index),
-            file(params.sample_map),
-            file(map_file)  // now this is the actual genetic map file
-        )
-    }
+            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+            def ref_vcf_index = "${ref_vcf}.tbi"
+
+            tuple(
+                chr,
+                file(phased_vcf),
+                file(ref_vcf),
+                file(ref_vcf_index),
+                file(sample_map),
+                file(map_file)
+            )
+        }
+
 
     rfmix_results = run_rfmix(rfmix_inputs_ch)
 
