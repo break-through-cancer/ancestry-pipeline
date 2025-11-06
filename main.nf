@@ -61,12 +61,12 @@ workflow ancestry_pipeline {
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
-    phased_vcf_with_chr_ch = eagle_inputs_ch.map { it[5] } // extract chromosomes
-        .zip(phased_vcf_ch)                               // zip with the emitted VCFs
-        .map { chr, phased_vcf_file ->
+    phased_vcf_with_chr_ch = phased_vcf_ch
+        .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
+        .map { phased_vcf_file, chr ->
             tuple(chr, phased_vcf_file)
         }
-        
+
     rfmix_inputs_ch = phased_vcf_with_chr_ch.combine(map_file_ch).map { chr, phased_vcf, map_file ->
         def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
         def ref_vcf_index = "${ref_vcf}.tbi"
