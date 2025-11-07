@@ -35,7 +35,7 @@ RUN git clone https://github.com/slowkoni/rfmix.git /opt/rfmix \
     && ./configure \
     && make
 
-ENV PATH="/opt/rfmix/bin:${PATH}"
+# ENV PATH="/opt/rfmix/bin:${PATH}"
 
 #clean
 RUN apt-get clean
