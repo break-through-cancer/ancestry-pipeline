@@ -24,6 +24,7 @@ process download_genetic_map {
 
     script:
     """
+    echo "=== Starting download_genetic_map process ==="
     if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
         echo "Downloading genetic map with curl..."
         curl -s -L -o genetic_map_hg38_withX.txt.gz \
@@ -31,8 +32,9 @@ process download_genetic_map {
     else
         echo "Genetic map already exists, skipping download."
     fi
-
-    zcat genetic_map_hg38_withX.txt.gz | sed -E '1!s/^([0-9XYM])/chr\\1/' > genetic_map_chr.txt
+    echo "Adding chr prefix to genetic map..."
+    zcat genetic_map_hg38_withX.txt.gz | sed -E '1!s/^([0-9XYM])/chr\1/' | gzip > genetic_map_chr.txt.gz
+    echo "Genetic map prepared: genetic_map_chr.txt.gz"
     """
 }
 
@@ -43,6 +45,7 @@ process download_sample_map {
 
     script:
     """
+    echo "=== Starting download_sample_map process ==="
     if [ ! -f integrated_call_samples_v3.20130502.ALL.panel ]; then
         echo "Downloading 1000 Genomes sample metadata..."
         curl -s -L -o integrated_call_samples_v3.20130502.ALL.panel \\
@@ -76,7 +79,7 @@ workflow ancestry_pipeline {
 
     // now combine chromosomes with the actual file
     eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->
-
+        println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
         def vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
         def vcf_index = "${vcf}.tbi"
         [
@@ -94,6 +97,7 @@ workflow ancestry_pipeline {
     phased_vcf_with_chr_ch = phased_vcf_ch
         .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
         .map { phased_vcf_file, chr ->
+            println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
             tuple(chr, phased_vcf_file)
         }
 
@@ -101,7 +105,7 @@ workflow ancestry_pipeline {
         .combine(map_file_ch)
         .combine(sample_file_ch)
         .map { chr, phased_vcf, map_file, sample_map ->
-
+            println "Preparing RFMix inputs for chromosome ${chr}:"
             def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
 
