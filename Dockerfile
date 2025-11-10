@@ -23,17 +23,23 @@ RUN apt-get update && apt-get install -y \
     automake \
     make \
     g++ \
+    build-essential \
+    cmake \
     && rm -rf /var/lib/apt/lists/*
 # install pandas
 
 RUN pip install pandas
 
 # 4. Install RFMix
-RUN git clone https://github.com/slowkoni/rfmix.git /opt/rfmix \
-    && cd /opt/rfmix \
-    && autoreconf --force --install \
-    && ./configure \
-    && make
+RUN git clone https://github.com/slowkoni/rfmix.git /opt/rfmix && \
+    cd /opt/rfmix && \
+    autoreconf --force --install && \
+    ./configure && \
+    make && \
+    cp rfmix /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/rfmix
+
 
 # ENV PATH="/opt/rfmix/bin:${PATH}"
 
@@ -42,6 +48,7 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 
 # default path
-ENV PATH="/usr/local/bin:$PATH"
+ENV PATH="/usr/local/bin:/opt/rfmix:${PATH}"
+
 
 CMD ["bash"]
