@@ -114,8 +114,8 @@ workflow ancestry_pipeline {
                 file(phased_vcf),
                 file(ref_vcf),
                 file(ref_vcf_index),
-                file(sample_map),
-                file(map_file)
+                file(map_file),
+                file(sample_map)
             )
         }
 

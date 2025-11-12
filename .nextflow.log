@@ -164,3 +164,58 @@ Nov-12 16:27:19.245 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying fo
 Nov-12 16:27:19.293 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c83f2434-6fc8-4c14-ae7a-573a2b58af0e/09/ce1e22db07db4fe6e74d7625e1f6aa/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz size=75889212857
 Nov-12 16:27:19.602 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c83f2434-6fc8-4c14-ae7a-573a2b58af0e/db/74be8b93064c9a6bcad8f6dbf61127/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi
 Nov-12 16:27:19.649 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c83f2434-6fc8-4c14-ae7a-573a2b58af0e/db/74be8b93064c9a6bcad8f6dbf61127/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi size=133604
+Nov-12 16:31:59.870 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-12 16:36:59.761 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-12 16:41:59.809 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-12 16:46:59.798 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-12 16:51:59.836 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > No more task to compute -- The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
