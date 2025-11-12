@@ -219,3 +219,50 @@ Nov-12 16:51:59.836 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! exe
   port 0: (queue) OPEN  ; channel: -
   port 1: (cntrl) -     ; channel: $
 
+Nov-12 16:54:56.870 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Nov-12 16:54:56.880 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-12 16:54:56.887 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+[process] ancestry_pipeline:phase_with_eagle
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-12 16:54:56.934 [SIGINT handler] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=9.6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Nov-12 16:54:57.060 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-12 16:54:57.061 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-12 16:54:57.089 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=9.6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Nov-12 16:54:57.096 [Actor Thread 4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ancestry_pipeline:phase_with_eagle; work-dir=null
+  error [java.lang.IllegalStateException]: Cannot obtain the semaphore to fork operator's body.
+Nov-12 16:54:57.109 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-12 16:54:57.157 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@3.4.1'
+Nov-12 16:54:57.158 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
+Nov-12 16:54:57.161 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Nov-12 16:54:57.193 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi cancelled
+Nov-12 16:54:57.193 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.193 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.193 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.194 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.198 [FileTransfer-6] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.198 [FileTransfer-2] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.201 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.199 [FileTransfer-4] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.200 [FileTransfer-8] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.201 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.201 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.201 [FileTransfer-10] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.201 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.201 [FileTransfer-5] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.202 [FileTransfer-3] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.202 [FileTransfer-9] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.202 [FileTransfer-1] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.205 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz cancelled
+Nov-12 16:54:57.208 [FileTransfer-7] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
+Nov-12 16:54:57.216 [FileTransfer-4] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-12 16:54:57.216 [FileTransfer-4] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-12 16:54:57.218 [FileTransfer-4] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode

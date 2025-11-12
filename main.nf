@@ -104,11 +104,10 @@ workflow ancestry_pipeline {
     rfmix_inputs_ch = phased_vcf_with_chr_ch
         .combine(map_file_ch)
         .combine(sample_file_ch)
-        .map { chr, phased_vcf, map_file, sample_map ->
-            println "Preparing RFMix inputs for chromosome ${chr}:"
+        .map { item, sample_map ->
+            def (chr, phased_vcf, map_file) = item
             def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
-
             tuple(
                 chr,
                 file(phased_vcf),
