@@ -87,7 +87,7 @@ workflow ancestry_pipeline {
             file(params.input_genotype_index),
             file(vcf),                    // reference VCF
             file(vcf_index),              // reference VCF index
-            file(map_file),  // ✅ now a resolved path, not a DataflowVariable
+            file(map_file), 
             chr
         ]
     }

@@ -9,6 +9,19 @@ process run_rfmix {
 
     script:
         """
+        echo "=== DEBUG INFO for chromosome ${chromosome} ==="
+        echo "Phased VCF: ${phased_vcf}"
+        echo "Reference VCF: ${reference_vcf}"
+        echo "Genetic map: ${genetic_map}"
+        echo "Sample map: ${sample_map}"
+
+        echo "--- Head of genetic map ---"
+        head ${genetic_map}
+
+        echo "--- Head of sample map ---"
+        head ${sample_map}
+
+        echo "--- Running RFMix ---"
         mkdir -p rfmix_${chromosome}_results
         rfmix \
             -f ${phased_vcf} \
