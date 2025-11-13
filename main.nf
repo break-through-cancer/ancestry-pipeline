@@ -1,5 +1,5 @@
 #!/usr/bin/env nextflow
-nextflow.enable.dsl = 2
+// nextflow.enable.dsl = 2
 include { phase_with_eagle } from './modules/eagle'
 include { run_rfmix } from './modules/rfmix'
 
@@ -10,7 +10,7 @@ include { run_rfmix } from './modules/rfmix'
 */
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
-if (params.input_genotype_index) { input_genotype = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
+if (params.input_genotype_index) { input_genotype_input = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
 // if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
 //if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
 if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
@@ -100,20 +100,17 @@ workflow ancestry_pipeline {
             println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
             tuple(chr, phased_vcf_file)
         }
-    phased_vcf_with_chr_ch.view { "PHASED: $it" }
-    map_file_ch.view { "MAP: $it" }
-    sample_file_ch.view { "SAMPLE: $it" }
-    combined1 = phased_vcf_with_chr_ch.combine(map_file_ch)
-    combined1.view { "COMBINED1: $it" }
-
-    combined2 = combined1.combine(sample_file_ch)
-    combined2.view { "COMBINED2: $it" }
-
-
     rfmix_inputs_ch = phased_vcf_with_chr_ch
         .combine(map_file_ch)
         .combine(sample_file_ch)
-        .map { (chr, phased_vcf, map_file), sample_map ->
+        .map { combined ->
+            def first_part = combined[0]   // this is (chr, phased_vcf)
+            def sample_map = combined[1]
+
+            def chr = first_part[0]
+            def phased_vcf = first_part[1]
+            def map_file = first_part[2]   // if your combine produces a tuple with 3 elements
+
             def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
 
@@ -126,6 +123,8 @@ workflow ancestry_pipeline {
                 file(sample_map)
             )
         }
+
+
 
     // rfmix_inputs_ch = phased_vcf_with_chr_ch.flatMap { chr, phased_vcf ->
 
