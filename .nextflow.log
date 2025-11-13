@@ -1,170 +1,78 @@
-Nov-13 18:18:11.241 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz.tbi
-Nov-13 18:18:11.631 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Nov-13 18:18:11.759 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
-Nov-13 18:18:11.768 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
-Nov-13 18:18:11.951 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-13 18:18:13.098 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Nov-13 18:18:13.125 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-13 18:18:13.126 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-13 18:18:13.131 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov-13 18:18:13.155 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Nov-13 18:18:13.382 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov-13 18:18:13.391 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov-13 18:18:13.391 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Nov-13 18:18:13.420 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Nov-13 18:18:13.427 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@367f0121] - activable => nextflow.secret.LocalSecretsProvider@367f0121
-Nov-13 18:18:13.433 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Nov-13 18:18:13.453 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [ridiculous_legentil] DSL2 - revision: a20097b8c5
-Nov-13 18:18:13.562 [main] DEBUG nextflow.Session - Session UUID: c4b921e7-1d66-4cac-ae83-51c491fbdc57
-Nov-13 18:18:13.563 [main] DEBUG nextflow.Session - Run name: ridiculous_legentil
-Nov-13 18:18:13.564 [main] DEBUG nextflow.Session - Executor pool size: 12
-Nov-13 18:18:13.574 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Nov-13 18:18:13.580 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-13 18:18:13.626 [main] DEBUG nextflow.cli.CmdRun - 
+Nov-13 18:45:56.989 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz.tbi
+Nov-13 18:45:57.402 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-13 18:45:57.586 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
+Nov-13 18:45:57.592 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
+Nov-13 18:45:57.693 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-13 18:45:58.844 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-13 18:45:58.871 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-13 18:45:58.872 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-13 18:45:58.876 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-13 18:45:58.900 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-13 18:45:59.148 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-13 18:45:59.156 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-13 18:45:59.157 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-13 18:45:59.251 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
+Nov-13 18:45:59.336 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@367f0121] - activable => nextflow.secret.LocalSecretsProvider@367f0121
+Nov-13 18:45:59.346 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Nov-13 18:45:59.363 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [modest_koch] DSL2 - revision: 22b720b62a
+Nov-13 18:45:59.474 [main] DEBUG nextflow.Session - Session UUID: 16e9a050-c099-47e4-8fb2-31cd690ba29e
+Nov-13 18:45:59.475 [main] DEBUG nextflow.Session - Run name: modest_koch
+Nov-13 18:45:59.476 [main] DEBUG nextflow.Session - Executor pool size: 12
+Nov-13 18:45:59.493 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-13 18:45:59.500 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-13 18:45:59.544 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (16:26 GMT)
   System: Linux 6.10.14-linuxkit
   Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.16+8-Ubuntu-0ubuntu122.04.1
   Encoding: UTF-8 (ANSI_X3.4-1968)
-  Process: 2490@9b33dbf09e5d [172.17.0.5]
-  CPUs: 12 - Mem: 7.7 GB (5.6 GB) - Swap: 1024 MB (1023.2 MB)
-Nov-13 18:18:13.718 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
-Nov-13 18:18:13.719 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
-Nov-13 18:18:13.732 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov-13 18:18:13.751 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Nov-13 18:18:13.755 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Nov-13 18:18:14.036 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov-13 18:18:14.058 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Nov-13 18:18:14.133 [main] DEBUG nextflow.Session - Session start
-Nov-13 18:18:15.042 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Nov-13 18:18:15.873 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 18:18:15.874 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 18:18:15.892 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Nov-13 18:18:15.902 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=7.7 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
-Nov-13 18:18:15.905 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Nov-13 18:18:15.947 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
-Nov-13 18:18:16.030 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 18:18:16.030 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 18:18:16.033 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_sample_map': maxForks=0; fair=false; array=0
-Nov-13 18:18:16.099 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 18:18:16.100 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 18:18:16.101 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
-Nov-13 18:18:16.129 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 18:18:16.130 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 18:18:16.131 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
-Nov-13 18:18:16.133 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map, download_sample_map, ancestry_pipeline:download_sample_map
-Nov-13 18:18:16.136 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
-Nov-13 18:18:16.139 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
-Nov-13 18:18:16.139 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_sample_map
-Nov-13 18:18:16.140 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
-Nov-13 18:18:16.141 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
-Nov-13 18:18:16.144 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_919dd290c694f590: /opt/work/modules/eagle.nf
+  Process: 2738@9b33dbf09e5d [172.17.0.5]
+  CPUs: 12 - Mem: 7.7 GB (5.5 GB) - Swap: 1024 MB (1023.2 MB)
+Nov-13 18:45:59.634 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
+Nov-13 18:45:59.636 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
+Nov-13 18:45:59.653 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-13 18:45:59.673 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-13 18:45:59.676 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-13 18:45:59.761 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-13 18:45:59.775 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Nov-13 18:45:59.840 [main] DEBUG nextflow.Session - Session start
+Nov-13 18:46:00.724 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-13 18:46:01.578 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-13 18:46:01.579 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-13 18:46:01.595 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-13 18:46:01.603 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=7.7 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Nov-13 18:46:01.605 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-13 18:46:01.658 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
+Nov-13 18:46:01.740 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-13 18:46:01.742 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-13 18:46:01.744 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_sample_map': maxForks=0; fair=false; array=0
+Nov-13 18:46:01.806 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-13 18:46:01.807 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-13 18:46:01.809 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
+Nov-13 18:46:01.836 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-13 18:46:01.836 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-13 18:46:01.837 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
+Nov-13 18:46:01.840 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map, download_sample_map, ancestry_pipeline:download_sample_map
+Nov-13 18:46:01.844 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
+Nov-13 18:46:01.850 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
+Nov-13 18:46:01.850 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_sample_map
+Nov-13 18:46:01.854 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
+Nov-13 18:46:01.856 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
+Nov-13 18:46:01.857 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_3cac3b566314fa06: /opt/work/main.nf
   Script_a5dd8ceb9f81cde0: /opt/work/modules/rfmix.nf
-  Script_0117336546a39ff5: /opt/work/main.nf
-Nov-13 18:18:16.146 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Nov-13 18:18:16.146 [main] DEBUG nextflow.Session - Session await
-Nov-13 18:18:16.689 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-13 18:18:16.693 [Task submitter] INFO  nextflow.Session - [90/bd972e] Submitted process > ancestry_pipeline:download_sample_map
-Nov-13 18:18:16.724 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-13 18:18:16.725 [Task submitter] INFO  nextflow.Session - [2c/6f6d4e] Submitted process > ancestry_pipeline:download_genetic_map
-Nov-13 18:18:18.904 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ancestry_pipeline:download_sample_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/90/bd972e0469ded051a63af563992f04]
-Nov-13 18:18:18.907 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-13 18:18:25.243 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055]
-Nov-13 18:18:25.255 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 1 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:25.973 [Actor Thread 13] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-amazon%403.4.1&nextflowVersion=25.10.0
-- code: 200
-- body: {"plugins":[{"id":"nf-amazon","downloadCount":16202,"downloadGhCount":1343356,"releases":[{"version":"3.4.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-amazon/3.4.1/download/nf-amazon-3.4.1.zip","date":"2025-10-22T16:29:06.396625Z","sha512sum":"bc7c4b6166aa5ef32df3362ceec263df434875b1db332594cd71c8d3f462adfcad55802034cbcfd269917e1efa4f45d224143f024fc1170d156daa40897f3873","requires":">=25.09.2-edge","dependsOn":[],"downloadCount":13508,"downloadGhCount":0,"status":"PUBLISHED","spec":null}],"projectUrl":"https://github.com/nextflow-io/nf-amazon","provider":"nextflow-io","description":null}]}
-Nov-13 18:18:26.050 [Actor Thread 13] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 3.4.1
-Nov-13 18:18:26.075 [Actor Thread 13] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@3.4.1' resolved
-Nov-13 18:18:26.076 [Actor Thread 13] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@3.4.1'
-Nov-13 18:18:26.148 [Actor Thread 13] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@3.4.1
-Nov-13 18:18:26.183 [Actor Thread 13] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
-Nov-13 18:18:26.183 [Actor Thread 13] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz
-Nov-13 18:18:26.200 [Actor Thread 13] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider; config=[:]
-Nov-13 18:18:26.225 [Actor Thread 13] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
-Nov-13 18:18:28.384 [Actor Thread 13] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
-Nov-13 18:18:29.277 [Actor Thread 13] DEBUG nextflow.cloud.aws.nio.S3Client - Unable to fetch caller account - (Service: S3, Status Code: 307, Request ID: K0NPNY7QYNH7K3BM, Extended Request ID: uH7zUsGrMDYp8PP+Ox7OqGfGGR/39DDRGsW46x240s99jWh5qRk+PNOQfjeOa8+IFqYQSeI75mw=) (SDK Attempt Count: 1) 
-Nov-13 18:18:29.353 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 2 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.365 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 3 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.376 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 4 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.403 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 5 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.428 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 6 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.469 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 7 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.478 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 8 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.519 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 9 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.553 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 10 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.565 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 11 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.571 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 12 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.584 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 13 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.601 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 14 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.608 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 15 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.612 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 16 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.623 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 17 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.636 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 18 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.641 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 19 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.651 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 20 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.653 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 21 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:29.656 [Actor Thread 13] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 22 with genetic map /opt/work/work/2c/6f6d4ee0773cfc652f2b4561e8d055/genetic_map_hg38_withX.txt.gz
-Nov-13 18:18:31.178 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/31/38eb92bda32513c6db2575d09ffd2d/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:31.173 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/7f/9551c20bf3124f22bd58941d2fcf08/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz
-Nov-13 18:18:31.173 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/94/6e5b847de64d727bab53862c0012ed/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:31.176 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/f4/23723ab283ee5e768e5e704768ea65/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz
-Nov-13 18:18:31.173 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/e2/690f2bc42a1e20173b9e02426b4552/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz
-Nov-13 18:18:31.176 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/7d/54c1bb932aa88e7c0783d5a7d266dd/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:31.176 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/e5/392727051393ca1c1195e157f7f999/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:31.174 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/d4/6bef80b24a03d122dd6f34931e36c4/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz
-Nov-13 18:18:31.178 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/7a/34ef3647a3f6ab29efe4ae2fa6d143/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz
-Nov-13 18:18:31.174 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/ef/8aa65d2966d74c28121612b0bde8e3/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:31.325 [FileTransfer-3] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/e2/690f2bc42a1e20173b9e02426b4552/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz size=115578736305
-Nov-13 18:18:31.383 [FileTransfer-3] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'S3TransferManager' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-13 18:18:31.427 [FileTransfer-3] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
-Nov-13 18:18:31.461 [FileTransfer-7] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/f4/23723ab283ee5e768e5e704768ea65/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz size=113734260323
-Nov-13 18:18:31.461 [FileTransfer-9] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/7a/34ef3647a3f6ab29efe4ae2fa6d143/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz size=98918615697
-Nov-13 18:18:31.461 [FileTransfer-1] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/7f/9551c20bf3124f22bd58941d2fcf08/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz size=104932963618
-Nov-13 18:18:31.506 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/94/6e5b847de64d727bab53862c0012ed/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz.tbi size=194299
-Nov-13 18:18:31.506 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/31/38eb92bda32513c6db2575d09ffd2d/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz.tbi size=184044
-Nov-13 18:18:31.517 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/7d/54c1bb932aa88e7c0783d5a7d266dd/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz.tbi size=248996
-Nov-13 18:18:31.522 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/e5/392727051393ca1c1195e157f7f999/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz.tbi size=205803
-Nov-13 18:18:31.522 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/ef/8aa65d2966d74c28121612b0bde8e3/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz.tbi size=213251
-Nov-13 18:18:31.522 [FileTransfer-5] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/d4/6bef80b24a03d122dd6f34931e36c4/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz size=139953589670
-Nov-13 18:18:33.249 [Actor Thread 9] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 4] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 14] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 6] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 11] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 12] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 17] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 10] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 5] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 7] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 15] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.249 [Actor Thread 8] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.397 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/71/f90ab4fedb5c98ee72a7227647d1cb/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:33.397 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/53/56260fee8ffb6722d6e7524b3bb637/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.576 [FileTransfer-4] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/53/56260fee8ffb6722d6e7524b3bb637/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz size=97513589335
-Nov-13 18:18:33.576 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/71/f90ab4fedb5c98ee72a7227647d1cb/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz.tbi size=173003
-Nov-13 18:18:33.761 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/f7/1ac92af28373b4b2b312a95d6ce0cb/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.768 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/6f/e9af646a869580dab0c16f6ae7e32f/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:33.878 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/6f/e9af646a869580dab0c16f6ae7e32f/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz.tbi size=157587
-Nov-13 18:18:33.884 [FileTransfer-8] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/f7/1ac92af28373b4b2b312a95d6ce0cb/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz size=89381178017
-Nov-13 18:18:33.914 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/23/7e6e67edabfd04abf84d3079393964/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz
-Nov-13 18:18:33.981 [FileTransfer-2] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/23/7e6e67edabfd04abf84d3079393964/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz size=142566325303
-Nov-13 18:18:35.337 [Actor Thread 12] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr10.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.337 [Actor Thread 17] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr12.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.337 [Actor Thread 11] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.338 [Actor Thread 4] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.338 [Actor Thread 14] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.339 [Actor Thread 5] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.339 [Actor Thread 15] INFO  nextflow.file.FilePorter - Staging foreign file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr11.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:35.948 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/57/d60195da036f733fcc7ce87890b8d6/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:36.020 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/57/d60195da036f733fcc7ce87890b8d6/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz.tbi size=261118
-Nov-13 18:18:36.330 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/df/63aa18c33faad695f35709277aaeaa/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz
-Nov-13 18:18:36.421 [FileTransfer-10] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/df/63aa18c33faad695f35709277aaeaa/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz size=75889212857
-Nov-13 18:18:36.728 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Copying foreign file s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi to work dir: /opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/ec/68416ba790c80b21a8cefcd9c3ae8a/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi
-Nov-13 18:18:36.822 [FileTransfer-6] DEBUG n.cloud.aws.nio.S3FileSystemProvider - S3 download file from=s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi to=/opt/work/work/stage-c4b921e7-1d66-4cac-ae83-51c491fbdc57/ec/68416ba790c80b21a8cefcd9c3ae8a/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi size=133604
-Nov-13 18:18:46.588 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
-Nov-13 18:18:46.658 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+  Script_919dd290c694f590: /opt/work/modules/eagle.nf
+Nov-13 18:46:01.858 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-13 18:46:01.858 [main] DEBUG nextflow.Session - Session await
+Nov-13 18:46:02.427 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-13 18:46:02.435 [Task submitter] INFO  nextflow.Session - [ff/1a61dd] Submitted process > ancestry_pipeline:download_genetic_map
+Nov-13 18:46:02.467 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-13 18:46:02.469 [Task submitter] INFO  nextflow.Session - [08/6f3bd8] Submitted process > ancestry_pipeline:download_sample_map
+Nov-13 18:46:04.138 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_sample_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/08/6f3bd8d19790b5055fda1521b3cf70]
+Nov-13 18:46:04.140 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-13 18:46:05.157 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Nov-13 18:46:05.190 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-13 18:46:05.201 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
 [process] ancestry_pipeline:phase_with_eagle
   status=ACTIVE
   port 0: (queue) OPEN  ; channel: -
@@ -175,38 +83,13 @@ Nov-13 18:18:46.658 [SIGINT handler] DEBUG nextflow.Session - The following node
   port 0: (queue) OPEN  ; channel: -
   port 1: (cntrl) -     ; channel: $
 
-Nov-13 18:18:46.666 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Nov-13 18:18:46.681 [SIGINT handler] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=10.6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
-Nov-13 18:18:46.895 [main] DEBUG nextflow.Session - Session await > all processes finished
-Nov-13 18:18:46.910 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Nov-13 18:18:46.923 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=10.6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
-Nov-13 18:18:46.924 [Actor Thread 1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:phase_with_eagle; work-dir=null
-  error [java.lang.IllegalStateException]: Cannot obtain the semaphore to fork operator's body.
-Nov-13 18:18:46.937 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Nov-13 18:18:47.002 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@3.4.1'
-Nov-13 18:18:47.005 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
-Nov-13 18:18:47.008 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
-Nov-13 18:18:47.014 [FileTransfer-4] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr7.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.014 [FileTransfer-6] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz.tbi cancelled
-Nov-13 18:18:47.014 [FileTransfer-8] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr8.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.024 [FileTransfer-2] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr2.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.014 [FileTransfer-10] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr9.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.029 [FileTransfer-2] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.032 [FileTransfer-3] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr3.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.032 [FileTransfer-3] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.032 [FileTransfer-9] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr6.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.032 [FileTransfer-5] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.032 [FileTransfer-7] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr4.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.030 [FileTransfer-8] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.032 [FileTransfer-1] DEBUG nextflow.file.FilePorter - Stage foreign file exception: recoverable=false; type=java.io.InterruptedIOException; message=S3 download file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr5.recalibrated_variants.vcf.gz cancelled
-Nov-13 18:18:47.033 [FileTransfer-5] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.033 [FileTransfer-9] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.030 [FileTransfer-4] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.029 [FileTransfer-10] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.029 [FileTransfer-6] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.033 [FileTransfer-7] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.037 [FileTransfer-1] DEBUG nextflow.plugin.PluginsFacade - Using Default plugin manager
-Nov-13 18:18:47.042 [FileTransfer-2] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-13 18:18:47.043 [FileTransfer-2] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-13 18:18:47.046 [FileTransfer-2] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-13 18:46:05.209 [SIGINT handler] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Nov-13 18:46:05.257 [SIGINT handler] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:download_genetic_map -- command: kill -TERM 2848; exit: 1 
+ bash: line 1: kill: (2848) - No such process
+
+Nov-13 18:46:05.267 [SIGINT handler] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=1.6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Nov-13 18:46:05.530 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-13 18:46:05.535 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-13 18:46:05.540 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=1.6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
+Nov-13 18:46:05.549 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-13 18:46:05.577 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

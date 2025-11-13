@@ -101,32 +101,48 @@ workflow ancestry_pipeline {
             tuple(chr, phased_vcf_file)
         }
 
-    rfmix_inputs_ch = phased_vcf_with_chr_ch.flatMap { chr, phased_vcf ->
+    def map_file = map_file_ch.first()
+    def sample_map = sample_file_ch.first()
+    rfmix_inputs_ch = phased_vcf_with_chr_ch.map { chr, phased_vcf ->
+        def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+        def ref_vcf_index = "${ref_vcf}.tbi"
 
-        def tuples = []
-
-        // collect the single genetic map file(s) into a list
-        map_file_ch.toList().each { map_file ->
-
-            // collect the single sample map file(s) into a list
-            sample_file_ch.toList().each { sample_map ->
-
-                def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-                def ref_vcf_index = "${ref_vcf}.tbi"
-
-                tuples << tuple(
-                    chr,
-                    file(phased_vcf),
-                    file(ref_vcf),
-                    file(ref_vcf_index),
-                    file(map_file),
-                    file(sample_map)
-                )
-            }
-        }
+        tuple(
+            chr,
+            file(phased_vcf),
+            file(ref_vcf),
+            file(ref_vcf_index),
+            file(map_file),
+            file(sample_map)
+        )
     }
+    // rfmix_inputs_ch = phased_vcf_with_chr_ch.flatMap { chr, phased_vcf ->
 
-    // return tuples
+    //     def tuples = []
+
+    //     // collect the single genetic map file(s) into a list
+    //     map_file_ch.toList().each { map_file ->
+
+    //         // collect the single sample map file(s) into a list
+    //         sample_file_ch.toList().each { sample_map ->
+
+    //             def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+    //             def ref_vcf_index = "${ref_vcf}.tbi"
+
+    //             tuples << tuple(
+    //                 chr,
+    //                 file(phased_vcf),
+    //                 file(ref_vcf),
+    //                 file(ref_vcf_index),
+    //                 file(map_file),
+    //                 file(sample_map)
+    //             )
+    //         }
+    //     }
+    //     return tuples
+    // }
+
+    // 
     // phased_vcf_with_chr_ch
     //     .combine(map_file_ch)
     //     .combine(sample_file_ch)
