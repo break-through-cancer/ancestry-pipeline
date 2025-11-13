@@ -20,7 +20,7 @@ if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please
 process download_genetic_map {
     
     output:
-    path "genetic_map_hg38_withX.txt.gz"
+    path "genetic_map_chr.txt.gz"
 
     script:
     """
