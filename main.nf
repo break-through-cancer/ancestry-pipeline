@@ -100,29 +100,38 @@ workflow ancestry_pipeline {
             println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
             tuple(chr, phased_vcf_file)
         }
+    // rfmix_inputs_ch = phased_vcf_with_chr_ch
+    //     .combine(map_file_ch)
+    //     .combine(sample_file_ch)
+    //     .map { combined ->
+    //         def first_part = combined[0]   // this is (chr, phased_vcf)
+    //         def sample_map = combined[1]
+
+    //         def chr = first_part[0]
+    //         def phased_vcf = first_part[1]
+    //         def map_file = first_part[2]   // if your combine produces a tuple with 3 elements
+
+    //         def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+    //         def ref_vcf_index = "${ref_vcf}.tbi"
+
+    //         tuple(
+    //             chr,
+    //             file(phased_vcf),
+    //             file(ref_vcf),
+    //             file(ref_vcf_index),
+    //             file(map_file),
+    //             file(sample_map)
+    //         )
+    //     }
+    phased_vcf_with_chr_ch.view { println "phased_vcf_with_chr_ch = $it" }
+    map_file_ch.view { println "map_file_ch = $it" }
+    sample_file_ch.view { println "sample_file_ch = $it" }
+
     rfmix_inputs_ch = phased_vcf_with_chr_ch
         .combine(map_file_ch)
         .combine(sample_file_ch)
-        .map { combined ->
-            def first_part = combined[0]   // this is (chr, phased_vcf)
-            def sample_map = combined[1]
 
-            def chr = first_part[0]
-            def phased_vcf = first_part[1]
-            def map_file = first_part[2]   // if your combine produces a tuple with 3 elements
-
-            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-            def ref_vcf_index = "${ref_vcf}.tbi"
-
-            tuple(
-                chr,
-                file(phased_vcf),
-                file(ref_vcf),
-                file(ref_vcf_index),
-                file(map_file),
-                file(sample_map)
-            )
-        }
+    rfmix_inputs_ch.view { println "rfmix_inputs_ch = $it" }
 
 
 
