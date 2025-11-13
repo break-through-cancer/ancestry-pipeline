@@ -100,22 +100,33 @@ workflow ancestry_pipeline {
             println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
             tuple(chr, phased_vcf_file)
         }
+    phased_vcf_with_chr_ch.view { "PHASED: $it" }
+    map_file_ch.view { "MAP: $it" }
+    sample_file_ch.view { "SAMPLE: $it" }
+    combined1 = phased_vcf_with_chr_ch.combine(map_file_ch)
+    combined1.view { "COMBINED1: $it" }
 
-    def map_file = map_file_ch.first()
-    def sample_map = sample_file_ch.first()
-    rfmix_inputs_ch = phased_vcf_with_chr_ch.map { chr, phased_vcf ->
-        def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-        def ref_vcf_index = "${ref_vcf}.tbi"
+    combined2 = combined1.combine(sample_file_ch)
+    combined2.view { "COMBINED2: $it" }
 
-        tuple(
-            chr,
-            file(phased_vcf),
-            file(ref_vcf),
-            file(ref_vcf_index),
-            file(map_file),
-            file(sample_map)
-        )
-    }
+
+    rfmix_inputs_ch = phased_vcf_with_chr_ch
+        .combine(map_file_ch)
+        .combine(sample_file_ch)
+        .map { (chr, phased_vcf, map_file), sample_map ->
+            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+            def ref_vcf_index = "${ref_vcf}.tbi"
+
+            tuple(
+                chr,
+                file(phased_vcf),
+                file(ref_vcf),
+                file(ref_vcf_index),
+                file(map_file),
+                file(sample_map)
+            )
+        }
+
     // rfmix_inputs_ch = phased_vcf_with_chr_ch.flatMap { chr, phased_vcf ->
 
     //     def tuples = []
