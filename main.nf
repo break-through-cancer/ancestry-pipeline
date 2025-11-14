@@ -38,6 +38,24 @@ process download_genetic_map {
     """
 }
 
+process download_genetic_map_eagle {
+    
+    output:
+    path "genetic_map_hg38_withX.txt.gz"
+
+    script:
+    """
+    echo "=== Starting download_genetic_map process ==="
+    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+        echo "Downloading genetic map with curl..."
+        curl -s -L -o genetic_map_hg38_withX.txt.gz \
+        https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+    else
+        echo "Genetic map already exists, skipping download."
+    fi
+    """
+}
+
 process download_sample_map {
 
     output:
@@ -72,13 +90,15 @@ workflow ancestry_pipeline {
 
     chr_ch = Channel.from(1..22)
     download_genetic_map()
+    download_genetic_map_eagle()
     download_sample_map()
     // ensure the process emits a usable file path
     map_file_ch = download_genetic_map.out.flatten()
+    map_file_eagle_ch = download_genetic_map_eagle.out.flatten()
     sample_file_ch = download_sample_map.out.flatten()
 
     // now combine chromosomes with the actual file
-    eagle_inputs_ch = chr_ch.combine(map_file_ch).map { chr, map_file ->
+    eagle_inputs_ch = chr_ch.combine(map_file_eagle_ch).map { chr, map_file ->
         println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
         def vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
         def vcf_index = "${vcf}.tbi"
