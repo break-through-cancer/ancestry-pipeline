@@ -32,11 +32,13 @@ process download_genetic_map {
     else
         echo "Genetic map already exists, skipping download."
     fi
-    echo "Adding chr prefix to genetic map..."
+    echo "Adding chr prefix..."
     zcat genetic_map_hg38_withX.txt.gz \
-    | awk 'BEGIN{OFS="\t"} NR==1 || $1 ~ /^[0-9XYM]+$/ { $1="chr"$1 } {print}' \
+    | sed -E '/^[0-9XYM]+[[:space:]]/ s/^/chr/' \
     | gzip > genetic_map_chr.txt.gz
-    echo "Genetic map prepared: genetic_map_chr.txt.gz"
+
+    echo "=== Preview of first 10 lines ==="
+    zcat genetic_map_chr.txt.gz | head -n 10
     """
 }
 
@@ -213,3 +215,6 @@ workflow ancestry_pipeline {
 workflow { ancestry_pipeline() }
 
 
+// workflow run_download_genetic_map {
+//     download_genetic_map()
+// }

@@ -1,74 +1,58 @@
-Nov-13 19:59:31.212 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz.tbi
-Nov-13 19:59:31.583 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Nov-13 19:59:31.735 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
-Nov-13 19:59:31.752 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
-Nov-13 19:59:31.871 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-13 19:59:32.993 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Nov-13 19:59:33.023 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-13 19:59:33.024 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-13 19:59:33.030 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov-13 19:59:33.056 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Nov-13 19:59:33.281 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov-13 19:59:33.288 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov-13 19:59:33.289 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Nov-13 19:59:33.346 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Nov-13 19:59:33.356 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@367f0121] - activable => nextflow.secret.LocalSecretsProvider@367f0121
-Nov-13 19:59:33.365 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Nov-13 19:59:33.426 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [spontaneous_mandelbrot] DSL2 - revision: 9013893462
-Nov-13 19:59:33.626 [main] DEBUG nextflow.Session - Session UUID: 34102b08-ff06-4a2e-8695-3e9cdf49a04f
-Nov-13 19:59:33.627 [main] DEBUG nextflow.Session - Run name: spontaneous_mandelbrot
-Nov-13 19:59:33.628 [main] DEBUG nextflow.Session - Executor pool size: 12
-Nov-13 19:59:33.639 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Nov-13 19:59:33.647 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-13 19:59:33.694 [main] DEBUG nextflow.cli.CmdRun - 
+Nov-14 19:33:10.838 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v./nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz.tbi
+Nov-14 19:33:11.217 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-14 19:33:11.371 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
+Nov-14 19:33:11.388 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
+Nov-14 19:33:11.508 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-14 19:33:12.579 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-14 19:33:12.605 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-14 19:33:12.606 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-14 19:33:12.611 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-14 19:33:12.637 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-14 19:33:12.858 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-14 19:33:12.868 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-14 19:33:12.868 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-14 19:33:12.891 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
+Nov-14 19:33:12.899 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@32b0876c] - activable => nextflow.secret.LocalSecretsProvider@32b0876c
+Nov-14 19:33:12.906 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Nov-14 19:33:12.923 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [sleepy_poincare] DSL2 - revision: 7cb7bbb4f2
+Nov-14 19:33:12.997 [main] DEBUG nextflow.Session - Session UUID: 46ca1444-018c-4e40-9c6a-3612ae5f6e5c
+Nov-14 19:33:12.997 [main] DEBUG nextflow.Session - Run name: sleepy_poincare
+Nov-14 19:33:13.001 [main] DEBUG nextflow.Session - Executor pool size: 12
+Nov-14 19:33:13.016 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-14 19:33:13.022 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-14 19:33:13.091 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (16:26 GMT)
   System: Linux 6.10.14-linuxkit
   Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.16+8-Ubuntu-0ubuntu122.04.1
   Encoding: UTF-8 (ANSI_X3.4-1968)
-  Process: 3804@9b33dbf09e5d [172.17.0.5]
-  CPUs: 12 - Mem: 7.7 GB (5.4 GB) - Swap: 1024 MB (1023.2 MB)
-Nov-13 19:59:33.791 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
-Nov-13 19:59:33.792 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
-Nov-13 19:59:33.803 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov-13 19:59:33.823 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Nov-13 19:59:33.828 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Nov-13 19:59:33.912 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov-13 19:59:33.926 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Nov-13 19:59:33.986 [main] DEBUG nextflow.Session - Session start
-Nov-13 19:59:34.721 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-Nov-13 19:59:34.758 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
-Nov-13 19:59:34.808 [main] ERROR nextflow.cli.Launcher - Script compilation error
+  Process: 5349@9b33dbf09e5d [172.17.0.5]
+  CPUs: 12 - Mem: 7.7 GB (5.3 GB) - Swap: 1024 MB (1023.2 MB)
+Nov-14 19:33:13.178 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
+Nov-14 19:33:13.180 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
+Nov-14 19:33:13.193 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-14 19:33:13.217 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-14 19:33:13.230 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-14 19:33:13.392 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-14 19:33:13.464 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Nov-14 19:33:13.595 [main] DEBUG nextflow.Session - Session start
+Nov-14 19:33:13.966 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+Nov-14 19:33:14.007 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Nov-14 19:33:14.046 [main] ERROR nextflow.cli.Launcher - Script compilation error
 - file : /opt/work/main.nf
-- cause: The current parameter list already contains a parameter of the name map_file
- @ line 112, column 35.
-           map_file_ch.toList().each { map_file ->
-                                     ^
-
-Script compilation error
-- file : /opt/work/main.nf
-- cause: The current parameter list already contains a parameter of the name sample_map
- @ line 115, column 42.
-    sample_file_ch.toList().each { sample_m
+- cause: token recognition error at: '/' @ line 37, column 56.
+    } NR==1 || \$1 ~ /^[0-9XYM]+$/ { \$1="c
                                  ^
 
-2 errors
+1 error
 
 nextflow.exception.ScriptCompilationException: Script compilation error
 - file : /opt/work/main.nf
-- cause: The current parameter list already contains a parameter of the name map_file
- @ line 112, column 35.
-           map_file_ch.toList().each { map_file ->
-                                     ^
-
-Script compilation error
-- file : /opt/work/main.nf
-- cause: The current parameter list already contains a parameter of the name sample_map
- @ line 115, column 42.
-    sample_file_ch.toList().each { sample_m
+- cause: token recognition error at: '/' @ line 37, column 56.
+    } NR==1 || \$1 ~ /^[0-9XYM]+$/ { \$1="c
                                  ^
 
-2 errors
+1 error
 
 	at nextflow.script.parser.v1.ScriptLoaderV1.parse0(ScriptLoaderV1.groovy:204)
 	at nextflow.script.parser.v1.ScriptLoaderV1.parse(ScriptLoaderV1.groovy:215)
@@ -79,22 +63,41 @@ Script compilation error
 	at nextflow.cli.Launcher.run(Launcher.groovy:515)
 	at nextflow.cli.Launcher.main(Launcher.groovy:675)
 Caused by: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
-Script_99d4135d8a82e9dc: 112: The current parameter list already contains a parameter of the name map_file
- @ line 112, column 35.
-           map_file_ch.toList().each { map_file ->
-                                     ^
-
-Script_99d4135d8a82e9dc: 115: The current parameter list already contains a parameter of the name sample_map
- @ line 115, column 42.
-    sample_file_ch.toList().each { sample_m
+Script_8dd07bc954272bd4: 37: token recognition error at: '/' @ line 37, column 56.
+    } NR==1 || \$1 ~ /^[0-9XYM]+$/ { \$1="c
                                  ^
 
-2 errors
+1 error
 
 	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:292)
-	at org.codehaus.groovy.control.CompilationUnit$ISourceUnitOperation.doPhaseOperation(CompilationUnit.java:878)
-	at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:660)
-	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:634)
+	at org.codehaus.groovy.control.ErrorCollector.addFatalError(ErrorCollector.java:148)
+	at org.apache.groovy.parser.antlr4.AstBuilder.collectSyntaxError(AstBuilder.java:4739)
+	at org.apache.groovy.parser.antlr4.AstBuilder.access$100(AstBuilder.java:169)
+	at org.apache.groovy.parser.antlr4.AstBuilder$3.syntaxError(AstBuilder.java:4750)
+	at groovyjarjarantlr4.v4.runtime.ProxyErrorListener.syntaxError(ProxyErrorListener.java:44)
+	at groovyjarjarantlr4.v4.runtime.Lexer.notifyListeners(Lexer.java:381)
+	at groovyjarjarantlr4.v4.runtime.Lexer.nextToken(Lexer.java:145)
+	at groovyjarjarantlr4.v4.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:170)
+	at groovyjarjarantlr4.v4.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:153)
+	at groovyjarjarantlr4.v4.runtime.BufferedTokenStream.consume(BufferedTokenStream.java:137)
+	at groovyjarjarantlr4.v4.runtime.atn.ParserATNSimulator.execDFA(ParserATNSimulator.java:562)
+	at groovyjarjarantlr4.v4.runtime.atn.ParserATNSimulator.adaptivePredict(ParserATNSimulator.java:400)
+	at groovyjarjarantlr4.v4.runtime.atn.ParserATNSimulator.adaptivePredict(ParserATNSimulator.java:355)
+	at org.apache.groovy.parser.antlr4.GroovyParser.commandExpression(GroovyParser.java:9702)
+	at org.apache.groovy.parser.antlr4.GroovyParser.statementExpression(GroovyParser.java:8233)
+	at org.apache.groovy.parser.antlr4.GroovyParser.statement(GroovyParser.java:7078)
+	at org.apache.groovy.parser.antlr4.GroovyParser.scriptStatement(GroovyParser.java:517)
+	at org.apache.groovy.parser.antlr4.GroovyParser.scriptStatements(GroovyParser.java:427)
+	at org.apache.groovy.parser.antlr4.GroovyParser.compilationUnit(GroovyParser.java:363)
+	at org.apache.groovy.parser.antlr4.AstBuilder.buildCST(AstBuilder.java:243)
+	at org.apache.groovy.parser.antlr4.AstBuilder.buildCST(AstBuilder.java:221)
+	at org.apache.groovy.parser.antlr4.AstBuilder.buildAST(AstBuilder.java:262)
+	at org.apache.groovy.parser.antlr4.Antlr4ParserPlugin.buildAST(Antlr4ParserPlugin.java:58)
+	at org.codehaus.groovy.control.SourceUnit.buildAST(SourceUnit.java:256)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:631)
 	at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:365)
 	at groovy.lang.GroovyClassLoader.lambda$parseClass$2(GroovyClassLoader.java:314)
 	at org.codehaus.groovy.runtime.memoize.StampedCommonCache.compute(StampedCommonCache.java:163)

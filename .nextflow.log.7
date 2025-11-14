@@ -1,78 +1,120 @@
-Nov-13 20:00:07.125 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz.tbi
-Nov-13 20:00:07.493 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Nov-13 20:00:07.609 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
-Nov-13 20:00:07.622 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
-Nov-13 20:00:07.788 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-13 20:00:08.893 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Nov-13 20:00:08.921 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-13 20:00:08.922 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-13 20:00:08.926 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Nov-13 20:00:08.949 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Nov-13 20:00:09.160 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov-13 20:00:09.168 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov-13 20:00:09.168 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Nov-13 20:00:09.194 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Nov-13 20:00:09.202 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@367f0121] - activable => nextflow.secret.LocalSecretsProvider@367f0121
-Nov-13 20:00:09.209 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
-Nov-13 20:00:09.225 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [distracted_goldstine] DSL2 - revision: 7914589beb
-Nov-13 20:00:09.332 [main] DEBUG nextflow.Session - Session UUID: 88401508-0d1c-4a3e-ab0f-c02f7b1f12d7
-Nov-13 20:00:09.333 [main] DEBUG nextflow.Session - Run name: distracted_goldstine
-Nov-13 20:00:09.334 [main] DEBUG nextflow.Session - Executor pool size: 12
-Nov-13 20:00:09.344 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Nov-13 20:00:09.351 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-13 20:00:09.388 [main] DEBUG nextflow.cli.CmdRun - 
+Nov-14 19:34:26.652 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v./nextflow run main.nf --input_genotype test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz --input_genotype_index test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5.vcf.gz.tbi
+Nov-14 19:34:27.027 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Nov-14 19:34:27.223 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
+Nov-14 19:34:27.229 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
+Nov-14 19:34:27.319 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-14 19:34:28.460 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Nov-14 19:34:28.487 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-14 19:34:28.488 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-14 19:34:28.493 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-14 19:34:28.521 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Nov-14 19:34:28.846 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-14 19:34:28.890 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-14 19:34:28.891 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-14 19:34:28.946 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
+Nov-14 19:34:28.956 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@32b0876c] - activable => nextflow.secret.LocalSecretsProvider@32b0876c
+Nov-14 19:34:28.963 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Nov-14 19:34:28.984 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [happy_darwin] DSL2 - revision: 0a2b2d651d
+Nov-14 19:34:29.068 [main] DEBUG nextflow.Session - Session UUID: d6dfe8f2-8ec0-4d53-ac20-efade448f9f0
+Nov-14 19:34:29.068 [main] DEBUG nextflow.Session - Run name: happy_darwin
+Nov-14 19:34:29.069 [main] DEBUG nextflow.Session - Executor pool size: 12
+Nov-14 19:34:29.081 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-14 19:34:29.087 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-14 19:34:29.126 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (16:26 GMT)
   System: Linux 6.10.14-linuxkit
   Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.16+8-Ubuntu-0ubuntu122.04.1
   Encoding: UTF-8 (ANSI_X3.4-1968)
-  Process: 3893@9b33dbf09e5d [172.17.0.5]
-  CPUs: 12 - Mem: 7.7 GB (5.4 GB) - Swap: 1024 MB (1023.2 MB)
-Nov-13 20:00:09.478 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
-Nov-13 20:00:09.479 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
-Nov-13 20:00:09.496 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov-13 20:00:09.517 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Nov-13 20:00:09.520 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Nov-13 20:00:09.674 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Nov-13 20:00:09.709 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Nov-13 20:00:09.862 [main] DEBUG nextflow.Session - Session start
-Nov-13 20:00:10.805 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Nov-13 20:00:11.514 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 20:00:11.515 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 20:00:11.534 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Nov-13 20:00:11.541 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=7.7 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
-Nov-13 20:00:11.544 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Nov-13 20:00:11.586 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
-Nov-13 20:00:11.667 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 20:00:11.668 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 20:00:11.670 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_sample_map': maxForks=0; fair=false; array=0
-Nov-13 20:00:11.759 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 20:00:11.760 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 20:00:11.762 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
-Nov-13 20:00:11.801 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Nov-13 20:00:11.802 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Nov-13 20:00:11.803 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
-Nov-13 20:00:11.807 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map, download_sample_map, ancestry_pipeline:download_sample_map
-Nov-13 20:00:11.812 [main] DEBUG nextflow.Session - Igniting dataflow network (5)
-Nov-13 20:00:11.814 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
-Nov-13 20:00:11.814 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_sample_map
-Nov-13 20:00:11.815 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
-Nov-13 20:00:11.816 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
-Nov-13 20:00:11.820 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_2223a2624667d40e: /opt/work/main.nf
-  Script_a5dd8ceb9f81cde0: /opt/work/modules/rfmix.nf
+  Process: 5437@9b33dbf09e5d [172.17.0.5]
+  CPUs: 12 - Mem: 7.7 GB (5.3 GB) - Swap: 1024 MB (1023.2 MB)
+Nov-14 19:34:29.201 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
+Nov-14 19:34:29.202 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
+Nov-14 19:34:29.223 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-14 19:34:29.245 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-14 19:34:29.249 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Nov-14 19:34:29.333 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-14 19:34:29.348 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Nov-14 19:34:29.412 [main] DEBUG nextflow.Session - Session start
+Nov-14 19:34:30.348 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-14 19:34:31.114 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:34:31.115 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:34:31.133 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-14 19:34:31.141 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=7.7 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Nov-14 19:34:31.142 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-14 19:34:31.181 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
+Nov-14 19:34:31.283 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:34:31.284 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:34:31.285 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map_eagle': maxForks=0; fair=false; array=0
+Nov-14 19:34:31.288 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:34:31.288 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:34:31.289 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_sample_map': maxForks=0; fair=false; array=0
+Nov-14 19:34:31.362 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:34:31.363 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:34:31.364 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
+Nov-14 19:34:31.412 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:34:31.414 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:34:31.414 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
+Nov-14 19:34:31.419 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:download_genetic_map_eagle, ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, download_genetic_map_eagle, run_rfmix, ancestry_pipeline:download_genetic_map, download_genetic_map, download_sample_map, ancestry_pipeline:download_sample_map
+Nov-14 19:34:31.423 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Nov-14 19:34:31.424 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
+Nov-14 19:34:31.425 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map_eagle
+Nov-14 19:34:31.425 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_sample_map
+Nov-14 19:34:31.426 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
+Nov-14 19:34:31.428 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
+Nov-14 19:34:31.429 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_919dd290c694f590: /opt/work/modules/eagle.nf
-Nov-13 20:00:11.821 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Nov-13 20:00:11.821 [main] DEBUG nextflow.Session - Session await
-Nov-13 20:00:12.155 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-13 20:00:12.266 [Task submitter] INFO  nextflow.Session - [6f/c664d5] Submitted process > ancestry_pipeline:download_sample_map
-Nov-13 20:00:12.397 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Nov-13 20:00:12.399 [Task submitter] INFO  nextflow.Session - [02/86015c] Submitted process > ancestry_pipeline:download_genetic_map
-Nov-13 20:00:13.712 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_sample_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/6f/c664d56210e9d0c02060093c8a7db4]
-Nov-13 20:00:13.714 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Nov-13 20:00:16.252 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
-Nov-13 20:00:16.283 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Nov-13 20:00:16.301 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+  Script_a5dd8ceb9f81cde0: /opt/work/modules/rfmix.nf
+  Script_aa39f5303cea7079: /opt/work/main.nf
+Nov-14 19:34:31.429 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-14 19:34:31.429 [main] DEBUG nextflow.Session - Session await
+Nov-14 19:34:32.098 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 19:34:32.102 [Task submitter] INFO  nextflow.Session - [40/54a903] Submitted process > ancestry_pipeline:download_sample_map
+Nov-14 19:34:32.134 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 19:34:32.135 [Task submitter] INFO  nextflow.Session - [5a/703d88] Submitted process > ancestry_pipeline:download_genetic_map_eagle
+Nov-14 19:34:32.187 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 19:34:32.197 [Task submitter] INFO  nextflow.Session - [9e/c15d57] Submitted process > ancestry_pipeline:download_genetic_map
+Nov-14 19:34:33.836 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: ancestry_pipeline:download_genetic_map_eagle; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/5a/703d880456ba7a587c6e796f870a43]
+Nov-14 19:34:33.843 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-14 19:34:33.903 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 1 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:34.557 [Actor Thread 11] DEBUG n.plugin.HttpPluginRepository - Registry request: https://registry.nextflow.io/api/v1/plugins/dependencies?plugins=nf-amazon%403.4.1&nextflowVersion=25.10.0
+- code: 200
+- body: {"plugins":[{"id":"nf-amazon","downloadCount":17096,"downloadGhCount":1344967,"releases":[{"version":"3.4.1","url":"https://registry.nextflow.io/api/v1/plugins/nf-amazon/3.4.1/download/nf-amazon-3.4.1.zip","date":"2025-10-22T16:29:06.396625Z","sha512sum":"bc7c4b6166aa5ef32df3362ceec263df434875b1db332594cd71c8d3f462adfcad55802034cbcfd269917e1efa4f45d224143f024fc1170d156daa40897f3873","requires":">=25.09.2-edge","dependsOn":[],"downloadCount":14396,"downloadGhCount":0,"status":"PUBLISHED","spec":null}],"projectUrl":"https://github.com/nextflow-io/nf-amazon","provider":"nextflow-io","description":null}]}
+Nov-14 19:34:34.645 [Actor Thread 11] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-amazon version: 3.4.1
+Nov-14 19:34:34.682 [Actor Thread 11] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-amazon@3.4.1' resolved
+Nov-14 19:34:34.686 [Actor Thread 11] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-amazon@3.4.1'
+Nov-14 19:34:34.726 [Actor Thread 11] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-amazon@3.4.1
+Nov-14 19:34:34.754 [Actor Thread 11] DEBUG nextflow.file.FileHelper - > Added 'S3FileSystemProvider' to list of installed providers [s3]
+Nov-14 19:34:34.755 [Actor Thread 11] DEBUG nextflow.file.FileHelper - Started plugin 'nf-amazon' required to handle file: s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz
+Nov-14 19:34:34.768 [Actor Thread 11] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider; config=[:]
+Nov-14 19:34:34.783 [Actor Thread 11] DEBUG nextflow.cloud.aws.config.AwsConfig - AWS S3 config properties: {max_error_retry=5}
+Nov-14 19:34:35.061 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ancestry_pipeline:download_sample_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/40/54a903125348db04c93dc085d32ac7]
+Nov-14 19:34:35.070 [Actor Thread 9] INFO  nextflow.script.BaseScript - sample_file_ch = /opt/work/work/40/54a903125348db04c93dc085d32ac7/rfmix_sample_map.txt
+Nov-14 19:34:36.985 [Actor Thread 11] DEBUG nextflow.cloud.aws.AwsClientFactory - No AWS credentials available - falling back to anonymous access
+Nov-14 19:34:37.836 [Actor Thread 11] DEBUG nextflow.cloud.aws.nio.S3Client - Unable to fetch caller account - (Service: S3, Status Code: 307, Request ID: K1GCZ50GBPJS5XYA, Extended Request ID: GJBkSpUijfMVusl/FvfKCf9XDep0cJm56I5Set+DB6pjyv9BD8XazzhxDCMrtFWbf7SrAT47boQ=) (SDK Attempt Count: 1) 
+Nov-14 19:34:37.900 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 2 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:37.911 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 3 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:37.921 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 4 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:37.938 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 5 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:37.949 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 6 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:37.956 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 7 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:37.971 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 8 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.010 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 9 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.019 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 10 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.029 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 11 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.033 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 12 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.039 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 13 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.043 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 14 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.052 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 15 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.115 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 16 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.125 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 17 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.130 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 18 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.134 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 19 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.136 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 20 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.140 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 21 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:38.145 [Actor Thread 11] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 22 with genetic map /opt/work/work/5a/703d880456ba7a587c6e796f870a43/genetic_map_hg38_withX.txt.gz
+Nov-14 19:34:39.030 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Nov-14 19:34:39.099 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
 [process] ancestry_pipeline:phase_with_eagle
   status=ACTIVE
   port 0: (queue) OPEN  ; channel: -
@@ -83,13 +125,19 @@ Nov-13 20:00:16.301 [SIGINT handler] DEBUG nextflow.Session - The following node
   port 0: (queue) OPEN  ; channel: -
   port 1: (cntrl) -     ; channel: $
 
-Nov-13 20:00:16.310 [SIGINT handler] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
-Nov-13 20:00:16.358 [SIGINT handler] DEBUG n.executor.local.LocalTaskHandler - Unable to kill ancestry_pipeline:download_genetic_map -- command: kill -TERM 4014; exit: 1 
- bash: line 1: kill: (4014) - No such process
-
-Nov-13 20:00:16.373 [SIGINT handler] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=1.4s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
-Nov-13 20:00:16.501 [main] DEBUG nextflow.Session - Session await > all processes finished
-Nov-13 20:00:16.501 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Nov-13 20:00:16.511 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=1.4s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=0; ]
-Nov-13 20:00:16.519 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Nov-13 20:00:16.565 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Nov-14 19:34:39.100 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 130; error: -; workDir: /opt/work/work/9e/c15d57eda14406969fd53b018f70e9]
+Nov-14 19:34:39.104 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-14 19:34:39.129 [SIGINT handler] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=1; retriesCount=0; abortedCount=0; succeedDuration=4.5s; failedDuration=0ms; cachedDuration=0ms;loadCpus=1; loadMemory=0; peakRunning=3; peakCpus=3; peakMemory=0; ]
+Nov-14 19:34:39.130 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ancestry_pipeline:download_genetic_map; work-dir=/opt/work/work/9e/c15d57eda14406969fd53b018f70e9
+  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:download_genetic_map` terminated with an error exit status (130)
+Nov-14 19:34:39.243 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-14 19:34:39.244 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-14 19:34:39.254 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4.5s; failedDuration=6.9s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=3; peakCpus=3; peakMemory=0; ]
+Nov-14 19:34:39.256 [Actor Thread 9] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ancestry_pipeline:phase_with_eagle; work-dir=null
+  error [java.lang.IllegalStateException]: Cannot obtain the semaphore to fork operator's body.
+Nov-14 19:34:39.264 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-14 19:34:39.300 [main] INFO  org.pf4j.AbstractPluginManager - Stop plugin 'nf-amazon@3.4.1'
+Nov-14 19:34:39.300 [main] DEBUG nextflow.plugin.BasePlugin - Plugin stopped nf-amazon
+Nov-14 19:34:39.303 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
