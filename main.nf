@@ -33,7 +33,9 @@ process download_genetic_map {
         echo "Genetic map already exists, skipping download."
     fi
     echo "Adding chr prefix to genetic map..."
-    zcat genetic_map_hg38_withX.txt.gz | sed -E '1!s/^([0-9XYM])/chr\1/' | gzip > genetic_map_chr.txt.gz
+    zcat genetic_map_hg38_withX.txt.gz \
+    | awk 'BEGIN{OFS="\t"} NR==1 || $1 ~ /^[0-9XYM]+$/ { $1="chr"$1 } {print}' \
+    | gzip > genetic_map_chr.txt.gz
     echo "Genetic map prepared: genetic_map_chr.txt.gz"
     """
 }
