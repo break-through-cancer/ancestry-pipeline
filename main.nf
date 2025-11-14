@@ -146,15 +146,15 @@ workflow ancestry_pipeline {
                 file(sample_map)
             )
         }
-    phased_vcf_with_chr_ch.view { println "phased_vcf_with_chr_ch = $it" }
-    map_file_ch.view { println "map_file_ch = $it" }
-    sample_file_ch.view { println "sample_file_ch = $it" }
+    // phased_vcf_with_chr_ch.view { println "phased_vcf_with_chr_ch = $it" }
+    // map_file_ch.view { println "map_file_ch = $it" }
+    // sample_file_ch.view { println "sample_file_ch = $it" }
 
-    // rfmix_inputs_ch = phased_vcf_with_chr_ch
-    //     .combine(map_file_ch)
-    //     .combine(sample_file_ch)
+    // // rfmix_inputs_ch = phased_vcf_with_chr_ch
+    // //     .combine(map_file_ch)
+    // //     .combine(sample_file_ch)
 
-    rfmix_inputs_ch.view { println "rfmix_inputs_ch = $it" }
+    // rfmix_inputs_ch.view { println "rfmix_inputs_ch = $it" }
 
 
 
