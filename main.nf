@@ -34,7 +34,7 @@ process download_genetic_map {
     fi
     echo "Adding chr prefix..."
     zcat genetic_map_hg38_withX.txt.gz \
-    | sed -E '1!s/^(X|Y|[0-9]{1,2})/chr\1/' \
+    | sed -E '1!s/^([0-9]{1,2}|X|Y)([[:space:]])/chr\1\2/' \
     | gzip > genetic_map_chr.txt.gz
 
     echo "=== Preview of first 10 lines ==="
