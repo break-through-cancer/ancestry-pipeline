@@ -76,7 +76,7 @@ EOF
     gzip -c genetic_map_chr.txt > genetic_map_chr.txt.gz
 
     echo "=== Preview first 10 lines ==="
-    zcat genetic_map_chr.txt.gz | head
+    zcat genetic_map_chr.txt.gz
     """
 }
 
