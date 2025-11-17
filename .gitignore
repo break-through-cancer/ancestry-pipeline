@@ -10,3 +10,5 @@ genetic_map_hg38_withX.txt
 .cirro/.nextflow/
 
 genetic_map_hg38*.txt
+
+geneticmap/

@@ -18,29 +18,68 @@ if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please
 //if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
 
 process download_genetic_map {
-    
+
     output:
-    path "genetic_map_chr.txt.gz"
+        path "genetic_map_chr.txt.gz"
 
     script:
     """
     echo "=== Starting download_genetic_map process ==="
-    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
-        echo "Downloading genetic map with curl..."
-        curl -s -L -o genetic_map_hg38_withX.txt.gz \
-        https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
-    else
-        echo "Genetic map already exists, skipping download."
-    fi
-    echo "Adding chr prefix..."
-    zcat genetic_map_hg38_withX.txt.gz \
-    | sed -E '1!s/^([0-9]{1,2}|X|Y)([[:space:]])/chr\1\2/' \
-    | gzip > genetic_map_chr.txt.gz
 
-    echo "=== Preview of first 10 lines ==="
-    zcat genetic_map_chr.txt.gz | head -n 10
+    # 1. Download original genetic map if missing
+    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+        echo "Downloading genetic map..."
+        curl -s -L -o genetic_map_hg38_withX.txt.gz \
+            https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+    fi
+
+    echo "Decompressing..."
+    gunzip -c genetic_map_hg38_withX.txt.gz > genetic_map_raw.txt
+
+    echo "Running Python chromosome conversion..."
+    python3 - << 'EOF'
+import sys
+
+INPUT = "genetic_map_raw.txt"
+OUTPUT = "genetic_map_chr.txt"
+
+VALID_AUTOSOMES = {str(i) for i in range(1, 23)}
+SPECIAL = {"23": "X", "24": "Y"}
+
+def convert(line):
+    parts = line.strip().split()
+    if not parts:
+        return line
+
+    chrom = parts[0]
+
+    # header?
+    if chrom.lower() in ["chromosome", "chr", "position", "pos"]:
+        return line
+
+    if chrom in SPECIAL:
+        parts[0] = "chr" + SPECIAL[chrom]
+        return "\t".join(parts)
+
+    if chrom in VALID_AUTOSOMES:
+        parts[0] = "chr" + chrom
+        return "\t".join(parts)
+
+    return line
+
+with open(INPUT) as fin, open(OUTPUT, "w") as fout:
+    for line in fin:
+        fout.write(convert(line) + "\\n")
+EOF
+
+    echo "Compressing final map..."
+    gzip -c genetic_map_chr.txt > genetic_map_chr.txt.gz
+
+    echo "=== Preview first 10 lines ==="
+    zcat genetic_map_chr.txt.gz | head
     """
 }
+
 
 process download_genetic_map_eagle {
     
