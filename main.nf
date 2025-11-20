@@ -179,51 +179,51 @@ EOF
 // }
 
 
-process download_genetic_map_eagle {
+// process download_genetic_map_eagle {
     
-    output:
-    path "genetic_map_hg38_withX.txt.gz"
+//     output:
+//     path "genetic_map_hg38_withX.txt.gz"
 
-    script:
-    """
-    echo "=== Starting download_genetic_map process ==="
-    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
-        echo "Downloading genetic map with curl..."
-        curl -s -L -o genetic_map_hg38_withX.txt.gz \
-        https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
-    else
-        echo "Genetic map already exists, skipping download."
-    fi
-    """
-}
+//     script:
+//     """
+//     echo "=== Starting download_genetic_map process ==="
+//     if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+//         echo "Downloading genetic map with curl..."
+//         curl -s -L -o genetic_map_hg38_withX.txt.gz \
+//         https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+//     else
+//         echo "Genetic map already exists, skipping download."
+//     fi
+//     """
+// }
 
-process download_sample_map {
+// process download_sample_map {
 
-    output:
-        path "rfmix_sample_map.txt"
+//     output:
+//         path "rfmix_sample_map.txt"
 
-    script:
-    """
-    echo "=== Starting download_sample_map process ==="
-    if [ ! -f integrated_call_samples_v3.20130502.ALL.panel ]; then
-        echo "Downloading 1000 Genomes sample metadata..."
-        curl -s -L -o integrated_call_samples_v3.20130502.ALL.panel \\
-        https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
-    else
-        echo "Panel file already exists, skipping download."
-    fi
+//     script:
+//     """
+//     echo "=== Starting download_sample_map process ==="
+//     if [ ! -f integrated_call_samples_v3.20130502.ALL.panel ]; then
+//         echo "Downloading 1000 Genomes sample metadata..."
+//         curl -s -L -o integrated_call_samples_v3.20130502.ALL.panel \\
+//         https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
+//     else
+//         echo "Panel file already exists, skipping download."
+//     fi
 
-    python3 - <<'EOF'
-    import pandas as pd
+//     python3 - <<'EOF'
+//     import pandas as pd
 
-    panel_file = "integrated_call_samples_v3.20130502.ALL.panel"
-    df = pd.read_csv(panel_file, sep='\\t')
-    sample_map = df[['sample', 'pop']]
-    sample_map.to_csv("rfmix_sample_map.txt", sep='\\t', index=False, header=False)
-    print("✅ Sample map saved to rfmix_sample_map.txt")
-    EOF
-        """
-    }
+//     panel_file = "integrated_call_samples_v3.20130502.ALL.panel"
+//     df = pd.read_csv(panel_file, sep='\\t')
+//     sample_map = df[['sample', 'pop']]
+//     sample_map.to_csv("rfmix_sample_map.txt", sep='\\t', index=False, header=False)
+//     print("✅ Sample map saved to rfmix_sample_map.txt")
+//     EOF
+//         """
+//     }
 
 
 
