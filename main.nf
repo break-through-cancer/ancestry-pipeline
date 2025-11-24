@@ -43,61 +43,64 @@ process download_genetic_map {
     # -------------------------------------------------------
     echo "Running Python chromosome conversion..."
     python3 - << 'EOF'
-import sys
+import re
 
 INPUT  = "genetic_map_raw.txt"
 OUTPUT = "genetic_map_chr.txt"
 
-VALID_AUTOSOMES = {str(i) for i in range(1, 23)}
-SPECIAL = {"23": "X", "24": "Y"}
-
-def convert(line):
-    parts = line.strip().split()
-    if not parts:
-        return line
-
-    chrom = parts[0]
-
-    # Header line?
-    if chrom.lower() in ["chromosome", "chr", "position", "pos"]:
-        return line
-
-    # Chromosome mapping
-    if chrom in SPECIAL:
-        parts[0] = "chr" + SPECIAL[chrom]
-    elif chrom in VALID_AUTOSOMES:
-        parts[0] = "chr" + chrom
-
-    return "\\t".join(parts)
-
 with open(INPUT) as fin, open(OUTPUT, "w") as fout:
     for line in fin:
-        fout.write(convert(line) + "\\n")
+        parts = line.strip().split()
+        if not parts:
+            continue
+
+        chrom = parts[0]
+
+        # Header?
+        if chrom.lower() in ["chromosome", "chr", "position", "pos"]:
+            fout.write(line)
+            continue
+
+        # Numeric → chrN conversion
+        if re.fullmatch(r"[0-9]+", chrom):
+            num = int(chrom)
+            if 1 <= num <= 22:
+                parts[0] = f"chr{num}"
+            elif num == 23:
+                parts[0] = "chrX"
+            elif num == 24:
+                parts[0] = "chrY"
+
+        fout.write(" ".join(parts) + "\\n")
 EOF
 
     # -------------------------------------------------------
-    # 3. Enforce strictly increasing columns (RFMix requirement)
+    # 3. Clean + enforce strict monotonic fields (vectorized)
     # -------------------------------------------------------
-    echo "Cleaning map to ensure strictly increasing positions..."
+    echo "Cleaning map (strictly increasing rate + map)..."
     python3 - << 'EOF'
 import pandas as pd
+import numpy as np
 
-df = pd.read_csv("genetic_map_chr.txt", sep="\\s+", header=0)
+INPUT = "genetic_map_chr.txt"
+OUTPUT = "genetic_map_chr_cleaned.txt"
 
-# Columns: chr, pos, COMBINED_rate(cM/Mb), Genetic_Map(cM)
-# Columns 2 and 3 (indexes 2 and 3) must be strictly increasing
 epsilon = 1e-6
-prev2, prev3 = df.iloc[0, 2], df.iloc[0, 3]
 
-for i in range(1, len(df)):
-    if df.iloc[i, 2] <= prev2:
-        df.iloc[i, 2] = prev2 + epsilon
-    if df.iloc[i, 3] <= prev3:
-        df.iloc[i, 3] = prev3 + epsilon
-    prev2, prev3 = df.iloc[i, 2], df.iloc[i, 3]
+print(f"Reading {INPUT} ...")
+df = pd.read_csv(INPUT, sep="\\s+", header=0)
 
-df.to_csv("genetic_map_chr_cleaned.txt", sep="\\t", index=False, header=True, float_format="%.12f")
-print("Cleaning done!")
+# Keep first 4 columns, normalize names
+df = df.iloc[:, :4]
+df.columns = ["chr", "pos", "rate", "map"]
+
+# Vectorized enforced monotonicity
+df["rate"] = np.maximum.accumulate(df["rate"].values + np.arange(len(df)) * epsilon)
+df["map"]  = np.maximum.accumulate(df["map"].values  + np.arange(len(df)) * epsilon)
+
+# Save as whitespace-separated (NOT tab)
+df.to_csv(OUTPUT, sep=" ", index=False, header=False, float_format="%.12f")
+print(f"Saved cleaned file to {OUTPUT}")
 EOF
 
     # -------------------------------------------------------
@@ -110,6 +113,105 @@ EOF
     zcat genetic_map_chr_cleaned.txt.gz | head
     """
 }
+
+// workflow download_only {
+//     download_genetic_map()
+// }
+
+//===
+// process download_genetic_map {
+
+//     output:
+//         path "genetic_map_chr_cleaned.txt.gz"
+
+//     script:
+//     """
+//     echo "=== Starting download_genetic_map process ==="
+
+//     # -------------------------------------------------------
+//     # 1. Download original genetic map if missing
+//     # -------------------------------------------------------
+//     if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
+//         echo "Downloading hg38 genetic map..."
+//         curl -s -L -o genetic_map_hg38_withX.txt.gz \\
+//             https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+//     fi
+
+//     echo "Decompressing..."
+//     gunzip -c genetic_map_hg38_withX.txt.gz > genetic_map_raw.txt
+
+//     # -------------------------------------------------------
+//     # 2. Convert chromosome numbers → chr1, chr2, ..., chrX
+//     # -------------------------------------------------------
+//     echo "Running Python chromosome conversion..."
+//     python3 - << 'EOF'
+// import sys
+
+// INPUT  = "genetic_map_raw.txt"
+// OUTPUT = "genetic_map_chr.txt"
+
+// VALID_AUTOSOMES = {str(i) for i in range(1, 23)}
+// SPECIAL = {"23": "X", "24": "Y"}
+
+// def convert(line):
+//     parts = line.strip().split()
+//     if not parts:
+//         return line
+
+//     chrom = parts[0]
+
+//     # Header line?
+//     if chrom.lower() in ["chromosome", "chr", "position", "pos"]:
+//         return line
+
+//     # Chromosome mapping
+//     if chrom in SPECIAL:
+//         parts[0] = "chr" + SPECIAL[chrom]
+//     elif chrom in VALID_AUTOSOMES:
+//         parts[0] = "chr" + chrom
+
+//     return "\\t".join(parts)
+
+// with open(INPUT) as fin, open(OUTPUT, "w") as fout:
+//     for line in fin:
+//         fout.write(convert(line) + "\\n")
+// EOF
+
+//     # -------------------------------------------------------
+//     # 3. Enforce strictly increasing columns (RFMix requirement)
+//     # -------------------------------------------------------
+//     echo "Cleaning map to ensure strictly increasing positions..."
+//     python3 - << 'EOF'
+// import pandas as pd
+
+// df = pd.read_csv("genetic_map_chr.txt", sep="\\s+", header=0)
+
+// # Columns: chr, pos, COMBINED_rate(cM/Mb), Genetic_Map(cM)
+// # Columns 2 and 3 (indexes 2 and 3) must be strictly increasing
+// epsilon = 1e-6
+// prev2, prev3 = df.iloc[0, 2], df.iloc[0, 3]
+
+// for i in range(1, len(df)):
+//     if df.iloc[i, 2] <= prev2:
+//         df.iloc[i, 2] = prev2 + epsilon
+//     if df.iloc[i, 3] <= prev3:
+//         df.iloc[i, 3] = prev3 + epsilon
+//     prev2, prev3 = df.iloc[i, 2], df.iloc[i, 3]
+
+// df.to_csv("genetic_map_chr_cleaned.txt", sep="\\t", index=False, header=True, float_format="%.12f")
+// print("Cleaning done!")
+// EOF
+
+//     # -------------------------------------------------------
+//     # 4. Compress final cleaned map
+//     # -------------------------------------------------------
+//     echo "Compressing final cleaned map..."
+//     gzip -c genetic_map_chr_cleaned.txt > genetic_map_chr_cleaned.txt.gz
+
+//     echo "=== Done! Preview first 10 lines ==="
+//     zcat genetic_map_chr_cleaned.txt.gz | head
+//     """
+// }
 
 
 // process download_genetic_map {
@@ -488,63 +590,7 @@ workflow ancestry_pipeline {
                 file(sample_map)
             )
         }
-    // phased_vcf_with_chr_ch.view { println "phased_vcf_with_chr_ch = $it" }
-    // map_file_ch.view { println "map_file_ch = $it" }
-    // sample_file_ch.view { println "sample_file_ch = $it" }
-
-    // // rfmix_inputs_ch = phased_vcf_with_chr_ch
-    // //     .combine(map_file_ch)
-    // //     .combine(sample_file_ch)
-
-    // rfmix_inputs_ch.view { println "rfmix_inputs_ch = $it" }
-
-
-
-    // rfmix_inputs_ch = phased_vcf_with_chr_ch.flatMap { chr, phased_vcf ->
-
-    //     def tuples = []
-
-    //     // collect the single genetic map file(s) into a list
-    //     map_file_ch.toList().each { map_file ->
-
-    //         // collect the single sample map file(s) into a list
-    //         sample_file_ch.toList().each { sample_map ->
-
-    //             def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-    //             def ref_vcf_index = "${ref_vcf}.tbi"
-
-    //             tuples << tuple(
-    //                 chr,
-    //                 file(phased_vcf),
-    //                 file(ref_vcf),
-    //                 file(ref_vcf_index),
-    //                 file(map_file),
-    //                 file(sample_map)
-    //             )
-    //         }
-    //     }
-    //     return tuples
-    // }
-
-    // 
-    // phased_vcf_with_chr_ch
-    //     .combine(map_file_ch)
-    //     .combine(sample_file_ch)
-    //     .map { item, sample_map ->
-    //         def (chr, phased_vcf, map_file) = item
-    //         def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-    //         def ref_vcf_index = "${ref_vcf}.tbi"
-    //         tuple(
-    //             chr,
-    //             file(phased_vcf),
-    //             file(ref_vcf),
-    //             file(ref_vcf_index),
-    //             file(map_file),
-    //             file(sample_map)
-    //         )
-    //     }
-
-
+   
     rfmix_results = run_rfmix(rfmix_inputs_ch)
 
     emit:
