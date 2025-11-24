@@ -24,6 +24,16 @@ process run_rfmix {
             head -n 5 ${genetic_map}
         fi
 
+        echo "--- Check all chromosomes in genetic map ---"
+        if [[ ${genetic_map} == *.gz ]]; then
+            zcat ${genetic_map} | awk '{print \$1}' | sort | uniq
+        else
+            awk '{print \$1}' ${genetic_map} | sort | uniq
+        fi
+
+        echo "--- Genetic map file size ---"
+        ls -lh ${genetic_map}
+
         echo "--- Head of sample map ---"
         head -n 5 ${sample_map}
 
