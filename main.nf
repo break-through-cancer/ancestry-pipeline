@@ -11,12 +11,7 @@ include { run_rfmix } from './modules/rfmix'
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
 if (params.input_genotype_index) { input_genotype_input = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
-// if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
-// if (params.reference_vcf_index) { reference_vcf_index = params.reference_vcf_index } else { exit 1, 'Please, provide a reference vcf ref!' }
-//if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
-//if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
-// if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
-//if (params.output_prefix) { output_prefix = params.output_prefix } else { output_prefix = "output" }
+
 process download_genetic_map {
 
     output:
