@@ -105,7 +105,7 @@ if (params.reference_vcf_index) { reference_vcf_index = params.reference_vcf_ind
 process download_genetic_map {
 
     output:
-        path "genetic_map_all_chr.txt.gz"
+        path "genetic_map_all_chr.txt"  // Changed from .txt.gz to .txt
 
     script:
     """
@@ -128,8 +128,8 @@ process download_genetic_map {
         }' OFS=' ' no_chr_in_chrom_field/plink.chr\${i}.GRCh38.map
     done > genetic_map_all_chr.txt
 
-    echo "Compressing..."
-    gzip -f genetic_map_all_chr.txt
+    # DO NOT compress - RFMix v2.03 has issues reading compressed genetic maps
+    echo "Genetic map ready (uncompressed for RFMix compatibility)"
     """
 }
 

@@ -15,89 +15,31 @@ if (params.input_genotype_index) { input_genotype_input = params.input_genotype_
 process download_genetic_map {
 
     output:
-        path "genetic_map_chr_cleaned.txt.gz"
+        path "genetic_map_all_chr.txt"  // Changed from .txt.gz to .txt
 
     script:
     """
-    echo "=== Starting download_genetic_map process ==="
-
-    # -------------------------------------------------------
-    # 1. Download original genetic map if missing
-    # -------------------------------------------------------
-    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
-        echo "Downloading hg38 genetic map..."
-        curl -s -L -o genetic_map_hg38_withX.txt.gz \\
-            https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
+    echo "Downloading PLINK GRCh38 maps..."
+    if [ ! -f plink.GRCh38.map.zip ]; then
+        wget -q https://bochet.gcc.biostat.washington.edu/beagle/genetic_maps/plink.GRCh38.map.zip
     fi
 
-    echo "Decompressing..."
-    gunzip -c genetic_map_hg38_withX.txt.gz > genetic_map_raw.txt
+    echo "Unzipping..."
+    unzip -o plink.GRCh38.map.zip
 
-    # -------------------------------------------------------
-    # 2. Keep only chr, pos, mapCentiMorgan (column 4)
-    # -------------------------------------------------------
-    echo "Extracting 3 required columns..."
-    python3 - << 'EOF'
-INPUT  = "genetic_map_raw.txt"
-OUTPUT = "genetic_map_chr.txt"
+    echo "Building combined genetic map..."
 
-with open(INPUT) as fin, open(OUTPUT, "w") as fout:
-    for line in fin:
-        parts = line.strip().split()
-        if not parts:
-            continue
+    # Combine all chromosomes into one file
+    for i in {1..22}; do
+        # PLINK map columns: chr snp cM pos
+        # RFMix wants: chr pos cM
+        awk '{
+            print "chr"\$1, \$4, \$3
+        }' OFS=' ' no_chr_in_chrom_field/plink.chr\${i}.GRCh38.map
+    done > genetic_map_all_chr.txt
 
-        # Skip Eagle header line
-        if parts[0].lower() in ["chr", "chromosome"] or parts[1].lower() in ["pos", "position"]:
-            continue
-
-        if re.fullmatch(r"[0-9]+", chrom):
-            num = int(chrom)
-            if 1 <= num <= 22:
-                parts[0] = f"chr{num}"
-            elif num == 23:
-                parts[0] = "chrX"
-            elif num == 24:
-                parts[0] = "chrY"
-        chr_, pos, rate, mapcM = parts[:4]
-        fout.write(f"{chr_} {pos} {mapcM}\\n")
-EOF
-
-    # -------------------------------------------------------
-    # 3. Clean + enforce strict monotonic genetic map per row
-    # -------------------------------------------------------
-    echo "Cleaning map (strictly increasing cM)..."
-    python3 - << 'EOF'
-import pandas as pd
-import numpy as np
-
-INPUT = "genetic_map_chr.txt"
-OUTPUT = "genetic_map_chr_cleaned.txt"
-
-epsilon = 1e-6
-
-print(f"Reading {INPUT} ...")
-
-# No header in file → header=None, define names manually
-df = pd.read_csv(INPUT, sep="\\s+", header=None, names=["chr", "pos", "map"])
-
-# Enforce monotonic map (required for RFMix)
-df["map"] = np.maximum.accumulate(df["map"].values + np.arange(len(df)) * epsilon)
-
-# Save whitespace-separated, no header
-df.to_csv(OUTPUT, sep=" ", index=False, header=False, float_format="%.12f")
-
-print(f"Saved cleaned map to {OUTPUT}")
-EOF
-
-    # -------------------------------------------------------
-    # 4. Compress final cleaned map
-    # -------------------------------------------------------
-    echo "Compressing final cleaned map..."
-    gzip -c genetic_map_chr_cleaned.txt > genetic_map_chr_cleaned.txt.gz
-
-    echo "=== Done! Preview first 10 lines ==="
-    zcat genetic_map_chr_cleaned.txt.gz | head
+    # DO NOT compress - RFMix v2.03 has issues reading compressed genetic maps
+    echo "Genetic map ready (uncompressed for RFMix compatibility)"
     """
 }
 
