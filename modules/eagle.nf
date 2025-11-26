@@ -14,6 +14,7 @@ process phase_with_eagle {
             --vcfRef=${reference_vcf} \
             --geneticMapFile=${genetic_map} \
             --chrom=${chromosome} \
-            --outPrefix=test
+            --outPrefix=test \
+            2>&1 | tee eagle.log
         """
 }

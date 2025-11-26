@@ -35,10 +35,11 @@ process run_rfmix {
         ls -lh ${genetic_map}
 
         echo "--- Check for carriage returns in genetic map ---"
-        zcat ${genetic_map} | grep -n $'\r' || echo "No carriage returns found"
+        zcat ${genetic_map} | od -c | grep '\r' || echo "No carriage returns found"
 
         echo "--- Check delimiter / special characters in first 10 lines ---"
-        zcat ${genetic_map} | head -n 10 | cat -A
+        zcat ${genetic_map} | head -n 10 | sed -n l
+
 
         echo "--- Head of sample map ---"
         head -n 5 ${sample_map}
@@ -52,6 +53,6 @@ process run_rfmix {
             -m ${sample_map} \
             -g ${genetic_map} \
             -o ${chromosome} \
-            --chromosome="chr${chromosome}"
+            --chromosome=chr${chromosome}
         """
 }

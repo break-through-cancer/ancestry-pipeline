@@ -11,8 +11,8 @@ include { run_rfmix } from './modules/rfmix'
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
 if (params.input_genotype_index) { input_genotype_input = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
-// if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
-// if (params.reference_vcf_index) { reference_vcf_index = params.reference_vcf_index } else { exit 1, 'Please, provide a reference vcf ref!' }
+if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
+if (params.reference_vcf_index) { reference_vcf_index = params.reference_vcf_index } else { exit 1, 'Please, provide a reference vcf ref!' }
 //if (params.genetic_map) { genetic_map = params.genetic_map } else { exit 1, 'Please, provide a genetic map !' }
 //if (params.sample_map) { sample_map = params.sample_map } else { exit 1, 'Please provide a sample map file' }
 // if (params.chromosome) { chromosome = params.chromosome } else { exit 1, ' Please provide a chromosome to analyze via --chromosome <chr1|chr2|...>' }
@@ -110,9 +110,75 @@ EOF
 //     download_genetic_map()
 // }
 
+workflow ancestry_pipeline {
+
+    chr_ch = Channel.from(21..21)
+    download_genetic_map()
+    download_genetic_map_eagle()
+    download_sample_map()
+    // ensure the process emits a usable file path
+    map_file_ch = download_genetic_map.out.flatten()
+    map_file_eagle_ch = download_genetic_map_eagle.out.flatten()
+    sample_file_ch = download_sample_map.out.flatten()
+    map_file_ch.view { println "Map for RFMix: $it" }
+
+    // now combine chromosomes with the actual file
+    eagle_inputs_ch = chr_ch.combine(map_file_eagle_ch).map { chr, map_file ->
+        println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
+        // def vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+        // def vcf_index = "${vcf}.tbi"
+        [
+            file(params.input_genotype),
+            file(params.input_genotype_index),
+            file(params.reference_vcf),                    // reference VCF
+            file(params.reference_vcf_index),              // reference VCF index
+            file(map_file), 
+            chr
+        ]
+    }
+
+    phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
+
+    phased_vcf_with_chr_ch = phased_vcf_ch
+        .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
+        .map { phased_vcf_file, chr ->
+            println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
+            tuple(chr, phased_vcf_file)
+        }
+    rfmix_inputs_ch = phased_vcf_with_chr_ch
+        .combine(map_file_ch)
+        .combine(sample_file_ch)
+        .map { it.flatten() }   // now each element is [chr, phased_vcf, map_file, sample_file]
+        .map { combined ->
+            def chr = combined[0]
+            def phased_vcf = combined[1]
+            def map_file = combined[2]
+            def sample_map = combined[3]
+
+            // def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
+            // def ref_vcf_index = "${ref_vcf}.tbi"
+
+            tuple(
+                chr,
+                file(phased_vcf),
+                file(params.reference_vcf),
+                file(params.reference_vcf_index),
+                file(map_file, copy: true),
+                file(sample_map, copy: true)
+            )
+        }
+
+    rfmix_results = run_rfmix(rfmix_inputs_ch)
+
+    emit:
+        rfmix_results
+    }
 
 
-// ========== below is the cirro code
+
+// Default workflow for Cirro to run
+workflow { ancestry_pipeline() }
+
 
 
 
@@ -161,74 +227,4 @@ process download_sample_map {
     EOF
         """
     }
-
-
-
-workflow ancestry_pipeline {
-
-    chr_ch = Channel.from(21..21)
-    download_genetic_map()
-    download_genetic_map_eagle()
-    download_sample_map()
-    // ensure the process emits a usable file path
-    map_file_ch = download_genetic_map.out.flatten()
-    map_file_eagle_ch = download_genetic_map_eagle.out.flatten()
-    sample_file_ch = download_sample_map.out.flatten()
-
-    // now combine chromosomes with the actual file
-    eagle_inputs_ch = chr_ch.combine(map_file_eagle_ch).map { chr, map_file ->
-        println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
-        def vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-        def vcf_index = "${vcf}.tbi"
-        [
-            file(params.input_genotype),
-            file(params.input_genotype_index),
-            file(vcf),                    // reference VCF
-            file(vcf_index),              // reference VCF index
-            file(map_file), 
-            chr
-        ]
-    }
-
-    phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
-
-    phased_vcf_with_chr_ch = phased_vcf_ch
-        .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
-        .map { phased_vcf_file, chr ->
-            println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
-            tuple(chr, phased_vcf_file)
-        }
-    rfmix_inputs_ch = phased_vcf_with_chr_ch
-        .combine(map_file_ch)
-        .combine(sample_file_ch)
-        .map { it.flatten() }   // now each element is [chr, phased_vcf, map_file, sample_file]
-        .map { combined ->
-            def chr = combined[0]
-            def phased_vcf = combined[1]
-            def map_file = combined[2]
-            def sample_map = combined[3]
-
-            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-            def ref_vcf_index = "${ref_vcf}.tbi"
-
-            tuple(
-                chr,
-                file(phased_vcf),
-                file(ref_vcf),
-                file(ref_vcf_index),
-                file(map_file, copy: true),
-                file(sample_map, copy: true)
-            )
-        }
-   
-    rfmix_results = run_rfmix(rfmix_inputs_ch)
-
-    emit:
-        rfmix_results
-    }
-
-
-
-// Default workflow for Cirro to run
-workflow { ancestry_pipeline() }
 
