@@ -75,3 +75,8 @@ Nov-26 21:14:44.009 [Task submitter] INFO  nextflow.Session - [ae/929a59] Submit
 Nov-26 21:14:44.064 [Actor Thread 12] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 21 with genetic map /opt/work/work/86/b450b732ae43d1deb7bd0a39f57209/genetic_map_hg38_withX.txt.gz
 Nov-26 21:14:44.175 [Actor Thread 12] INFO  nextflow.processor.TaskProcessor - [06/9dbf06] Cached process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
 Nov-26 21:14:44.178 [Actor Thread 5] INFO  nextflow.script.BaseScript - Eagle finished for chromosome 21: phased VCF = /opt/work/work/06/9dbf0661ce6ebb58c0872c585ea843/test.vcf.gz
+Nov-26 21:18:11.052 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/ae/929a595e2df3e310358b67751f54c5]
+Nov-26 21:18:11.057 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-26 21:18:11.067 [Actor Thread 7] INFO  nextflow.script.BaseScript - Map for RFMix: /opt/work/work/ae/929a595e2df3e310358b67751f54c5/genetic_map_all_chr.txt
+Nov-26 21:18:11.132 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-26 21:18:11.134 [Task submitter] INFO  nextflow.Session - [47/58350b] Submitted process > ancestry_pipeline:run_rfmix (RFMix Ancestry)
