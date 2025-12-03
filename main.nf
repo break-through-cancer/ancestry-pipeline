@@ -115,8 +115,8 @@ workflow ancestry_pipeline {
     // now combine chromosomes with the actual file
     eagle_inputs_ch = chr_ch.combine(map_file_eagle_ch).map { chr, map_file ->
         println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
-        def vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-        def vcf_index = "${vcf}.tbi"
+        def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+        def ref_vcf_index = "${ref_vcf}.tbi"
         [
             file(params.input_genotype),
             file(params.input_genotype_index),
@@ -126,6 +126,7 @@ workflow ancestry_pipeline {
             chr
         ]
     }
+    
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
@@ -145,17 +146,43 @@ workflow ancestry_pipeline {
             def map_file = combined[2]
             def sample_map = combined[3]
 
-            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
-            def ref_vcf_index = "${ref_vcf}.tbi"
+                // Original reference VCF on S3
+            def ref_vcf_s3 = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+
+            // Temporary local renamed reference
+            def ref_vcf_local = "ref_${chr}_chr.vcf.gz"
+            def ref_vcf_index = "${ref_vcf_local}.tbi"
+
+            // Create reheader mapping
+            def reheader_txt = file("reheader_${chr}.txt")
+            reheader_txt.text = "${chr}\tchr${chr}"
+
+            // Command to rename contig
+            """
+            aws s3 cp ${ref_vcf_s3} ${ref_vcf_local} --quiet
+            bcftools reheader -s ${reheader_txt} -o ${ref_vcf_local} ${ref_vcf_local}
+            bcftools index ${ref_vcf_local}
+            """
 
             tuple(
                 chr,
                 file(phased_vcf),
-                file(ref_vcf),
+                file(ref_vcf_local),
                 file(ref_vcf_index),
                 file(map_file, copy: true),
                 file(sample_map, copy: true)
             )
+            // def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+            // def ref_vcf_index = "${ref_vcf}.tbi"
+
+            // tuple(
+            //     chr,
+            //     file(phased_vcf),
+            //     file(ref_vcf),
+            //     file(ref_vcf_index),
+            //     file(map_file, copy: true),
+            //     file(sample_map, copy: true)
+            // )
         }
    
     rfmix_results = run_rfmix(rfmix_inputs_ch)
