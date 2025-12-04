@@ -11,12 +11,10 @@ include { run_rfmix } from './modules/rfmix'
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
 if (params.input_genotype_index) { input_genotype_input = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
-
 process download_genetic_map {
 
     output:
-        path "genetic_map_all_chr.txt"  // Changed from .txt.gz to .txt
-
+        path "genetic_map_all_chr.txt", emit: map
     script:
     """
     echo "Downloading PLINK GRCh38 maps..."
@@ -34,40 +32,12 @@ process download_genetic_map {
         # PLINK map columns: chr snp cM pos
         # RFMix wants: chr pos cM
         awk '{
-            print "chr"\$1, \$4, \$3
+            print \$1, \$4, \$3
         }' OFS=' ' no_chr_in_chrom_field/plink.chr\${i}.GRCh38.map
     done > genetic_map_all_chr.txt
 
     # DO NOT compress - RFMix v2.03 has issues reading compressed genetic maps
     echo "Genetic map ready (uncompressed for RFMix compatibility)"
-    """
-}
-
-// workflow download_only {
-//     download_genetic_map()
-// }
-
-
-
-// ========== below is the cirro code
-
-
-
-process download_genetic_map_eagle {
-    
-    output:
-    path "genetic_map_hg38_withX.txt.gz"
-
-    script:
-    """
-    echo "=== Starting download_genetic_map process ==="
-    if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
-        echo "Downloading genetic map with curl..."
-        curl -s -L -o genetic_map_hg38_withX.txt.gz \
-        https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
-    else
-        echo "Genetic map already exists, skipping download."
-    fi
     """
 }
 
@@ -100,9 +70,156 @@ process download_sample_map {
     }
 
 
-
+process normalize_chrom_names {
+    tag "$vcf_file"
+    
+    input:
+    path vcf_file
+    
+    output:
+    tuple path("normalized_${vcf_file.simpleName}.vcf.gz"), path("normalized_${vcf_file.simpleName}.vcf.gz.tbi"), emit: normalized
+    
+    script:
+    """
+    set -e
+    
+    OUT_VCF="normalized_${vcf_file.simpleName}.vcf.gz"
+    
+    echo "Normalizing chromosome names for ${vcf_file}..."
+    
+    # Check first data line for chr prefix
+    FIRST_CHROM=\$(zcat ${vcf_file} 2>/dev/null | grep -v '^#' | head -1 | cut -f1 || true)
+    echo "First chromosome found: \${FIRST_CHROM}"
+    
+    if [[ "\${FIRST_CHROM}" == chr* ]]; then
+        echo "Chromosomes start with 'chr', converting to numbers..."
+        
+        # Create chromosome renaming map
+        (zcat ${vcf_file} | grep -v '^#' | cut -f1 | sort -u | grep -v '^chr\$' || true) | while read chrom; do
+            new_chrom=\$(echo "\${chrom}" | sed 's/^chr//' | sed 's/^M\$/MT/')
+            if [[ -n "\${new_chrom}" ]]; then
+                echo -e "\${chrom}\\t\${new_chrom}"
+            fi
+        done > reheader.txt
+        
+        echo "Chromosome mapping:"
+        cat reheader.txt
+        
+        # Extract and fix header
+        bcftools view -h ${vcf_file} | \\
+        sed 's/^##contig=<ID=chr/##contig=<ID=/' | \\
+        sed 's/^##contig=<ID=M,/##contig=<ID=MT,/' > temp_header.vcf
+        
+        # Extract data with renamed chromosomes
+        bcftools annotate --rename-chrs reheader.txt ${vcf_file} 2>/dev/null | \\
+        bcftools view -H >> temp_header.vcf
+        
+        # Compress the result
+        bgzip -c temp_header.vcf > \${OUT_VCF}
+        
+        rm temp_header.vcf
+    else
+        echo "Chromosomes are already numeric (found: \${FIRST_CHROM}), just copying..."
+        bcftools view -Oz -o \${OUT_VCF} ${vcf_file}
+    fi
+    
+    # Index with tabix
+    tabix -p vcf \${OUT_VCF}
+    
+    # Verify outputs
+    echo "Output files created:"
+    ls -lh \${OUT_VCF}* || true
+    
+    echo "Chromosomes in normalized output:"
+    (zcat \${OUT_VCF} 2>/dev/null | grep -v '^#' | cut -f1 | sort -u | head -20) || true
+    
+    echo "Contig lines in header:"
+    (zcat \${OUT_VCF} 2>/dev/null | grep '^##contig' | head -10) || true
+    """
+}
 workflow ancestry_pipeline {
 
+    // chr_ch = Channel.from(21..21)
+    // download_genetic_map()
+    // download_genetic_map_eagle()
+    // download_sample_map()
+    // // ensure the process emits a usable file path
+    // map_file_ch = download_genetic_map.out.flatten()
+    // map_file_eagle_ch = download_genetic_map_eagle.out.flatten()
+    // sample_file_ch = download_sample_map.out.flatten()
+
+    // // now combine chromosomes with the actual file
+    // eagle_inputs_ch = chr_ch.combine(map_file_eagle_ch).map { chr, map_file ->
+    //     println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
+    //     def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+    //     def ref_vcf_index = "${ref_vcf}.tbi"
+    //     [
+    //         file(params.input_genotype),
+    //         file(params.input_genotype_index),
+    //         file(vcf),                    // reference VCF
+    //         file(vcf_index),              // reference VCF index
+    //         file(map_file), 
+    //         chr
+    //     ]
+    // }
+    
+
+    // phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
+
+    // phased_vcf_with_chr_ch = phased_vcf_ch
+    //     .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
+    //     .map { phased_vcf_file, chr ->
+    //         println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
+    //         tuple(chr, phased_vcf_file)
+    //     }
+    // rfmix_inputs_ch = phased_vcf_with_chr_ch
+    //     .combine(map_file_ch)
+    //     .combine(sample_file_ch)
+    //     .map { it.flatten() }   // now each element is [chr, phased_vcf, map_file, sample_file]
+    //     .map { combined ->
+    //         def chr = combined[0]
+    //         def phased_vcf = combined[1]
+    //         def map_file = combined[2]
+    //         def sample_map = combined[3]
+
+    //             // Original reference VCF on S3
+    //         def ref_vcf_s3 = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+
+    //         // Temporary local renamed reference
+    //         def ref_vcf_local = "ref_${chr}_chr.vcf.gz"
+    //         def ref_vcf_index = "${ref_vcf_local}.tbi"
+
+    //         // Create reheader mapping
+    //         def reheader_txt = file("reheader_${chr}.txt")
+    //         reheader_txt.text = "${chr}\tchr${chr}"
+
+    //         // Command to rename contig
+    //         """
+    //         aws s3 cp ${ref_vcf_s3} ${ref_vcf_local} --quiet
+    //         bcftools reheader -s ${reheader_txt} -o ${ref_vcf_local} ${ref_vcf_local}
+    //         bcftools index ${ref_vcf_local}
+    //         """
+
+    //         tuple(
+    //             chr,
+    //             file(phased_vcf),
+    //             file(ref_vcf_local),
+    //             file(ref_vcf_index),
+    //             file(map_file, copy: true),
+    //             file(sample_map, copy: true)
+    //         )
+    //         // def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+    //         // def ref_vcf_index = "${ref_vcf}.tbi"
+
+    //         // tuple(
+    //         //     chr,
+    //         //     file(phased_vcf),
+    //         //     file(ref_vcf),
+    //         //     file(ref_vcf_index),
+    //         //     file(map_file, copy: true),
+    //         //     file(sample_map, copy: true)
+    //         // )
+    //     }
     chr_ch = Channel.from(21..21)
     download_genetic_map()
     download_genetic_map_eagle()
@@ -111,22 +228,30 @@ workflow ancestry_pipeline {
     map_file_ch = download_genetic_map.out.flatten()
     map_file_eagle_ch = download_genetic_map_eagle.out.flatten()
     sample_file_ch = download_sample_map.out.flatten()
+    map_file_ch.view { println "Map for RFMix: $it" }
 
-    // now combine chromosomes with the actual file
-    eagle_inputs_ch = chr_ch.combine(map_file_eagle_ch).map { chr, map_file ->
-        println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
-        def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
-        def ref_vcf_index = "${ref_vcf}.tbi"
-        [
-            file(params.input_genotype),
-            file(params.input_genotype_index),
-            file(vcf),                    // reference VCF
-            file(vcf_index),              // reference VCF index
-            file(map_file), 
-            chr
-        ]
-    }
-    
+    // Preprocess input VCF once
+    // Make input genotype a channel
+    input_vcf_ch = Channel.fromPath(params.input_genotype)
+
+    // Run the normalization process
+    normalized_vcf_ch = input_vcf_ch | normalize_chrom_names
+    eagle_inputs_ch = chr_ch
+        .combine(normalized_vcf_ch.normalized)
+        .combine(map_file_eagle_ch)
+        .map { chr, vcf_file, vcf_index, map_file ->
+            println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
+            def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+            def ref_vcf_index = "${ref_vcf}.tbi"
+            tuple(
+                file(vcf_file),
+                file(vcf_index),
+                file(ref_vcf),
+                file(ref_vcf_index),
+                file(map_file), 
+                chr
+            )
+        }
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
@@ -137,52 +262,28 @@ workflow ancestry_pipeline {
             tuple(chr, phased_vcf_file)
         }
     rfmix_inputs_ch = phased_vcf_with_chr_ch
-        .combine(map_file_ch)
-        .combine(sample_file_ch)
-        .map { it.flatten() }   // now each element is [chr, phased_vcf, map_file, sample_file]
-        .map { combined ->
-            def chr = combined[0]
-            def phased_vcf = combined[1]
-            def map_file = combined[2]
-            def sample_map = combined[3]
-
-                // Original reference VCF on S3
-            def ref_vcf_s3 = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
-
-            // Temporary local renamed reference
-            def ref_vcf_local = "ref_${chr}_chr.vcf.gz"
-            def ref_vcf_index = "${ref_vcf_local}.tbi"
-
-            // Create reheader mapping
-            def reheader_txt = file("reheader_${chr}.txt")
-            reheader_txt.text = "${chr}\tchr${chr}"
-
-            // Command to rename contig
-            """
-            aws s3 cp ${ref_vcf_s3} ${ref_vcf_local} --quiet
-            bcftools reheader -s ${reheader_txt} -o ${ref_vcf_local} ${ref_vcf_local}
-            bcftools index ${ref_vcf_local}
-            """
-
+        .combine(map_file_ch)        // RFMix map
+        .combine(sample_file_ch)     // Sample map
+        .combine(normalized_vcf_ch.normalized)  // Normalized reference VCF (tuple: [vcf.gz, .tbi])
+        .map { items ->
+            // Items is a list containing all combined elements
+            // The last element is the tuple [vcf.gz, .tbi] from normalized_vcf_ch
+            def chr = items[0]
+            def phased_vcf = items[1]
+            def map_file = items[2]
+            def sample_map = items[3]
+            def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+            def ref_vcf_index = "${ref_vcf}.tbi"
+            println "Preparing RFMix for chr ${chr}"
+            
             tuple(
                 chr,
                 file(phased_vcf),
-                file(ref_vcf_local),
+                file(ref_vcf),
                 file(ref_vcf_index),
-                file(map_file, copy: true),
-                file(sample_map, copy: true)
+                file(map_file),
+                file(sample_map)
             )
-            // def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
-            // def ref_vcf_index = "${ref_vcf}.tbi"
-
-            // tuple(
-            //     chr,
-            //     file(phased_vcf),
-            //     file(ref_vcf),
-            //     file(ref_vcf_index),
-            //     file(map_file, copy: true),
-            //     file(sample_map, copy: true)
-            // )
         }
    
     rfmix_results = run_rfmix(rfmix_inputs_ch)
