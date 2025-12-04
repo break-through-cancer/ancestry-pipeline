@@ -53,6 +53,6 @@ process run_rfmix {
             -m ${sample_map} \
             -g ${genetic_map} \
             -o ${chromosome} \
-            --chromosome=chr${chromosome}
+            --chromosome=${chromosome}
         """
 }
