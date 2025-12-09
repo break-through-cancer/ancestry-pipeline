@@ -24,7 +24,7 @@ process phase_with_eagle {
         tuple path(input_genotype), path(input_genotype_index), path(reference_vcf), path(ref_vcf_index), path(genetic_map), val(chromosome)
 
     output:
-        path "*.vcf.gz", emit: phased_vcf
+        path "phased_chr${chromosome}.vcf.gz", emit: phased_vcf
 
     script:
         """
@@ -33,7 +33,7 @@ process phase_with_eagle {
             --vcfRef=${reference_vcf} \
             --geneticMapFile=${genetic_map} \
             --chrom=${chromosome} \
-            --outPrefix=test \
-            2>&1 | tee eagle.log
+            --outPrefix=phased_chr${chromosome} \
+            2>&1 | tee eagle_chr${chromosome}.log
         """
 }
