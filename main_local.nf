@@ -11,97 +11,11 @@ include { phase_with_eagle as phase_with_eagle_ref } from './modules/eagle'
 
 if (params.input_genotype) { input_genotype = params.input_genotype } else { exit 1, 'Please, provide an input genotype data !' }
 if (params.input_genotype_index) { input_genotype_input = params.input_genotype_index } else { exit 1, 'Please, provide an input genotype index !' }
-if (params.reference_vcf) { reference_vcf = params.reference_vcf } else { exit 1, 'Please, provide a reference vcf!' }
-if (params.reference_vcf_index) { reference_vcf_index = params.reference_vcf_index } else { exit 1, 'Please, provide a reference vcf ref!' }
+if (params.reference_vcf_21) { reference_vcf = params.reference_vcf_21 } else { exit 1, 'Please, provide a reference vcf!' }
+if (params.reference_vcf_index_21) { reference_vcf_index = params.reference_vcf_index_21 } else { exit 1, 'Please, provide a reference vcf ref!' }
+if (params.reference_vcf_22) { reference_vcf = params.reference_vcf_22 } else { exit 1, 'Please, provide a reference vcf!' }
+if (params.reference_vcf_index_22) { reference_vcf_index = params.reference_vcf_index_22 } else { exit 1, 'Please, provide a reference vcf ref!' }
 
-// process download_genetic_map {
-
-//     output:
-//         path "genetic_map_chr_cleaned.txt.gz"
-
-//     script:
-//     """
-//     echo "=== Starting download_genetic_map process ==="
-
-//     # -------------------------------------------------------
-//     # 1. Download original genetic map if missing
-//     # -------------------------------------------------------
-//     if [ ! -f genetic_map_hg38_withX.txt.gz ]; then
-//         echo "Downloading hg38 genetic map..."
-//         curl -s -L -o genetic_map_hg38_withX.txt.gz \\
-//             https://alkesgroup.broadinstitute.org/Eagle/downloads/tables/genetic_map_hg38_withX.txt.gz
-//     fi
-
-//     echo "Decompressing..."
-//     gunzip -c genetic_map_hg38_withX.txt.gz > genetic_map_raw.txt
-
-//     # -------------------------------------------------------
-//     # 2. Keep only chr, pos, mapCentiMorgan (column 4)
-//     # -------------------------------------------------------
-//     echo "Extracting 3 required columns..."
-//     python3 - << 'EOF'
-// INPUT  = "genetic_map_raw.txt"
-// OUTPUT = "genetic_map_chr.txt"
-
-// with open(INPUT) as fin, open(OUTPUT, "w") as fout:
-//     for line in fin:
-//         parts = line.strip().split()
-//         if not parts:
-//             continue
-
-//         # Skip Eagle header line
-//         if parts[0].lower() in ["chr", "chromosome"] or parts[1].lower() in ["pos", "position"]:
-//             continue
-
-//         if re.fullmatch(r"[0-9]+", chrom):
-//             num = int(chrom)
-//             if 1 <= num <= 22:
-//                 parts[0] = f"chr{num}"
-//             elif num == 23:
-//                 parts[0] = "chrX"
-//             elif num == 24:
-//                 parts[0] = "chrY"
-//         chr_, pos, rate, mapcM = parts[:4]
-//         fout.write(f"{chr_} {pos} {mapcM}\\n")
-// EOF
-
-//     # -------------------------------------------------------
-//     # 3. Clean + enforce strict monotonic genetic map per row
-//     # -------------------------------------------------------
-//     echo "Cleaning map (strictly increasing cM)..."
-//     python3 - << 'EOF'
-// import pandas as pd
-// import numpy as np
-
-// INPUT = "genetic_map_chr.txt"
-// OUTPUT = "genetic_map_chr_cleaned.txt"
-
-// epsilon = 1e-6
-
-// print(f"Reading {INPUT} ...")
-
-// # No header in file → header=None, define names manually
-// df = pd.read_csv(INPUT, sep="\\s+", header=None, names=["chr", "pos", "map"])
-
-// # Enforce monotonic map (required for RFMix)
-// df["map"] = np.maximum.accumulate(df["map"].values + np.arange(len(df)) * epsilon)
-
-// # Save whitespace-separated, no header
-// df.to_csv(OUTPUT, sep=" ", index=False, header=False, float_format="%.12f")
-
-// print(f"Saved cleaned map to {OUTPUT}")
-// EOF
-
-//     # -------------------------------------------------------
-//     # 4. Compress final cleaned map
-//     # -------------------------------------------------------
-//     echo "Compressing final cleaned map..."
-//     gzip -c genetic_map_chr_cleaned.txt > genetic_map_chr_cleaned.txt.gz
-
-//     echo "=== Done! Preview first 10 lines ==="
-//     zcat genetic_map_chr_cleaned.txt.gz | head
-//     """
-// }
 process download_genetic_map {
 
     output:
@@ -151,40 +65,6 @@ process download_genetic_map_eagle_plain {
     """
 }
 
-// process normalize_chrom_names {
-
-//     tag "$vcf_file"
-
-//     input:
-//     path vcf_file
-
-//     output:
-//         tuple path("normalized_${vcf_file.simpleName}.vcf.gz"), path("normalized_${vcf_file.simpleName}.vcf.gz.tbi"), emit: normalized
-
-//     script:
-//     """
-//     echo "Normalizing chromosome names for ${vcf_file}..."
-
-//     # Check if CHROM column contains 'chr'
-//     if zgrep -v '^##' ${vcf_file} | cut -f1 | grep -q '^chr'; then
-//         echo "Chromosomes start with 'chr', converting to numbers..."
-
-//         # Create temporary reheader file
-//         zgrep -v '^##' ${vcf_file} | cut -f1 | sort -u | \\
-//         awk '{ gsub("chr",""); if(\$1=="M") print \$1 "\\tMT"; else print \$1 "\\t" \$1 }' > reheader.txt
-
-//         # Apply reheader and compress
-//         bcftools annotate --rename-chrs reheader.txt -Oz -o normalized_${vcf_file.baseName}.vcf.gz ${vcf_file}
-
-//     else
-//         echo "Chromosomes are already numeric, just compressing..."
-//         bgzip -c ${vcf_file} > normalized_${vcf_file.baseName}.vcf.gz
-//     fi
-
-//     # Index the output VCF
-//     bcftools index normalized_${vcf_file.baseName}.vcf.gz
-//     """
-// }
 process normalize_chrom_names {
     tag "$vcf_file"
     
@@ -256,36 +136,48 @@ process normalize_chrom_names {
 // workflow download_only {
 //     download_genetic_map()
 // }
+def ref_vcfs = [
+    21: file(params.reference_vcf_21),
+    22: file(params.reference_vcf_22)
+]
 
+def ref_indices = [
+    21: file(params.reference_vcf_index_21),
+    22: file(params.reference_vcf_index_22)
+]
 workflow ancestry_pipeline {
 
-    chr_ch = Channel.from(21..21)
+    chr_ch = Channel.from(21..22)
+
     download_genetic_map()
     download_genetic_map_eagle()
     download_sample_map()
-    // ensure the process emits a usable file path
+
     map_file_ch = download_genetic_map.out.flatten()
     map_file_eagle_ch = download_genetic_map_eagle.out.flatten()
     sample_file_ch = download_sample_map.out.flatten()
+
     map_file_ch.view { println "Map for RFMix: $it" }
 
     // Preprocess input VCF once
-    // Make input genotype a channel
     input_vcf_ch = Channel.fromPath(params.input_genotype)
-
-    // Run the normalization process
     normalized_vcf_ch = input_vcf_ch | normalize_chrom_names
+
     eagle_inputs_ch = chr_ch
         .combine(normalized_vcf_ch.normalized)
         .combine(map_file_eagle_ch)
         .map { chr, vcf_file, vcf_index, map_file ->
             println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
+            
+            def ref_vcf = ref_vcfs[chr]       // Look up reference VCF in map
+            def ref_index = ref_indices[chr]  // Look up reference index
+
             tuple(
                 file(vcf_file),
                 file(vcf_index),
-                file(params.reference_vcf),
-                file(params.reference_vcf_index),
-                file(map_file), 
+                file(ref_vcf),
+                file(ref_index),
+                file(map_file),
                 chr
             )
         }
@@ -293,30 +185,32 @@ workflow ancestry_pipeline {
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
     phased_vcf_with_chr_ch = phased_vcf_ch
-        .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
+        .combine(eagle_inputs_ch.map { it[5] })
         .map { phased_vcf_file, chr ->
             println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
             tuple(chr, phased_vcf_file)
         }
+
     rfmix_inputs_ch = phased_vcf_with_chr_ch
-        .combine(map_file_ch)        // RFMix map
-        .combine(sample_file_ch)     // Sample map
-        .combine(normalized_vcf_ch.normalized)  // Normalized reference VCF (tuple: [vcf.gz, .tbi])
+        .combine(map_file_ch)
+        .combine(sample_file_ch)
+        .combine(normalized_vcf_ch.normalized)
         .map { items ->
-            // Items is a list containing all combined elements
-            // The last element is the tuple [vcf.gz, .tbi] from normalized_vcf_ch
             def chr = items[0]
             def phased_vcf = items[1]
             def map_file = items[2]
             def sample_map = items[3]
-           
+
+            def ref_vcf = ref_vcfs[chr]
+            def ref_index = ref_indices[chr]
+
             println "Preparing RFMix for chr ${chr}"
             
             tuple(
                 chr,
                 file(phased_vcf),
-                file(params.reference_vcf),
-                file(params.reference_vcf_index),
+                file(ref_vcf),
+                file(ref_index),
                 file(map_file),
                 file(sample_map)
             )
@@ -326,7 +220,7 @@ workflow ancestry_pipeline {
 
     emit:
         rfmix_results
-    }
+}
 
 
 
