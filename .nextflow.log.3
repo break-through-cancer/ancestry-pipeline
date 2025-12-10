@@ -1,263 +1,156 @@
-Dec-09 19:40:53.263 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main_local.nf --input_genotype test_data/GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz --input_genotype_index test_data/GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz.tbi --reference_vcf_21 test_data/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz --reference_vcf_index_21 test_data/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz.tbi --reference_vcf_22 test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz --reference_vcf_index_22 test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz.tbi
-Dec-09 19:40:53.905 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
-Dec-09 19:40:54.076 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
-Dec-09 19:40:54.087 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
-Dec-09 19:40:54.208 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Dec-09 19:40:55.639 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
-Dec-09 19:40:55.674 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Dec-09 19:40:55.676 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Dec-09 19:40:55.681 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Dec-09 19:40:55.707 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
-Dec-09 19:40:55.933 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Dec-09 19:40:55.944 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Dec-09 19:40:55.945 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Dec-09 19:40:55.974 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Dec-09 19:40:55.980 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@ef60710] - activable => nextflow.secret.LocalSecretsProvider@ef60710
-Dec-09 19:40:55.986 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Dec-09 19:40:56.010 [main] DEBUG nextflow.cli.CmdRun - Launching `main_local.nf` [evil_goldwasser] DSL2 - revision: 45b24ff3c7
-Dec-09 19:40:56.109 [main] DEBUG nextflow.Session - Session UUID: e3a80b49-632d-4cc3-9c47-3fb4f9b39bc0
-Dec-09 19:40:56.110 [main] DEBUG nextflow.Session - Run name: evil_goldwasser
-Dec-09 19:40:56.111 [main] DEBUG nextflow.Session - Executor pool size: 12
-Dec-09 19:40:56.121 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Dec-09 19:40:56.131 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Dec-09 19:40:56.176 [main] DEBUG nextflow.cli.CmdRun - 
+Dec-09 19:42:27.210 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main_local.nf --input_genotype test_data/GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz --input_genotype_index test_data/GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz.tbi --reference_vcf_21 test_data/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz --reference_vcf_index_21 test_data/ALL.chr21.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz.tbi --reference_vcf_22 test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz --reference_vcf_index_22 test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz.tbi
+Dec-09 19:42:27.822 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.0
+Dec-09 19:42:28.060 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /opt/work/nextflow.config
+Dec-09 19:42:28.072 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /opt/work/nextflow.config
+Dec-09 19:42:28.206 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Dec-09 19:42:29.488 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@3.4.1,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.1,nf-wave@1.16.1
+Dec-09 19:42:29.525 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Dec-09 19:42:29.526 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Dec-09 19:42:29.531 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Dec-09 19:42:29.567 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Dec-09 19:42:29.892 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Dec-09 19:42:29.899 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Dec-09 19:42:29.901 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Dec-09 19:42:29.935 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
+Dec-09 19:42:29.943 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@7c601d50] - activable => nextflow.secret.LocalSecretsProvider@7c601d50
+Dec-09 19:42:29.948 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Dec-09 19:42:29.968 [main] DEBUG nextflow.cli.CmdRun - Launching `main_local.nf` [prickly_venter] DSL2 - revision: 45b24ff3c7
+Dec-09 19:42:30.062 [main] DEBUG nextflow.Session - Session UUID: f064ce19-b06b-45bb-9495-b551a61373a7
+Dec-09 19:42:30.063 [main] DEBUG nextflow.Session - Run name: prickly_venter
+Dec-09 19:42:30.068 [main] DEBUG nextflow.Session - Executor pool size: 12
+Dec-09 19:42:30.084 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Dec-09 19:42:30.093 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Dec-09 19:42:30.132 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.10.0 build 10289
   Created: 22-10-2025 16:26 UTC (16:26 GMT)
   System: Linux 6.10.14-linuxkit
-  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.16+8-Ubuntu-0ubuntu122.04.1
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.17+10-Ubuntu-122.04
   Encoding: UTF-8 (ANSI_X3.4-1968)
-  Process: 19812@9b33dbf09e5d [172.17.0.5]
-  CPUs: 12 - Mem: 7.7 GB (1.6 GB) - Swap: 1024 MB (873.9 MB)
-Dec-09 19:40:56.269 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
-Dec-09 19:40:56.270 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
-Dec-09 19:40:56.285 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Dec-09 19:40:56.305 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Dec-09 19:40:56.309 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
-Dec-09 19:40:56.396 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Dec-09 19:40:56.413 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Dec-09 19:40:56.484 [main] DEBUG nextflow.Session - Session start
-Dec-09 19:40:58.188 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Dec-09 19:40:58.863 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Dec-09 19:40:58.864 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Dec-09 19:40:58.888 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Dec-09 19:40:58.899 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=7.7 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
-Dec-09 19:40:58.902 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Dec-09 19:40:58.959 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
-Dec-09 19:40:59.084 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Dec-09 19:40:59.085 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Dec-09 19:40:59.089 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map_eagle': maxForks=0; fair=false; array=0
-Dec-09 19:40:59.095 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Dec-09 19:40:59.095 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Dec-09 19:40:59.098 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_sample_map': maxForks=0; fair=false; array=0
-Dec-09 19:40:59.218 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Dec-09 19:40:59.220 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Dec-09 19:40:59.222 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:normalize_chrom_names': maxForks=0; fair=false; array=0
-Dec-09 19:40:59.285 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Dec-09 19:40:59.286 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Dec-09 19:40:59.287 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
-Dec-09 19:40:59.363 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Dec-09 19:40:59.366 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Dec-09 19:40:59.368 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
-Dec-09 19:40:59.373 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:download_genetic_map_eagle, ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, download_genetic_map_eagle, ancestry_pipeline:normalize_chrom_names, download_genetic_map, phase_with_eagle_ref, ancestry_pipeline:download_sample_map, download_genetic_map_eagle_plain, run_rfmix, normalize_chrom_names, ancestry_pipeline:download_genetic_map, download_sample_map
-Dec-09 19:40:59.381 [main] DEBUG nextflow.Session - Igniting dataflow network (8)
-Dec-09 19:40:59.383 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
-Dec-09 19:40:59.383 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map_eagle
-Dec-09 19:40:59.384 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_sample_map
-Dec-09 19:40:59.426 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:normalize_chrom_names
-Dec-09 19:40:59.428 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
-Dec-09 19:40:59.429 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
-Dec-09 19:40:59.433 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Process: 10984@eabc716ad02d [172.17.0.6]
+  CPUs: 12 - Mem: 7.7 GB (1.4 GB) - Swap: 1024 MB (873.9 MB)
+Dec-09 19:42:30.226 [main] DEBUG nextflow.Session - Work-dir: /opt/work/work [UNKNOWN (0x6a656a63)]
+Dec-09 19:42:30.227 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /opt/work/bin
+Dec-09 19:42:30.245 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Dec-09 19:42:30.267 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Dec-09 19:42:30.271 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Dec-09 19:42:30.364 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Dec-09 19:42:30.380 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Dec-09 19:42:30.453 [main] DEBUG nextflow.Session - Session start
+Dec-09 19:42:31.995 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Dec-09 19:42:32.734 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-09 19:42:32.735 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-09 19:42:32.753 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Dec-09 19:42:32.763 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=7.7 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Dec-09 19:42:32.767 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Dec-09 19:42:32.828 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map': maxForks=0; fair=false; array=0
+Dec-09 19:42:32.986 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-09 19:42:32.989 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-09 19:42:32.992 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_genetic_map_eagle': maxForks=0; fair=false; array=0
+Dec-09 19:42:32.996 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-09 19:42:32.996 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-09 19:42:33.000 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:download_sample_map': maxForks=0; fair=false; array=0
+Dec-09 19:42:33.087 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-09 19:42:33.088 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-09 19:42:33.091 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:normalize_chrom_names': maxForks=0; fair=false; array=0
+Dec-09 19:42:33.174 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-09 19:42:33.179 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-09 19:42:33.180 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:phase_with_eagle': maxForks=0; fair=false; array=0
+Dec-09 19:42:33.252 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-09 19:42:33.252 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-09 19:42:33.255 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ancestry_pipeline:run_rfmix': maxForks=0; fair=false; array=0
+Dec-09 19:42:33.260 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ancestry_pipeline:download_genetic_map_eagle, ancestry_pipeline:phase_with_eagle, phase_with_eagle, ancestry_pipeline:run_rfmix, download_genetic_map_eagle, ancestry_pipeline:normalize_chrom_names, download_genetic_map, phase_with_eagle_ref, ancestry_pipeline:download_sample_map, download_genetic_map_eagle_plain, run_rfmix, normalize_chrom_names, ancestry_pipeline:download_genetic_map, download_sample_map
+Dec-09 19:42:33.265 [main] DEBUG nextflow.Session - Igniting dataflow network (8)
+Dec-09 19:42:33.267 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map
+Dec-09 19:42:33.268 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_genetic_map_eagle
+Dec-09 19:42:33.268 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:download_sample_map
+Dec-09 19:42:33.612 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:normalize_chrom_names
+Dec-09 19:42:33.633 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:phase_with_eagle
+Dec-09 19:42:33.635 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ancestry_pipeline:run_rfmix
+Dec-09 19:42:33.640 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_3aea25fa82c010a9: /opt/work/modules/rfmix.nf
   Script_d4b9f85ea52707ab: /opt/work/modules/eagle.nf
   Script_7ebd177d0b714220: /opt/work/main_local.nf
-Dec-09 19:40:59.433 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Dec-09 19:40:59.444 [main] DEBUG nextflow.Session - Session await
-Dec-09 19:41:00.651 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Dec-09 19:41:00.657 [Task submitter] INFO  nextflow.Session - [69/6e488a] Submitted process > ancestry_pipeline:download_sample_map
-Dec-09 19:41:00.700 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Dec-09 19:41:00.703 [Task submitter] INFO  nextflow.Session - [5a/8a068b] Submitted process > ancestry_pipeline:download_genetic_map
-Dec-09 19:41:00.771 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Dec-09 19:41:00.773 [Task submitter] INFO  nextflow.Session - [a0/48781f] Submitted process > ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz)
-Dec-09 19:41:00.817 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Dec-09 19:41:00.820 [Task submitter] INFO  nextflow.Session - [9a/e82add] Submitted process > ancestry_pipeline:download_genetic_map_eagle
-Dec-09 19:41:03.372 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map_eagle; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/9a/e82add7ce5296d5fd223aa6a8f4389]
-Dec-09 19:41:03.377 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Dec-09 19:41:03.488 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: ancestry_pipeline:download_sample_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/69/6e488a2281f7d6dec2e7841fa84a2c]
-Dec-09 19:41:11.755 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/5a/8a068b04f4d9517a72173c3768eee7]
-Dec-09 19:41:11.784 [Actor Thread 7] INFO  nextflow.script.BaseScript - Map for RFMix: /opt/work/work/5a/8a068b04f4d9517a72173c3768eee7/genetic_map_all_chr.txt
-Dec-09 19:41:11.985 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz); status: COMPLETED; exit: 127; error: -; workDir: /opt/work/work/a0/48781fe80ed7147024b757ee39a185]
-Dec-09 19:41:12.001 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz); work-dir=/opt/work/work/a0/48781fe80ed7147024b757ee39a185
-  error [nextflow.exception.ProcessFailedException]: Process `ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz)` terminated with an error exit status (127)
-Dec-09 19:41:12.053 [TaskFinalizer-4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz)'
+Dec-09 19:42:33.640 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Dec-09 19:42:33.641 [main] DEBUG nextflow.Session - Session await
+Dec-09 19:42:34.478 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-09 19:42:34.483 [Task submitter] INFO  nextflow.Session - [73/e6f51c] Submitted process > ancestry_pipeline:download_genetic_map
+Dec-09 19:42:34.532 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-09 19:42:34.547 [Task submitter] INFO  nextflow.Session - [6d/2775d8] Submitted process > ancestry_pipeline:download_genetic_map_eagle
+Dec-09 19:42:34.622 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-09 19:42:34.626 [Task submitter] INFO  nextflow.Session - [73/ffffc3] Submitted process > ancestry_pipeline:download_sample_map
+Dec-09 19:42:34.677 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-09 19:42:34.678 [Task submitter] INFO  nextflow.Session - [a9/5f01d2] Submitted process > ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz)
+Dec-09 19:42:35.957 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: ancestry_pipeline:download_genetic_map_eagle; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/6d/2775d8ba94463a65441e7cea455586]
+Dec-09 19:42:35.963 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Dec-09 19:42:36.412 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: ancestry_pipeline:download_sample_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/73/ffffc3eba341132c744bc00d6224b6]
+Dec-09 19:42:44.566 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: ancestry_pipeline:download_genetic_map; status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/73/e6f51cbd25e975494deea7a80c7100]
+Dec-09 19:42:44.586 [Actor Thread 7] INFO  nextflow.script.BaseScript - Map for RFMix: /opt/work/work/73/e6f51cbd25e975494deea7a80c7100/genetic_map_all_chr.txt
+Dec-09 19:43:50.173 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz); status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/a9/5f01d2612e413d77b83b8112ef957d]
+Dec-09 19:43:50.217 [Actor Thread 7] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 21 with genetic map /opt/work/work/6d/2775d8ba94463a65441e7cea455586/genetic_map_hg38_withX.txt.gz
+Dec-09 19:43:50.317 [Actor Thread 7] INFO  nextflow.script.BaseScript - Preparing Eagle inputs for chromosome 22 with genetic map /opt/work/work/6d/2775d8ba94463a65441e7cea455586/genetic_map_hg38_withX.txt.gz
+Dec-09 19:43:50.372 [Actor Thread 13] DEBUG nextflow.util.HashBuilder - Unable to get file attributes file: /opt/work/test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz.tbi -- Cause: java.nio.file.NoSuchFileException: /opt/work/test_data/ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz.tbi
+Dec-09 19:43:50.402 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-09 19:43:50.403 [Task submitter] INFO  nextflow.Session - [4f/3e59c5] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
+Dec-09 19:43:50.424 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Dec-09 19:43:50.425 [Task submitter] INFO  nextflow.Session - [b2/e5a47c] Submitted process > ancestry_pipeline:phase_with_eagle (Eagle Phasing)
+Dec-09 19:43:50.755 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: ancestry_pipeline:phase_with_eagle (Eagle Phasing); status: COMPLETED; exit: 0; error: -; workDir: /opt/work/work/b2/e5a47c32475c89c931080041837ae8]
+Dec-09 19:43:50.796 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ancestry_pipeline:phase_with_eagle (Eagle Phasing); work-dir=/opt/work/work/b2/e5a47c32475c89c931080041837ae8
+  error [nextflow.exception.MissingFileException]: Missing output file(s) `*.vcf.gz` expected by process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` (note: input files are not included in the default matching set)
+Dec-09 19:43:50.914 [TaskFinalizer-5] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ancestry_pipeline:phase_with_eagle (Eagle Phasing)'
 
 Caused by:
-  Process `ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz)` terminated with an error exit status (127)
+  Missing output file(s) `*.vcf.gz` expected by process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` (note: input files are not included in the default matching set)
 
 
 Command executed:
 
-  set -e
-  
-  OUT_VCF="normalized_GBM1.vcf.gz"
-  
-  echo "Normalizing chromosome names for GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz..."
-  
-  # Check first data line for chr prefix
-  FIRST_CHROM=$(zcat GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz 2>/dev/null | grep -v '^#' | head -1 | cut -f1 || true)
-  echo "First chromosome found: ${FIRST_CHROM}"
-  
-  if [[ "${FIRST_CHROM}" == chr* ]]; then
-      echo "Chromosomes start with 'chr', converting to numbers..."
-  
-      # Create chromosome renaming map
-      (zcat GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz | grep -v '^#' | cut -f1 | sort -u | grep -v '^chr$' || true) | while read chrom; do
-          new_chrom=$(echo "${chrom}" | sed 's/^chr//' | sed 's/^M$/MT/')
-          if [[ -n "${new_chrom}" ]]; then
-              echo -e "${chrom}\t${new_chrom}"
-          fi
-      done > reheader.txt
-  
-      echo "Chromosome mapping:"
-      cat reheader.txt
-  
-      # Extract and fix header
-      bcftools view -h GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz | \
-      sed 's/^##contig=<ID=chr/##contig=<ID=/' | \
-      sed 's/^##contig=<ID=M,/##contig=<ID=MT,/' > temp_header.vcf
-  
-      # Extract data with renamed chromosomes
-      bcftools annotate --rename-chrs reheader.txt GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz 2>/dev/null | \
-      bcftools view -H >> temp_header.vcf
-  
-      # Compress the result
-      bgzip -c temp_header.vcf > ${OUT_VCF}
-  
-      rm temp_header.vcf
-  else
-      echo "Chromosomes are already numeric (found: ${FIRST_CHROM}), just copying..."
-      bcftools view -Oz -o ${OUT_VCF} GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz
-  fi
-  
-  # Index with tabix
-  tabix -p vcf ${OUT_VCF}
-  
-  # Verify outputs
-  echo "Output files created:"
-  ls -lh ${OUT_VCF}* || true
-  
-  echo "Chromosomes in normalized output:"
-  (zcat ${OUT_VCF} 2>/dev/null | grep -v '^#' | cut -f1 | sort -u | head -20) || true
-  
-  echo "Contig lines in header:"
-  (zcat ${OUT_VCF} 2>/dev/null | grep '^##contig' | head -10) || true
+  eagle             --vcfTarget=normalized_GBM1.vcf.gz             --vcfRef=ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz             --geneticMapFile=genetic_map_hg38_withX.txt.gz             --chrom=22             --outPrefix=test             2>&1 | tee eagle.log
 
 Command exit status:
-  127
+  0
 
 Command output:
-  Normalizing chromosome names for GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz...
-  First chromosome found: chr1
-  Chromosomes start with 'chr', converting to numbers...
-  Chromosome mapping:
-  chr1	1
-  chr10	10
-  chr11	11
-  chr12	12
-  chr13	13
-  chr14	14
-  chr15	15
-  chr16	16
-  chr17	17
-  chr18	18
-  chr19	19
-  chr2	2
-  chr20	20
-  chr21	21
-  chr22	22
-  chr3	3
-  chr4	4
-  chr5	5
-  chr6	6
-  chr7	7
-  chr8	8
-  chr9	9
-  chrX	X
-  chrY	Y
-
-Command error:
-  Normalizing chromosome names for GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz...
-  First chromosome found: chr1
-  Chromosomes start with 'chr', converting to numbers...
-  Chromosome mapping:
-  chr1	1
-  chr10	10
-  chr11	11
-  chr12	12
-  chr13	13
-  chr14	14
-  chr15	15
-  chr16	16
-  chr17	17
-  chr18	18
-  chr19	19
-  chr2	2
-  chr20	20
-  chr21	21
-  chr22	22
-  chr3	3
-  chr4	4
-  chr5	5
-  chr6	6
-  chr7	7
-  chr8	8
-  chr9	9
-  chrX	X
-  chrY	Y
-  .command.sh: line 27: bcftools: command not found
-  .command.sh: line 33: bcftools: command not found
+                        +-----------------------------+
+                        |                             |
+                        |   Eagle v2.4.1              |
+                        |   November 18, 2018         |
+                        |   Po-Ru Loh                 |
+                        |                             |
+                        +-----------------------------+
+  
+  Copyright (C) 2015-2018 Harvard University.
+  Distributed under the GNU GPLv3+ open source license.
+  
+  Command line options:
+  
+  eagle \
+      --vcfTarget=normalized_GBM1.vcf.gz \
+      --vcfRef=ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz \
+      --geneticMapFile=genetic_map_hg38_withX.txt.gz \
+      --chrom=22 \
+      --outPrefix=test 
+  
+  WARNING: --vcfRef does not end in '.bcf'; BCF input is fastest
+  Setting number of threads to 1
+  ERROR: Could not open ALL.chr22.phase3_shapeit2_mvncall_integrated_v5b.20130502.genotypes.vcf.gz for reading: could not load index
 
 Work dir:
-  /opt/work/work/a0/48781fe80ed7147024b757ee39a185
+  /opt/work/work/b2/e5a47c32475c89c931080041837ae8
 
-Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
-Dec-09 19:41:12.075 [TaskFinalizer-4] DEBUG nextflow.Session - Session aborted -- Cause: Process `ancestry_pipeline:normalize_chrom_names (GBM1.DFCI1.PBMC.haplotypecaller.vcf.gz)` terminated with an error exit status (127)
-Dec-09 19:41:12.092 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Dec-09 19:41:12.104 [main] DEBUG nextflow.Session - Session await > all processes finished
-Dec-09 19:41:12.106 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Dec-09 19:41:12.156 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=3; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=16.2s; failedDuration=11.1s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
-Dec-09 19:41:12.165 [TaskFinalizer-4] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=3; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=16.2s; failedDuration=11.1s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
-Dec-09 19:41:12.166 [TaskFinalizer-4] DEBUG nextflow.Session - null
-java.lang.InterruptedException: null
-	at java.base/java.lang.Object.wait(Native Method)
-	at java.base/java.lang.Thread.join(Thread.java:1313)
-	at java.base/java.lang.Thread.join(Thread.java:1381)
-	at nextflow.trace.AnsiLogObserver.onFlowComplete(AnsiLogObserver.groovy:520)
-	at nextflow.Session$_notifyFlowComplete_lambda39.doCall(Session.groovy:1121)
-	at nextflow.Session.notifyEvent(Session.groovy:1151)
-	at nextflow.Session.notifyFlowComplete(Session.groovy:1121)
-	at nextflow.Session.shutdown0(Session.groovy:779)
-	at nextflow.Session.abort(Session.groovy:834)
-	at nextflow.Session.fault(Session.groovy:796)
-	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:753)
-	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:736)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
-	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1339)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1094)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
-	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
-	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
-	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
-	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:726)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Dec-09 19:41:12.303 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Dec-09 19:41:12.399 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Dec-09 19:43:50.924 [TaskFinalizer-5] DEBUG nextflow.Session - Session aborted -- Cause: Missing output file(s) `*.vcf.gz` expected by process `ancestry_pipeline:phase_with_eagle (Eagle Phasing)` (note: input files are not included in the default matching set)
+Dec-09 19:43:50.965 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Dec-09 19:43:50.980 [TaskFinalizer-5] DEBUG nextflow.Session - The following nodes are still active:
+[process] ancestry_pipeline:run_rfmix
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Dec-09 19:43:50.996 [TaskFinalizer-5] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Dec-09 19:43:51.070 [TaskFinalizer-5] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=4; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=1m 28s; failedDuration=272ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
+Dec-09 19:43:51.140 [main] DEBUG nextflow.Session - Session await > all processes finished
+Dec-09 19:43:51.141 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Dec-09 19:43:51.161 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=4; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=1; succeedDuration=1m 28s; failedDuration=272ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
+Dec-09 19:43:51.178 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Dec-09 19:43:51.260 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

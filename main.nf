@@ -194,27 +194,23 @@ workflow ancestry_pipeline {
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
-    phased_vcf_with_chr_ch = phased_vcf_ch
-        .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
-        .map { phased_vcf_file, chr ->
-            println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
-            tuple(chr, phased_vcf_file)
-        }
-    rfmix_inputs_ch = phased_vcf_with_chr_ch
-        .combine(map_file_ch)        // RFMix map
-        .combine(sample_file_ch)     // Sample map
-        .combine(normalized_vcf_ch.normalized)  // Normalized reference VCF (tuple: [vcf.gz, .tbi])
-        .map { items ->
-            // Items is a list containing all combined elements
-            // The last element is the tuple [vcf.gz, .tbi] from normalized_vcf_ch
-            def chr = items[0]
-            def phased_vcf = items[1]
-            def map_file = items[2]
-            def sample_map = items[3]
+    // phased_vcf_with_chr_ch = phased_vcf_ch
+    //     .combine(eagle_inputs_ch.map { it[5] })  // combine with the chromosomes
+    //     .map { phased_vcf_file, chr ->
+    //         println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
+    //         tuple(chr, phased_vcf_file)
+    //     }
+    rfmix_inputs_ch = phased_vcf_ch
+        .combine(map_file_ch)        // broadcast (one file)
+        .combine(sample_file_ch)     // broadcast (one file)
+        .map { chr, phased_vcf, map_file, sample_map ->
+
+            // Build ref panel paths
             def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
+
             println "Preparing RFMix for chr ${chr}"
-            
+
             tuple(
                 chr,
                 file(phased_vcf),
@@ -224,6 +220,31 @@ workflow ancestry_pipeline {
                 file(sample_map)
             )
         }
+
+    // rfmix_inputs_ch = phased_vcf_with_chr_ch
+    //     .combine(map_file_ch)        // RFMix map
+    //     .combine(sample_file_ch)     // Sample map
+    //     .combine(normalized_vcf_ch.normalized)  // Normalized reference VCF (tuple: [vcf.gz, .tbi])
+    //     .map { items ->
+    //         // Items is a list containing all combined elements
+    //         // The last element is the tuple [vcf.gz, .tbi] from normalized_vcf_ch
+    //         def chr = items[0]
+    //         def phased_vcf = items[1]
+    //         def map_file = items[2]
+    //         def sample_map = items[3]
+    //         def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+    //         def ref_vcf_index = "${ref_vcf}.tbi"
+    //         println "Preparing RFMix for chr ${chr}"
+            
+    //         tuple(
+    //             chr,
+    //             file(phased_vcf),
+    //             file(ref_vcf),
+    //             file(ref_vcf_index),
+    //             file(map_file),
+    //             file(sample_map)
+    //         )
+    //     }
    
     rfmix_results = run_rfmix(rfmix_inputs_ch)
 
