@@ -159,7 +159,7 @@ process normalize_chrom_names {
 workflow ancestry_pipeline {
 
  
-    chr_ch = Channel.from(1..1)
+    chr_ch = Channel.from(1..22)
     download_genetic_map()
     download_genetic_map_eagle()
     download_sample_map()
