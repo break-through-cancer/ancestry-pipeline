@@ -207,10 +207,10 @@ workflow ancestry_pipeline {
       )
     }
 
-  def rfmix_results = run_rfmix(rfmix_inputs_ch)
+    run_rfmix(rfmix_inputs_ch)
 
-  emit:
-    rfmix_results
+    emit:
+        rfmix_results = run_rfmix.out
 }
 
 workflow { ancestry_pipeline() }
