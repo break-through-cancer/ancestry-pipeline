@@ -4,27 +4,18 @@ nextflow.enable.dsl = 2
 include { phase_with_eagle } from './modules/eagle'
 include { run_rfmix } from './modules/rfmix'
 
-/*
- * ----------------------------------------------------------------------------
- * Local CLI args (NO params.*)
- * Usage:
- *   nextflow run main.nf -- /path/to/input.vcf.gz
- * ----------------------------------------------------------------------------
- */
-if( !this.args || this.args.size() < 1 ) {
-  log.error "Usage: nextflow run main.nf -- /path/to/input.vcf.gz"
+if( !params.input_vcf ) {
+  log.error "Usage: nextflow run main_local.nf --input_vcf /path/to/input.vcf.gz"
   System.exit(1)
 }
 
-def INPUT_VCF = this.args[0]
+def INPUT_VCF = params.input_vcf
 
-// Basic existence check (local filesystem)
 def inputFileObj = new File(INPUT_VCF)
 if( !inputFileObj.exists() ) {
   log.error "Input VCF not found: ${INPUT_VCF}"
   System.exit(1)
 }
-
 /*
  * ----------------------------------------------------------------------------
  * Processes (your existing ones below are unchanged)
