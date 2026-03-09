@@ -190,9 +190,9 @@ workflow ancestry_pipeline {
   def rfmix_inputs_ch = phased_vcf_ch
     .combine(map_file_ch)
     .combine(sample_file_ch)
-    .map { phased_tuple, map_file, sample_map ->
-      def chr        = phased_tuple[0]
-      def phased_vcf = phased_tuple[1]
+    .map { chr, phased_vcf, map_file, sample_map ->
+      // def chr        = phased_tuple[0]
+      // def phased_vcf = phased_tuple[1]
 
       def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
       def ref_vcf_index = "${ref_vcf}.tbi"
