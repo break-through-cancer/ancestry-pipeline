@@ -1,34 +1,19 @@
-// process phase_with_eagle {
-//     tag "Eagle Phasing"
-
-//     input:
-//         tuple path(input_genotype), path(input_genotype_index), path(genetic_map), val(chromosome)
-
-//     output:
-//         path "*.vcf.gz", emit: phased_vcf
-
-//     script:
-//         """
-//         eagle \
-//             --vcfTarget=${input_genotype} \
-//             --geneticMapFile=${genetic_map} \
-//             --chrom=${chromosome} \
-//             --outPrefix=test \
-//             2>&1 | tee eagle.log
-//         """
-// }
 process phase_with_eagle {
-    tag "Eagle Phasing"
+    tag "Eagle Phasing chr${chromosome}"
 
     input:
         tuple path(input_genotype), path(input_genotype_index), path(reference_vcf), path(ref_vcf_index), path(genetic_map), val(chromosome)
 
     output:
-        tuple val(chromosome), path("*.vcf.gz")
-
+        tuple val(chromosome),
+              path("phased_chr${chromosome}.vcf.gz"),
+              path("phased_chr${chromosome}.vcf.gz.tbi"),
+              emit: phased_vcf
 
     script:
         """
+        set -euo pipefail
+
         eagle \
             --vcfTarget=${input_genotype} \
             --vcfRef=${reference_vcf} \
@@ -36,5 +21,11 @@ process phase_with_eagle {
             --chrom=${chromosome} \
             --outPrefix=phased_chr${chromosome} \
             2>&1 | tee eagle_chr${chromosome}.log
+
+        tabix -f -p vcf phased_chr${chromosome}.vcf.gz
+
+        echo "=== Eagle output check ==="
+        ls -lh phased_chr${chromosome}.vcf.gz*
+        bcftools query -f '%CHROM\\n' phased_chr${chromosome}.vcf.gz | head
         """
 }

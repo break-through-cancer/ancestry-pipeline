@@ -200,20 +200,18 @@ workflow ancestry_pipeline {
     //         println "Eagle finished for chromosome ${chr}: phased VCF = ${phased_vcf_file}"
     //         tuple(chr, phased_vcf_file)
     //     }
-    rfmix_inputs_ch = phased_vcf_ch
-        .combine(map_file_ch)        // broadcast (one file)
-        .combine(sample_file_ch)     // broadcast (one file)
-        .map { chr, phased_vcf, map_file, sample_map ->
+    rfmix_inputs_ch = phased_vcf_ch.phased_vcf
+        .combine(map_file_ch)
+        .combine(sample_file_ch)
+        .map { chr, phased_vcf, phased_tbi, map_file, sample_map ->
 
-            // Build ref panel paths
             def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
 
-            println "Preparing RFMix for chr ${chr}"
-
             tuple(
                 chr,
-                file(phased_vcf),
+                phased_vcf,
+                phased_tbi,
                 file(ref_vcf),
                 file(ref_vcf_index),
                 file(map_file),
