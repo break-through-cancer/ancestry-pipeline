@@ -13,3 +13,13 @@ genetic_map_hg38*.txt
 
 geneticmap/
 
+cirro_dfci4_run_data/
+cirro_p2_run/
+*.tsv
+*.rfmix.Q
+*.msp.tsv
+*.fb.tsv
+*.sis.tsv
+
+*.vcf.gz
+*.tbi

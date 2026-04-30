@@ -180,7 +180,7 @@ workflow ancestry_pipeline {
         .combine(map_file_eagle_ch)
         .map { chr, vcf_file, vcf_index, map_file ->
             println "Preparing Eagle inputs for chromosome ${chr} with genetic map ${map_file}"
-            def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
             tuple(
                 file(vcf_file),
@@ -206,7 +206,7 @@ workflow ancestry_pipeline {
         .map { chr, phased_vcf, map_file, sample_map ->
 
             // Build ref panel paths
-            def ref_vcf = "s3://1000genomes/release/20130502/ALL.chr${chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz"
+            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr}.recalibrated_variants.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
 
             println "Preparing RFMix for chr ${chr}"
