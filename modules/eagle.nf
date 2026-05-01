@@ -36,12 +36,21 @@ process phase_with_eagle {
             --geneticMapFile=${genetic_map} \\
             --chrom=${chromosome} \\
             --outPrefix=phased_${chromosome} \\
-            2>&1 | tee eagle_${chromosome}.log
+            > eagle_${chromosome}.log 2>&1
+
+        if [ ! -f phased_${chromosome}.vcf.gz ]; then
+            echo "ERROR: Eagle did not produce phased_${chromosome}.vcf.gz"
+            cat eagle_${chromosome}.log
+            exit 1
+        fi
 
         tabix -f -p vcf phased_${chromosome}.vcf.gz
 
         echo "=== Eagle output check ==="
         ls -lh phased_${chromosome}.vcf.gz*
         bcftools query -f '%CHROM\\n' phased_${chromosome}.vcf.gz | head
+
+        echo "=== Eagle log tail ==="
+        tail -40 eagle_${chromosome}.log
         """
 }
