@@ -1,5 +1,5 @@
 process run_rfmix {
-    tag "RFMix chr${chromosome}"
+    tag "RFMix ${chromosome}"
 
     input:
         tuple val(chromosome),
@@ -19,18 +19,27 @@ process run_rfmix {
 
         echo "=== DEBUG INFO for chromosome ${chromosome} ==="
         echo "Phased VCF: ${phased_vcf}"
+        echo "Reference VCF: ${reference_vcf}"
+        echo "Genetic map: ${genetic_map}"
+        echo "Sample map: ${sample_map}"
 
         echo "--- Chromosomes in phased VCF ---"
         bcftools query -f '%CHROM\\n' ${phased_vcf} | sort -u | head
 
+        echo "--- Chromosomes in reference VCF ---"
+        bcftools query -f '%CHROM\\n' ${reference_vcf} | sort -u | head
+
+        echo "--- First lines of genetic map ---"
+        head ${genetic_map}
+
         echo "--- Running RFMix ---"
 
-        rfmix \
-            -f ${phased_vcf} \
-            -r ${reference_vcf} \
-            -m ${sample_map} \
-            -g ${genetic_map} \
-            -o ${chromosome} \
+        rfmix \\
+            -f ${phased_vcf} \\
+            -r ${reference_vcf} \\
+            -m ${sample_map} \\
+            -g ${genetic_map} \\
+            -o ${chromosome} \\
             --chromosome=${chromosome}
         """
 }
