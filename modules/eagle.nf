@@ -51,6 +51,6 @@ process phase_with_eagle {
         bcftools query -f '%CHROM\\n' phased_${chromosome}.vcf.gz | head
 
         echo "=== Eagle log tail ==="
-        tail -40 eagle_${chromosome}.log
+        tail -40 eagle_${chromosome}.log || true
         """
 }
