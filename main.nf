@@ -85,27 +85,16 @@ process download_sample_map {
 
     script:
     """
+    set -euo pipefail
+
     echo "=== Starting download_sample_map process ==="
 
-    if [ ! -f integrated_call_samples_v3.20130502.ALL.panel ]; then
-        echo "Downloading 1000 Genomes sample metadata..."
-        curl -s -L -o integrated_call_samples_v3.20130502.ALL.panel \\
-            https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v3.20130502.ALL.panel
-    else
-        echo "Panel file already exists, skipping download."
-    fi
+    aws s3 cp --no-sign-request \\
+        s3://1000genomes/1000G_2504_high_coverage/additional_698_related/20130606_g1k_3202_samples_ped_population.txt \\
+        rfmix_sample_map.txt
 
-    python3 - <<'EOF'
-import pandas as pd
-
-panel_file = "integrated_call_samples_v3.20130502.ALL.panel"
-df = pd.read_csv(panel_file, sep='\\t')
-
-sample_map = df[['sample', 'pop']]
-sample_map.to_csv("rfmix_sample_map.txt", sep='\\t', index=False, header=False)
-
-print("Sample map saved to rfmix_sample_map.txt")
-EOF
+    echo "Sample map downloaded:"
+    head rfmix_sample_map.txt
     """
 }
 
