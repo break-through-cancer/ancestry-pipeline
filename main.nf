@@ -77,7 +77,6 @@ process download_genetic_map_eagle {
     """
 }
 
-
 process download_sample_map {
 
     output:
@@ -89,15 +88,16 @@ process download_sample_map {
 
     echo "=== Starting download_sample_map process ==="
 
-    aws s3 cp --no-sign-request \\
-        s3://1000genomes/1000G_2504_high_coverage/additional_698_related/20130606_g1k_3202_samples_ped_population.txt \\
-        rfmix_sample_map.txt
+    curl -s -L -o rfmix_sample_map.txt \\
+        https://1000genomes.s3.amazonaws.com/1000G_2504_high_coverage/additional_698_related/20130606_g1k_3202_samples_ped_population.txt
 
     echo "Sample map downloaded:"
     head rfmix_sample_map.txt
+
+    echo "Sample map line count:"
+    wc -l rfmix_sample_map.txt
     """
 }
-
 
 process normalize_chrom_names {
     tag "$vcf_file"
