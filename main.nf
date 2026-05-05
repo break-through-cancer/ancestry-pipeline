@@ -86,15 +86,13 @@ process download_sample_map {
     """
     set -euo pipefail
 
-    echo "=== Starting download_sample_map process ==="
-
-    curl -s -L -o rfmix_sample_map.txt \\
+    curl -s -L -o full_sample_map.txt \\
         https://1000genomes.s3.amazonaws.com/1000G_2504_high_coverage/additional_698_related/20130606_g1k_3202_samples_ped_population.txt
 
-    echo "Sample map downloaded:"
-    head rfmix_sample_map.txt
+    awk 'NR > 1 {print \$2, \$6}' OFS='\\t' full_sample_map.txt > rfmix_sample_map.txt
 
-    echo "Sample map line count:"
+    echo "RFMix sample map:"
+    head rfmix_sample_map.txt
     wc -l rfmix_sample_map.txt
     """
 }
@@ -195,7 +193,7 @@ workflow ancestry_pipeline {
 
             println "Preparing Eagle inputs for chromosome ${chr_name} with genetic map ${map_file}"
 
-            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr_num}.recalibrated_variants.vcf.gz"
+            def ref_vcf = "s3://1000genomes/1000G_2504_high_coverage/working/20201028_3202_phased/CCDG_14151_B01_GRM_WGS_2020-08-05_chr${chr_num}.filtered.shapeit2-duohmm-phased.vcf.gz"
             def ref_vcf_index = "${ref_vcf}.tbi"
 
             tuple(
