@@ -186,20 +186,6 @@ process download_1000g_phased_reference {
     echo "Reference sample count:"
     bcftools query -l ref_${chr_name}.vcf.gz | wc -l
 
-    echo "Check phased vs unphased GTs in first 1000 records:"
-    bcftools view -H ref_${chr_name}.vcf.gz | head -1000 | awk '
-    {
-      for (i=10; i<=NF; i++) {
-        split(\$i,a,":");
-        gt=a[1];
-        if (gt ~ /\\|/) phased++;
-        if (gt ~ /\\//) unphased++;
-      }
-    }
-    END {
-      print "phased_gt=" phased;
-      print "unphased_gt=" unphased;
-    }'
     """
 }
 
