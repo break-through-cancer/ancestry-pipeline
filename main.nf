@@ -69,10 +69,6 @@ process download_sample_map {
         -o full_sample_map.txt \\
         https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/20130606_g1k_3202_samples_ped_population.txt
 
-    # RFMix sample map: sample_id ancestry_label
-    # In this 1000G PED-style file:
-    #   column 2 = sample / individual ID
-    #   column 6 = population code
     awk 'NR > 1 {print \$2, \$6}' OFS='\\t' full_sample_map.txt > rfmix_sample_map.txt
 
     echo "RFMix sample map:"
@@ -185,7 +181,64 @@ process download_1000g_phased_reference {
 
     echo "Reference sample count:"
     bcftools query -l ref_${chr_name}.vcf.gz | wc -l
+    """
+}
 
+process convert_rfmix_inputs_to_bcf {
+    tag "$chr_name"
+
+    input:
+        tuple val(chr_name),
+              path(target_vcf),
+              path(target_tbi),
+              path(ref_vcf),
+              path(ref_tbi)
+
+    output:
+        tuple val(chr_name),
+              path("target_${chr_name}.bcf"),
+              path("target_${chr_name}.bcf.csi"),
+              path("ref_${chr_name}.bcf"),
+              path("ref_${chr_name}.bcf.csi"),
+              emit: bcf_inputs
+
+    script:
+    """
+    set -euo pipefail
+
+    echo "=== Converting RFMix inputs to BCF for ${chr_name} ==="
+
+    echo "Target VCF: ${target_vcf}"
+    echo "Reference VCF: ${ref_vcf}"
+
+    echo "--- Target VCF chromosomes ---"
+    bcftools query -f '%CHROM\\n' ${target_vcf} | sort -u | head
+
+    echo "--- Reference VCF chromosomes ---"
+    bcftools query -f '%CHROM\\n' ${ref_vcf} | sort -u | head
+
+    echo "--- Converting target phased VCF to BCF ---"
+    bcftools view -Ob -o target_${chr_name}.bcf ${target_vcf}
+    bcftools index -f target_${chr_name}.bcf
+
+    echo "--- Converting reference phased VCF to BCF ---"
+    bcftools view -Ob -o ref_${chr_name}.bcf ${ref_vcf}
+    bcftools index -f ref_${chr_name}.bcf
+
+    echo "BCF outputs:"
+    ls -lh target_${chr_name}.bcf target_${chr_name}.bcf.csi ref_${chr_name}.bcf ref_${chr_name}.bcf.csi
+
+    echo "Target BCF chromosomes:"
+    bcftools query -f '%CHROM\\n' target_${chr_name}.bcf | sort -u | head
+
+    echo "Reference BCF chromosomes:"
+    bcftools query -f '%CHROM\\n' ref_${chr_name}.bcf | sort -u | head
+
+    echo "Target BCF sample count:"
+    bcftools query -l target_${chr_name}.bcf | wc -l
+
+    echo "Reference BCF sample count:"
+    bcftools query -l ref_${chr_name}.bcf | wc -l
     """
 }
 
@@ -234,24 +287,42 @@ workflow ancestry_pipeline {
 
     phased_vcf_ch = phase_with_eagle(eagle_inputs_ch)
 
-    rfmix_inputs_ch = phased_vcf_ch.phased_vcf
+    rfmix_vcf_inputs_ch = phased_vcf_ch.phased_vcf
         .join(phased_ref_ch)
-        .combine(map_file_ch)
-        .combine(sample_file_ch)
-        .map { chr_name, target_phased_vcf, target_phased_tbi, ref_phased_vcf, ref_phased_tbi, rfmix_map, sample_map ->
+        .map { chr_name, target_phased_vcf, target_phased_tbi, ref_phased_vcf, ref_phased_tbi ->
 
-            println "Preparing RFMix inputs for chromosome ${chr_name}"
+            println "Preparing BCF conversion inputs for chromosome ${chr_name}"
             println "Target phased VCF: ${target_phased_vcf}"
             println "Reference phased VCF: ${ref_phased_vcf}"
-            println "RFMix map: ${rfmix_map}"
-            println "Sample map: ${sample_map}"
 
             tuple(
                 chr_name,
                 file(target_phased_vcf),
                 file(target_phased_tbi),
                 file(ref_phased_vcf),
-                file(ref_phased_tbi),
+                file(ref_phased_tbi)
+            )
+        }
+
+    rfmix_bcf_ch = convert_rfmix_inputs_to_bcf(rfmix_vcf_inputs_ch).bcf_inputs
+
+    rfmix_inputs_ch = rfmix_bcf_ch
+        .combine(map_file_ch)
+        .combine(sample_file_ch)
+        .map { chr_name, target_bcf, target_csi, ref_bcf, ref_csi, rfmix_map, sample_map ->
+
+            println "Preparing RFMix BCF inputs for chromosome ${chr_name}"
+            println "Target phased BCF: ${target_bcf}"
+            println "Reference phased BCF: ${ref_bcf}"
+            println "RFMix map: ${rfmix_map}"
+            println "Sample map: ${sample_map}"
+
+            tuple(
+                chr_name,
+                file(target_bcf),
+                file(target_csi),
+                file(ref_bcf),
+                file(ref_csi),
                 file(rfmix_map),
                 file(sample_map)
             )

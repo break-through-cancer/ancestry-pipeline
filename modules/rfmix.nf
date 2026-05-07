@@ -18,8 +18,6 @@ process run_rfmix {
         set -euo pipefail
 
         echo "=== DEBUG INFO for chromosome ${chromosome} ==="
-        echo "CPUs: ${task.cpus}"
-        echo "Memory: ${task.memory}"
         echo "Phased VCF: ${phased_vcf}"
         echo "Reference VCF: ${reference_vcf}"
         echo "Genetic map: ${genetic_map}"
@@ -42,7 +40,6 @@ process run_rfmix {
             -m ${sample_map} \\
             -g ${genetic_map} \\
             -o ${chromosome} \\
-            --chromosome=${chromosome} \\
-            --n-threads ${task.cpus}
+            --chromosome=${chromosome}
         """
 }
