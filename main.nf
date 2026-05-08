@@ -171,7 +171,7 @@ process download_1000g_phased_reference {
         --read-timeout=60 \
         --timeout=60 \
         -O ref_${chr_name}.vcf.gz \
-        "${REF_URL}"
+       "\${REF_URL}"
 
     wget -c \
         --tries=20 \
@@ -179,7 +179,7 @@ process download_1000g_phased_reference {
         --read-timeout=60 \
         --timeout=60 \
         -O ref_${chr_name}.vcf.gz.tbi \
-        "${TBI_URL}"
+        "\${TBI_URL}"
 
     echo "Downloaded reference:"
     ls -lh ref_${chr_name}.vcf.gz ref_${chr_name}.vcf.gz.tbi
