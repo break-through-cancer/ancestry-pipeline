@@ -165,13 +165,21 @@ process download_1000g_phased_reference {
     echo "VCF URL: \${REF_URL}"
     echo "TBI URL: \${TBI_URL}"
 
-    curl -fL --retry 5 --retry-delay 20 \\
-        -o ref_${chr_name}.vcf.gz \\
-        "\${REF_URL}"
+    wget -c \
+        --tries=20 \
+        --waitretry=30 \
+        --read-timeout=60 \
+        --timeout=60 \
+        -O ref_${chr_name}.vcf.gz \
+        "${REF_URL}"
 
-    curl -fL --retry 5 --retry-delay 20 \\
-        -o ref_${chr_name}.vcf.gz.tbi \\
-        "\${TBI_URL}"
+    wget -c \
+        --tries=20 \
+        --waitretry=30 \
+        --read-timeout=60 \
+        --timeout=60 \
+        -O ref_${chr_name}.vcf.gz.tbi \
+        "${TBI_URL}"
 
     echo "Downloaded reference:"
     ls -lh ref_${chr_name}.vcf.gz ref_${chr_name}.vcf.gz.tbi
