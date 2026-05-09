@@ -98,8 +98,18 @@ process normalize_chrom_names {
     echo "Normalizing chromosome names for ${vcf_file}..."
     echo "Input index: ${vcf_index}"
 
-    FIRST_CHROM=\$(bcftools view -H ${vcf_file} | head -1 | cut -f1 || true)
-    echo "First chromosome found: \${FIRST_CHROM}"
+    echo "Getting contigs from VCF header..."
+    bcftools view -h ${vcf_file} \\
+        | awk -F'[=,>]' '/^##contig=<ID=/ {print \$3}' \\
+        > contigs.txt
+
+    FIRST_CHROM=\$(awk 'NF > 0 {print \$1; exit}' contigs.txt || true)
+    echo "First contig found in header: \${FIRST_CHROM}"
+
+    if [[ -z "\${FIRST_CHROM}" ]]; then
+        echo "ERROR: Could not find contigs in VCF header."
+        exit 1
+    fi
 
     if [[ "\${FIRST_CHROM}" == chr* ]]; then
         echo "Chromosomes already chr-prefixed."
@@ -107,17 +117,19 @@ process normalize_chrom_names {
     else
         echo "Converting chromosomes to chr-prefixed format..."
 
-        bcftools query -f '%CHROM\\n' ${vcf_file} | sort -u | while read chrom; do
-            if [[ "\${chrom}" == "MT" ]]; then
-                echo -e "MT\\tchrM"
-            elif [[ "\${chrom}" == "M" ]]; then
-                echo -e "M\\tchrM"
-            elif [[ "\${chrom}" == chr* ]]; then
-                echo -e "\${chrom}\\t\${chrom}"
-            else
-                echo -e "\${chrom}\\tchr\${chrom}"
-            fi
-        done > reheader.txt
+        awk '
+        {
+            chrom=\$1
+            if (chrom == "MT") {
+                print "MT\\tchrM"
+            } else if (chrom == "M") {
+                print "M\\tchrM"
+            } else if (chrom ~ /^chr/) {
+                print chrom "\\t" chrom
+            } else {
+                print chrom "\\tchr" chrom
+            }
+        }' contigs.txt > reheader.txt
 
         echo "Chromosome rename map:"
         cat reheader.txt
@@ -132,8 +144,6 @@ process normalize_chrom_names {
 
     echo "Normalized output:"
     ls -lh \${OUT_VCF}*
-    echo "Chromosomes in normalized output:"
-    bcftools query -f '%CHROM\\n' \${OUT_VCF} | sort -u | head -30
     """
 }
 
@@ -165,33 +175,40 @@ process download_1000g_phased_reference {
     echo "VCF URL: \${REF_URL}"
     echo "TBI URL: \${TBI_URL}"
 
-    wget -c \
-        --tries=20 \
-        --waitretry=30 \
-        --read-timeout=60 \
-        --timeout=60 \
-        -O ref_${chr_name}.vcf.gz \
-       "\${REF_URL}"
+    wget -c \\
+    --tries=20 \\
+    --waitretry=30 \\
+    --read-timeout=60 \\
+    --timeout=60 \\
+    -O ref_${chr_name}.vcf.gz \\
+     "\${REF_URL}"
 
-    wget -c \
-        --tries=20 \
-        --waitretry=30 \
-        --read-timeout=60 \
-        --timeout=60 \
-        -O ref_${chr_name}.vcf.gz.tbi \
+    wget -c \\
+        --tries=20 \\
+        --waitretry=30 \\
+        --read-timeout=60 \\
+        --timeout=60 \\
+        -O ref_${chr_name}.vcf.gz.tbi \\
         "\${TBI_URL}"
 
     echo "Downloaded reference:"
     ls -lh ref_${chr_name}.vcf.gz ref_${chr_name}.vcf.gz.tbi
 
-    echo "Reference chromosomes:"
-    bcftools query -f '%CHROM\\n' ref_${chr_name}.vcf.gz | sort -u | head -20
+    echo "Testing bgzip integrity..."
+    bgzip -t ref_${chr_name}.vcf.gz
+
+    echo "Testing VCF header..."
+    bcftools view -h ref_${chr_name}.vcf.gz > /dev/null
+
+    echo "Testing indexed region read..."
+    bcftools view -H -r ${chr_name} ref_${chr_name}.vcf.gz > /dev/null
 
     echo "Reference sample count:"
     bcftools query -l ref_${chr_name}.vcf.gz | wc -l
+
+    echo "Reference ${chr_name} passed validation."
     """
 }
-
 process convert_rfmix_inputs_to_bcf {
     tag "$chr_name"
 
@@ -219,11 +236,12 @@ process convert_rfmix_inputs_to_bcf {
     echo "Target VCF: ${target_vcf}"
     echo "Reference VCF: ${ref_vcf}"
 
-    echo "--- Target VCF chromosomes ---"
-    bcftools query -f '%CHROM\\n' ${target_vcf} | sort -u | head
+    echo "--- Validating target VCF ---"
+    bcftools view -h ${target_vcf} > /dev/null
 
-    echo "--- Reference VCF chromosomes ---"
-    bcftools query -f '%CHROM\\n' ${ref_vcf} | sort -u | head
+    echo "--- Validating reference VCF ---"
+    bgzip -t ${ref_vcf}
+    bcftools view -h ${ref_vcf} > /dev/null
 
     echo "--- Converting target phased VCF to BCF ---"
     bcftools view -Ob -o target_${chr_name}.bcf ${target_vcf}
@@ -235,18 +253,6 @@ process convert_rfmix_inputs_to_bcf {
 
     echo "BCF outputs:"
     ls -lh target_${chr_name}.bcf target_${chr_name}.bcf.csi ref_${chr_name}.bcf ref_${chr_name}.bcf.csi
-
-    echo "Target BCF chromosomes:"
-    bcftools query -f '%CHROM\\n' target_${chr_name}.bcf | sort -u | head
-
-    echo "Reference BCF chromosomes:"
-    bcftools query -f '%CHROM\\n' ref_${chr_name}.bcf | sort -u | head
-
-    echo "Target BCF sample count:"
-    bcftools query -l target_${chr_name}.bcf | wc -l
-
-    echo "Reference BCF sample count:"
-    bcftools query -l ref_${chr_name}.bcf | wc -l
     """
 }
 
